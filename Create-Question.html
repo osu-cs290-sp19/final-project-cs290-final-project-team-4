@@ -14,27 +14,43 @@
     <body>
         <header>
             <div class="homepageLinkBox">
-                <p><a href=homepage.html>Site Title</a></p>
+                <a class="homepageTitle" href=homepage.html>Site Title</a>
+                <div class="loginContainer">
+                    <div class="loginInfo">
+                        <input type="text" id="login-username" placeholder="Username...">
+                    </div>
+                    <div class="loginInfo">
+                        <input type="text" id="login-password" placeholder="Password">
+                    </div>
+                </div>
             </div>
-            <ul class="navlist">
-                <li class="navlink"><a href=homepage.html>Home</a></li>
-                <li class="navlink" id="navLinkCategories"><a href=categories.html>Categories</a><ul class="categoriesList">        <!Looks like any other list element in the navbar>
-                    <li class="categoriesListItem hidden"><a href=#>CatLink1</a></li>                                               <!but shows other categories when hovered over>
-                    <li class="categoriesListItem hidden"><a href=#>CatLink2</a></li>
-                    <li class="categoriesListItem hidden"><a href=#>CatLink3</a></li>
-                    <li class="categoriesListItem hidden"><a href=#>CatLink4</a></li>                                               <!need to find a way to make the list not push other>
-                    <li class="categoriesListItem hidden"><a href=#>CatLink5</a></li>                                               <!elements in the navbar to the right>
-                    <li class="categoriesListItem hidden"><a href=#>CatLink6</a></li>
-                    <li class="categoriesListItem hidden"><a href=#>CatLink7 Used to test if list won't mess with "question" positioning</a></li>
-                </ul></li>
-                <li class="navlink navlinkActive"><a href="#">Ask a Question</a></li>
-                <li class="navlink"><a href=statistics.html>Statistics</a></li>
-                <li class="navlink navbar-search">
+            <div class="navlist">
+                <div class="navlink"><a href=homepage.html>Home</a></div>  
+                <div class="dropdown navlink">
+                    <div class="dropbtn">Categories
+                     
+                    </div>
+                    <div class="dropdown-content">
+                        <a href=#>CatLink1</a>                                          
+                        <a href=#>CatLink2</a>
+                        <a href=#>CatLink7 Used to test if list won't mess with "question" positioning</a>
+                    </div>                           
+                </div>   
+                <div class="navlink navlinkActive"><a href="#">Ask a Question</a></div>
+                <div class="navlink"><a href=statistics.html>Statistics</a></div>
+                <div class="navlink navbar-search">
                     <input type="text" id="navbar-search-input" placeholder="Find Authors....">
                     <button type="button" id="navbar-search-button"><i class="fas fa-search"></i></button>
-                </li>
-            </ul>
+                </div>
+            </div>
         </header>
+
+
+        <div class="contentBackground">
+            <div class="contentContainer">
+
+            </div>
+        </div>
 
 
 
