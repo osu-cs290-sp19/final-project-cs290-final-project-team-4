@@ -131,8 +131,45 @@ a{
 }
 
 .contentContainer {
+    text-align: left;
     height: 100%;
     width: 85%;
     background-color: white;
     display:inline-block;
+    padding-top: 20px;
+    margin-left: 40px;
+}
+
+.contentHeader{
+    font-size: 40px;
+    margin-left: 40px;
+}
+
+.newQuestionContainter {
+    width: 60%;
+}
+
+.textContainer{
+    display: block;
+    outline: 1px solid black;
+    margin: 20px;
+    padding: 10px;
+    margin-left: 40px;
+    width: 92%;
+}
+
+.textContainer textarea{
+    width: 100%;
+}
+
+.textContainerAuthor {
+    height: 10px;
+    display: block;
+    outline: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    margin-left: 40px;
+    width: 20%;
+    float: right;
+    margin-right: 20px;
 }
