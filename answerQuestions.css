@@ -13,6 +13,11 @@ body {
     background-image: url("dark-triangles.png");
 }
 
+a{
+  text-decoration: none;
+  color: white;
+}
+
 .top-bar{
   display: flex;
   justify-content: space-between;
@@ -33,7 +38,7 @@ body {
 
 .return-button-container{
   display: inline;
-  background-color: grey;
+  background-color: darkgrey;
   max-width: 20%;
   color: white;
   justify-content: center;
@@ -45,6 +50,11 @@ body {
 .return-button-container:hover{
   cursor: pointer;
   background-color: #383838;
+}
+
+.return-to-category-button{
+  display: flex;
+  text-align: center;
 }
 
 .answerContainer{
