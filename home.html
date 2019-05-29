@@ -10,22 +10,39 @@ crossorigin="anonymous">
    </head>
      <body>
        <header> 
-          <h1 class="site-title">POLLS</h1>
+         <div>
+            <h1 class="site-title">POLLS</h1>
+             <div class="loginContainer">
+                 <div class="loginInfo">
+                   <input type="text" id="login-username" placeholder="Username..."></li>
+                 </div>
+                 <div class="loginInfo">
+                   <input type="text" id="login-password" placeholder="Password..."></li>
+                 </div>
+             </div>                           
+          </div>
+          <div>
              <nav class="nav-bar">
                <ul class="nav-list">
-                  <li class="nav-item"><a href="#">Ask</a></li>
-                  <li class="nav-item"><a href="#">Answer</a></li>
-                  <div class="nav-item nav-drop">
+                  <li class="nav-item"><a href="anphong/create-question.html">Ask</a></li>
+                  <li class="nav-item"><a href="brian/answer_question.html">Answer</a></li>
+                  <li class="nav-item"><a href="kennan/categories.html">Categories</a></li>
+<!--                  <div class="nav-item nav-drop">
                      <button class="nav-item nav-drop-button">Categories</button>
                        <div class="nav-item nav-drop-down-content">
-       	                 <a href="#">Category 1</a>
-                         <a href="#">Category 2</a>
-                         <a href="#">Category 3</a>
+     	                 <a href="#">Sports</a>
+       	                 <a href="#">Politics</a>
+       	                 <a href="#">Food</a>
+       	                 <a href="#">Movies & TV</a>
+       	                 <a href="#">Would You Rather</a>
+                         <a href="#">Lifestyle</a>
+                         <a href="#">MISC</a>-->
                        </div>
                   </div>
                   <li class="nav-item nav-log"><a href="#">Login</a></li>
                 </ul>
               </nav>
+           </div>
          </header>
 
          <main class="home-container"> 
@@ -36,18 +53,58 @@ crossorigin="anonymous">
              </div>
              <div class="question-content">
                <p class="question-text">
-                 Are you afraid of the Dark?
+                 Would you rather spend the rest of your life with a sailboat as your home or an RV as your home?
                </p>
                <p class="question-author">
-                 <a href="#">Nickelodeon</a>
+                 <a href="#">Jerry</a>
                </p>
-                <div class="question-thumbs thumbs-up-icon">
-                 <i class="fas fa-thumbs-up"></i>
+                <div class="question-dice answer-one-icon">
+                  <a href="#">Answer One <i class="fas fa-dice-one"></i></a>
                </div>
-               <div class="question-thumbs thumbs-down-icon">
-                 <i class="fas fa-thumbs-down"></i>
+               <div class="question-dice answer-two-icon">
+                 <a href="#">Answer Two <i class="fas fa-dice-two"></i></a>
                </div>
             </div>  
+           </article>
+
+           <article class="question">
+             <div class="question-icon">
+               <i class="far fa-question-circle"></i>
+             </div>
+             <div class="question-content">
+               <p class="question-text">
+                 Cake or pie?                
+               </p>
+               <p class="question-author">
+                 <a href="#">Shakespeare(...I think)</a>
+               </p>
+               <div class="question-dice answer-one-icon">
+                 <a href="#">Answer One <i class="fas fa-dice-one"></i></a>
+               </div>
+               <div class="question-dice answer-two-icon">
+                 <a href="#">Answer Two <i class="fas fa-dice-two"></i></a>
+               </div>
+             </div>  
+           </article>
+ 
+           <article class="question">
+             <div class="question-icon">
+               <i class="far fa-question-circle"></i>
+             </div>
+             <div class="question-content">
+               <p class="question-text">
+                 Would you rather your only mode of transportation be a donkey or a giraffe?
+               </p>
+               <p class="question-author">
+                 <a href="#">Charles</a>
+               </p>
+               <div class="question-dice answer-one-icon">
+                 <a href="#">Answer One <i class="fas fa-dice-one"></i></a>
+               </div>
+               <div class="question-dice answer-two-icon">
+                 <a href="#">Answer Two <i class="fas fa-dice-two"></i></a>
+               </div>
+             </div>  
            </article>
 
            <article class="question">
@@ -61,19 +118,43 @@ crossorigin="anonymous">
                <p class="question-author">
                  <a href="#">Gerald</a>
                </p>
-               <div class="question-thumbs thumbs-up-icon">
-                 <i class="fas fa-thumbs-up"></i>
+               <div class="question-dice answer-one-icon">
+                 <a href="#">Answer One <i class="fas fa-dice-one"></i></a>
                </div>
-               <div class="question-thumbs thumbs-down-icon">
-                 <i class="fas fa-thumbs-down"></i>
+               <div class="question-dice answer-two-icon">
+                 <a href="#">Answer Two <i class="fas fa-dice-two"></i></a>
                </div>
              </div>  
            </article>
 
-
-         </main>
+           <article class="question">
+             <div class="question-icon">
+               <i class="far fa-question-circle"></i>
+             </div>
+             <div class="question-content">
+               <p class="question-text">
+                 Who's better? 1995-1996 Chicago Bulls, or 1986-87 Los Angeles Lakers?
+               </p>
+               <p class="question-author">
+                 <a href="#">Micheal</a>
+               </p>
+               <div class="question-dice answer-one-icon">
+                 <a href="#">Answer One <i class="fas fa-dice-one"></i></a>
+               </div>
+               <div class="question-dice answer-two-icon">
+                 <a href="#">Answer Two <i class="fas fa-dice-two"></i></a>
+               </div>
+             </div>  
+           </article>
          <footer>
+            <div class="footer">
+              <a href="https://www.facebook.com" class="fab fa-facebook-square"></a>
+              <a href="https://www.twitter.com" class="fab fa-twitter"></a>
+              <a href="https://www.instagram.com" class="fab fa-instagram"></a>
+            </div>
          </footer>
+         </main>
          </body>
 </html>
+
 
