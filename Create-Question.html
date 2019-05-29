@@ -6,9 +6,9 @@
     <title>Create Question</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="finalProject.css" media="screen">
+    <link rel="stylesheet" href="./create-question.css" media="screen">
 
-    <script src="header.js" charset="utf-8" defer></script>
+    <script src="./create-question.js" charset="utf-8" defer></script>
 </head>
 
     <body>
@@ -46,7 +46,7 @@
         </header>
 
 
-        <div class="contentBackground">
+        
             <div class="contentContainer">
                 <div class="contentHeader">
                     <p>Create a New Question</p>
@@ -56,26 +56,25 @@
                         <label for="newQuestionText">Your Question</label>
                         <textarea id="newQuestionText"></textarea>
                     </div>
-                    
+
                     <div class="textContainer">
-                            <label for="newQuestionText">Answer 1</label>
-                            <textarea id="newQuestionFirstAnswer"></textarea>
+                        <label for="newQuestionFirstAnswer">Answer 1</label>
+                        <textarea id="newQuestionFirstAnswer"></textarea>
                     </div>
                     <div class="textContainer">
-                            <label for="newQuestionText">Answer 2</label>
-                            <textarea id="newQuestionSecondAnswer"></textarea>
-                    </div>
-                    
-                    <div class="textContainerAuthor">
-                        <label for="newQuestionAuthor">Your Name</label>
-                        <textarea id="newQuestionAuthor"></textarea>
+                        <label for="newQuestionSecondAnswer">Answer 2</label>
+                        <textarea id="newQuestionSecondAnswer"></textarea>
                     </div>
 
 
-
-
-
-                </div>
+                    <div class="textFooter">
+                        <div class="textBottom textContainer">
+                            <label for="newQuestionAuthor">Your Name</label>
+                            <textarea id="newQuestionAuthor"></textarea>
+                        </div>
+                            <button type="button" id="postQuestionButton">Post Question</button>
+                    </div>
+               
 
 
 
