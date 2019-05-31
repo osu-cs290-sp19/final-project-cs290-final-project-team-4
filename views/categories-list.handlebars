@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>categories-list</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet"  href="categories-list.css" media="screen">
+    <script> </script>
+</head>
+<body>
+    <header>
+        <div>
+            <h1 class="site-title">POLLS</h1>
+            <div class="loginContainer">
+                <div class="loginInfo">
+                    <input type="text" id="login-username" placeholder="Username..."></li>
+                </div>
+                <div class="loginInfo">
+                    <input type="text" id="login-password" placeholder="Password..."></li>
+                </div>
+            </div>
+        </div>
+        <div>
+            <nav class="nav-bar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="anphong/create-question.html">Ask</a></li>
+                    <li class="nav-item"><a href="brian/answer_question.html">Answer</a></li>
+                    <li class="nav-item"><a href="kennan/categories.html">Categories</a></li>
+                    <li class="nav-item nav-log"><a href="#">Login</a></li>
+                 </ul>
+          </nav>
+        </div>
+    </header>
+
+    <main class="home-container">
+        <div class="category-title">
+            <p>{{category-name}}</p>
+        </div>
+        {{#each questions}}
+            {{>category-list-question}}
+        {{/each}}
+
+
+    </main>
+
+
+
+</body>
+</html>
