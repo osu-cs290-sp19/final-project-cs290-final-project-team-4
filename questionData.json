@@ -49,8 +49,8 @@
 		}
 		]
 	   }
-      },
-   }
+      }
+   },
   "politics": {
       "questions": {
 	   "question":{
@@ -101,8 +101,8 @@
 		}
 		]
 	   }
-      },
-   }
+      }
+   },
    "food": {
       "questions": {
 	   "question":{
@@ -153,8 +153,8 @@
 		}
 		]
 	   }
-      },
-   }
+      }
+   },
    "media": {
       "questions": {
 	   "question":{
@@ -205,8 +205,8 @@
 		}
 		]
 	   }
-      },
-   }
+      }
+   },
    "wyr": {
       "questions": {
 	   "question":{
@@ -257,8 +257,8 @@
 		}
 		]
 	   }
-      },
-   }
+      }
+   },
    "lifestyle": {
       "questions": {
 	   "question":{
@@ -309,8 +309,8 @@
 		}
 		]
 	   }
-      },
-   }
+      }
+   },
    "misc": {
       "questions": {
 	   "question":{
