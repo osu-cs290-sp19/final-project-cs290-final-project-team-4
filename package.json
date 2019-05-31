@@ -4,6 +4,7 @@
   "description": "final-project-cs290-final-project-team-4 created by GitHub Classroom",
   "main": "server.js",
   "dependencies": {
+    "express": "^4.17.1",
     "handlebars": "^4.1.2"
   },
   "devDependencies": {},
