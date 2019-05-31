@@ -49,7 +49,7 @@
 		}
 		]
 	   }
-      }
+      },
    }
   "politics": {
       "questions": {
@@ -101,7 +101,7 @@
 		}
 		]
 	   }
-      }
+      },
    }
    "food": {
       "questions": {
@@ -153,7 +153,7 @@
 		}
 		]
 	   }
-      }
+      },
    }
    "media": {
       "questions": {
@@ -205,7 +205,7 @@
 		}
 		]
 	   }
-      }
+      },
    }
    "wyr": {
       "questions": {
@@ -257,7 +257,7 @@
 		}
 		]
 	   }
-      }
+      },
    }
    "lifestyle": {
       "questions": {
@@ -309,7 +309,7 @@
 		}
 		]
 	   }
-      }
+      },
    }
    "misc": {
       "questions": {
