@@ -1,5 +1,5 @@
 {
-  "name": "Questions Package",
+  "name": "Questions-Package",
   "version": "1.0.0",
   "description": "final-project-cs290-final-project-team-4 created by GitHub Classroom",
   "main": "server.js",
@@ -9,9 +9,10 @@
   "devDependencies": {},
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
-    "build":  "handlebars views/answerQuestion.handlebars -f
-    public/answerQuestionTemplate.js",
-    "prestart": "npm run build",
+    "build": "handlebars views/answerQuestion.handlebars -f public/answerQuestionTemplate.js",
+    "buildCatRes": "handlebars views/categories-list.handlebars -f public/categoriesResultsTemplate.js",
+    "buildCatResQ": "handlebars views/partials/category-list-question.handlebars -f public/categoriesResultsQuestionPartial.js",
+    "prestart": "npm run buildCatRes && npm run buildCatResQ && npm run build",
     "start": "node server.js"
   },
   "repository": {
