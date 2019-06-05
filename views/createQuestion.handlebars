@@ -1,23 +1,25 @@
-﻿<div class="contentContainer">
-    <div class="contentHeader">
-        <p>Create a New Question</p>
-    </div>
-    <div class="newQuestionContainter">
-        <div class="textContainer">
-            <textarea id="newQuestionText" placeholder="Enter your question here..."></textarea>
+﻿<div class="home-container">
+    <div class="create-container">
+        <div class="contentHeader question">
+            <p>Create a New Question</p>
         </div>
-        <div class="textContainer">
-            <textarea id="newQuestionFirstAnswer" placeholder="Enter the first response..."></textarea>
-        </div>
-        <div class="textContainer">
-            <textarea id="newQuestionSecondAnswer" placeholder="Enter the second response..."></textarea>
-        </div>
-
-        <div class="textFooter">
-            <div class="textBottom textContainer">
-                <textarea id="newQuestionAuthor" placeholder="Enter your name..."></textarea>
+        <div class="newQuestionContainter">
+            <div class="quest">
+                <input type="text" id="newQuestionQues" class="question text-input" placeholder="Enter your question here...">
             </div>
-            <button type="button" id="postQuestionButton">Post Question</button>
+            <div class="textContainer">
+                <input type="text" id="newQuestionRes1" class="question text-input" placeholder="Enter the first response...">
+            </div>
+            <div class="textContainer">
+                <input type="text" id="newQuestionRes2" class="question text-input" placeholder="Enter the second response...">
+            </div>
+
+            <div>
+                <div>
+                    <input type="text" id="newQuestionAuth" class="question" placeholder="Enter your name...">
+                </div>
+                <button type="button" id="postQuestionButton">Post Question</button>
+            </div>
         </div>
     </div>
 </div>
