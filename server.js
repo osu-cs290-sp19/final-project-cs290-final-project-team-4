@@ -24,7 +24,7 @@ app.get('/create_question', function(req, res, next) {
 app.get('/answer_question/:category/:number', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
     var num = req.params.number;
-    if (questions[category] && num < questions[cat].questions.length) {
+    if (questions[category] && num >= 0 && num < questions[cat].questions.length) {
         var question = questions[req.params.category][req.params.number];
         res.status(200).render('answerQuestion', question);
     }
@@ -44,7 +44,7 @@ app.get('/answer_question/:category', function (req, res, next) {
     }
 });
 
-app.get('/', function(req, res, next) {
+app.get('/categories', function(req, res, next) {
     res.status(200).sendFile(__dirname + 'public/categories.html');
 });
 
