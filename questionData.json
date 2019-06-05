@@ -206,7 +206,7 @@
 	   }
       },
    
-      "name":"wyr": {
+      "name":"wyr",
       "questions": {
 	   "question":{
 	   	"text":"Would you rather be color blind or have no taste buds?",
