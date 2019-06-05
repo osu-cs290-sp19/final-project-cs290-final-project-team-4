@@ -14,7 +14,8 @@ var questions = require('./questionData');
 app.use(express.static('public'));
 
 app.get('/',function(req, res, next) {
-    res.status(200).render('homepage');
+    console.log('==questionData', questions);
+    res.status(200).render('homepage', {questions});
 });
 
 app.get('/create_question', function(req, res, next) {
@@ -49,11 +50,11 @@ app.get('/categories', function(req, res, next) {
 });
 
 app.get('*',function(req, res, next){
-	res.status(404).render('404');	
+	res.status(404).render('404');
 });
 
 app.get('*', function(req, res, next)   {
-    res.status(404).render('404'); 
+    res.status(404).render('404');
 });
 
 app.listen(PORT, function(err) {
