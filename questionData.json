@@ -6,11 +6,11 @@
 	   	"text":"Do you prefer College Football or NFL?",
 	     	"author":"Kennan",
 		"choices": [
-		   "a": {
+		   {
 			"option": "College Football",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "NFL",
 			"num": 0
 		   }
@@ -20,11 +20,11 @@
 	   	"text":"Is Lebron James the best player in the history of the NBA?",
 	     	"author":"Brian",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Yes",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "No",
 			"num": 0
 		   }
@@ -34,11 +34,11 @@
 	   	"text":"Will the OSU Baseball team defend it's title?",
 	     	"author":"Gerald",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Yes",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "No",
 			"num": 0
 		   }
@@ -53,11 +53,11 @@
 	   	"text":"Are you pro-life or pro-choice?",
 	     	"author":"An-Phong",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Pro-life",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Pro-choice",
 			"num": 0
 		   }
@@ -67,11 +67,11 @@
 	   	"text":"Should the United States build the wall?",
 	     	"author":"Kennan",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Yes",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "No",
 			"num": 0
 		   }
@@ -81,11 +81,11 @@
 	   	"text":"Where do you stand on the legalization of Marijuana?",
 	     	"author":"Brian",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Legalize",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Prohibit",
 			"num": 0
 		   }
@@ -100,11 +100,11 @@
 	   	"text":"Do you prefer cookies or brownies?",
 	     	"author":"Gerald",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Cookies",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Brownies",
 			"num": 0
 		   }
@@ -114,11 +114,11 @@
 	   	"text":"Do you prefer white bread or wheat bread?",
 	     	"author":"An-Phong",
 		"choices": [
-		   "a": {
+		   {
 			"option": "White",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Wheat",
 			"num": 0
 		   }
@@ -128,11 +128,11 @@
 	   	"text":"Do you prefer coffee or tea?",
 	     	"author":"Kennan",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Coffee",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Tea",
 			"num": 0
 		   }
@@ -147,11 +147,11 @@
 	   	"text":"Do you watch Game of Thrones?",
 	     	"author":"Brian",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Yes",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "No",
 			"num": 0
 		   }
@@ -161,11 +161,11 @@
 	   	"text":"Did Avengers:Endgame live up to it's hype?",
 	     	"author":"Gerald",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Yes",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "No",
 			"num": 0
 		   }
@@ -175,11 +175,11 @@
 	   	"text":"Do you prefer the new Star Wars movies or the original ones?",
 	     	"author":"An-Phong",
 		"choices": [
-		   "a": {
+		   {
 			"option": "New Movies",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Original Movies",
 			"num": 0
 		   }
@@ -194,11 +194,11 @@
 	   	"text":"Would you rather be color blind or have no taste buds?",
 	     	"author":"Kennan",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Color Blind",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "No Taste Buds",
 			"num": 0
 		   }
@@ -208,11 +208,11 @@
 	   	"text":"Would you rather be the funniest or most intelligent person in the room?",
 	     	"author":"Brian",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Funniest",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Most Intelligent",
 			"num": 0
 		   }
@@ -222,11 +222,11 @@
 	   	"text":"Would you rather look 10 years older from the neck up or neck down?",
 	     	"author":"Gerald",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Neck Up",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Neck Down",
 			"num": 0
 		   }
@@ -241,11 +241,11 @@
 	   	"text":"Do you prefer to stay up late or sleep early?",
 	     	"author":"An-Phong",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Stay up late",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Sleep Early",
 			"num": 0
 		   }
@@ -255,11 +255,11 @@
 	   	"text":"Do you like technology or prefer things old fashioned?",
 	     	"author":"Kennan",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Technology",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Old Fashioned",
 			"num": 0
 		   }
@@ -269,11 +269,11 @@
 	   	"text":"Do you like working with music or in silence?",
 	     	"author":"Brian",
 		"choices": [
-		   "a": {
+		   {
 			"option": "With Music",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "In Silence",
 			"num": 0
 		   }
@@ -288,11 +288,11 @@
 	   	"text":"Do you prefer Mac or Windows?",
 	     	"author":"Gerald",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Mac",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Windows",
 			"num": 0
 		   }
@@ -302,11 +302,11 @@
 	   	"text":"Do you prefer a hike or the beach?",
 	     	"author":"An-Phong",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Hiking",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "Beach",
 			"num": 0
 		   }
@@ -316,11 +316,11 @@
 	   	"text":"Do you have a tattoo?",
 	     	"author":"Kennan",
 		"choices": [
-		   "a": {
+		   {
 			"option": "Yes",
 			"num": 0
 		   },
-		   "b": {
+		   {
 			"option": "No",
 			"num": 0
 		   }
