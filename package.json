@@ -11,7 +11,7 @@
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
     "build": "handlebars views/answerQuestion.handlebars -f public/answerQuestionTemplate.js",
-    "buildCatRes": "handlebars views/categories-list.handlebars -f public/categoriesResultsTemplate.js",
+    "buildCatRes": "handlebars views/categories.handlebars -f public/categoriesResultsTemplate.js",
     "buildCatResQ": "handlebars views/partials/category-list-question.handlebars -f public/categoriesResultsQuestionPartial.js",
     "prestart": "npm run buildCatRes && npm run buildCatResQ && npm run build",
     "start": "node server.js"
