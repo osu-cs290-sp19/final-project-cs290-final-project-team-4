@@ -190,3 +190,27 @@ a.fab.fa-instagram:hover {
    transform: scale(1.5);
 }
 
+/*Create-Question*/
+.create-container{
+    text-align: center;
+    width: 100%;
+}
+.contentHeader {
+    font-size: 48px;
+    color: white;
+    border: 3px solid black;
+    background-color: rgb(138,22,134);
+}
+
+.text-input{
+    width: 70%;
+}
+
+#postQuestionButton {
+    color: white;
+    font-size: 18px;
+    height: 38px;
+    min-width: 20%;
+    background-color: rgb(138,22,100);
+    margin-bottom: 10px;
+}
