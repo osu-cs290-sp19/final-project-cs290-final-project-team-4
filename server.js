@@ -8,7 +8,7 @@ var PORT = process.env.PORT || 3000;
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-var questions = require('questionData');
+var questions = require('./questionData');
 
 
 app.use(express.static('public'));
