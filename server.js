@@ -3,7 +3,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3927;
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -45,7 +45,11 @@ app.get('/answer_question/:category', function (req, res, next) {
 });
 
 app.get('/categories', function(req, res, next) {
-    res.status(200).sendFile(__dirname + 'public/categories.html');
+    res.status(200).sendFile(__dirname + '/public/categories.html');
+});
+
+app.get('*',function(req, res, next){
+	res.status(404).render('404');	
 });
 
 app.listen(PORT, function(err) {
