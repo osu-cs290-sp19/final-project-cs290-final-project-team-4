@@ -44,7 +44,7 @@ app.get('/answer_question/:category', function (req, res, next) {
     }
 });
 
-app.get('/', function(req, res, next) {
+app.get('/categories', function(req, res, next) {
     res.status(200).sendFile(__dirname + 'public/categories.html');
 });
 
