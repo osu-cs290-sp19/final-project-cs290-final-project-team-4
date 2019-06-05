@@ -1,5 +1,5 @@
 {
-   "sports": {
+      "name": "sports",
       "questions": {
 	   "question":{
 	   	"text":"Do you prefer College Football or NFL?",
@@ -49,9 +49,8 @@
 		}
 		]
 	   }
-      }
-   },
-  "politics": {
+      },
+      "name": "politics",
       "questions": {
 	   "question":{
 	   	"text":"Are you pro-life or pro-choice?",
@@ -101,9 +100,9 @@
 		}
 		]
 	   }
-      }
-   },
-   "food": {
+      },
+   
+      "name":"food",
       "questions": {
 	   "question":{
 	   	"text":"Do you prefer cookies or brownies?",
@@ -153,9 +152,9 @@
 		}
 		]
 	   }
-      }
-   },
-   "media": {
+      },
+   
+      "name":"media",
       "questions": {
 	   "question":{
 	   	"text":"Do you watch Game of Thrones?",
@@ -205,9 +204,9 @@
 		}
 		]
 	   }
-      }
-   },
-   "wyr": {
+      },
+   
+      "name":"wyr": {
       "questions": {
 	   "question":{
 	   	"text":"Would you rather be color blind or have no taste buds?",
@@ -257,9 +256,9 @@
 		}
 		]
 	   }
-      }
-   },
-   "lifestyle": {
+      },
+   
+      "name":"lifestyle",
       "questions": {
 	   "question":{
 	   	"text":"Do you prefer to stay up late or sleep early?",
@@ -309,9 +308,9 @@
 		}
 		]
 	   }
-      }
-   },
-   "misc": {
+      },
+   
+      "name":"misc",
       "questions": {
 	   "question":{
 	   	"text":"Do you prefer Mac or Windows?",
@@ -363,4 +362,3 @@
 	   }
       }
    }
-}
