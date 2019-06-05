@@ -52,6 +52,10 @@ app.get('*',function(req, res, next){
 	res.status(404).render('404');	
 });
 
+app.get('*', function(req, res, next)   {
+    res.status(404).render('404'); 
+});
+
 app.listen(PORT, function(err) {
   if(err) {
     throw err;
