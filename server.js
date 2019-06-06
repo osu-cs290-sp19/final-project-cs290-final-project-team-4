@@ -4,7 +4,7 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3927;
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -15,7 +15,8 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/',function(req, res, next) {
-    res.status(200).render('homepage');
+    console.log('==questionData', questions);
+    res.status(200).render('homepage', {questions});
 });
 
 app.get('/create_question', function(req, res, next) {
@@ -46,7 +47,11 @@ app.get('/answer_question/:category', function (req, res, next) {
 });
 
 app.get('/categories', function(req, res, next) {
-    res.status(200).sendFile(__dirname + 'public/categories.html');
+    res.status(200).sendFile(__dirname + '/public/categories.html');
+});
+
+app.get('*',function(req, res, next){
+	res.status(404).render('404');
 });
 
 app.get('*', function(req, res, next)   {
