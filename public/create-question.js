@@ -14,8 +14,7 @@ function handlePostQuestionClick(){
     alert("You must fill in all of the fields!");
   } else {
     var request = new XMLHttpRequest();
-    var url = '/' + newQuestionCategory + '/create_question/add_question' //fill this in
-    console.log(url);
+    var url = '/' + newQuestionCategory + '/create_question/add_question';
     request.open('POST', url);
 
     var newQuestion = {
@@ -37,7 +36,12 @@ function handlePostQuestionClick(){
     var requestBody = JSON.stringify(newQuestion);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);
+    alert("Your Question has been Submitted!");
   }
+  newQuestionText.value = "";
+  newQuestionFirstAnswer.value = "";
+  newQuestionSecondAnswer.value = "";
+  newQuestionCategory.value = "";
 }
 
 var acceptButton = document.getElementById("postQuestionButton");
