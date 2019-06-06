@@ -16,8 +16,8 @@
     "build": "handlebars views/answerQuestion.handlebars -f public/answerQuestionTemplate.js",
     "buildCatRes": "handlebars views/categories.handlebars -f public/categoriesResultsTemplate.js",
     "buildCatResQ": "handlebars views/partials/category-list-question.handlebars -f public/categoriesResultsQuestionPartial.js",
-    "buildHomeQ": "handlebars views/partials/homeQuestion.handlebars -f public/homeQuestionTemplate.js",
-    "prestart": "npm run buildCatRes && npm run buildCatResQ && npm run build && npm run buildHomeQ",
+    "buildHomeQ": "handlebars views/partials/homeQuestion.handlebars -f public/homeQuestionTemplate.js",  
+    "start": "npm run buildHomeQ",
     "start": "node server.js"
   },
   "repository": {
