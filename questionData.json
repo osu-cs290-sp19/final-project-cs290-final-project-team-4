@@ -1,8 +1,8 @@
 {
     "sports":{
       "name": "sports",
-      "questions": {
-	   "question":{
+      "questions": [
+      {
 	   	"text":"Do you prefer College Football or NFL?",
 	     	"author":"Kennan",
 		"choices": [
@@ -16,7 +16,7 @@
 		   }
 		]
 	   },
-           "question":{
+     {
 	   	"text":"Is Lebron James the best player in the history of the NBA?",
 	     	"author":"Brian",
 		"choices": [
@@ -30,7 +30,7 @@
 		   }
 		]
 	   },
-	   "question":{
+	   {
 	   	"text":"Will the OSU Baseball team defend it's title?",
 	     	"author":"Gerald",
 		"choices": [
@@ -43,13 +43,15 @@
 			"num": 0
 		   }
 		]
-	   }
-      }
+	  }
+
+      ]
     },
-    "politics": {  
+
+    "politics": {
       "name": "politics",
-      "questions": {
-	   "question":{
+      "questions": [
+	   {
 	   	"text":"Are you pro-life or pro-choice?",
 	     	"author":"An-Phong",
 		"choices": [
@@ -63,7 +65,7 @@
 		   }
 		]
 	   },
-           "question":{
+     {
 	   	"text":"Should the United States build the wall?",
 	     	"author":"Kennan",
 		"choices": [
@@ -77,7 +79,7 @@
 		   }
 		]
 	   },
-	   "question":{
+	   {
 	   	"text":"Where do you stand on the legalization of Marijuana?",
 	     	"author":"Brian",
 		"choices": [
@@ -91,12 +93,12 @@
 		   }
 		]
 	   }
-      }
+   ]
     },
     "food":{
       "name":"food",
-      "questions": {
-	   "question":{
+      "questions": [
+	   {
 	   	"text":"Do you prefer cookies or brownies?",
 	     	"author":"Gerald",
 		"choices": [
@@ -110,7 +112,7 @@
 		   }
 		]
 	   },
-           "question":{
+           {
 	   	"text":"Do you prefer white bread or wheat bread?",
 	     	"author":"An-Phong",
 		"choices": [
@@ -124,7 +126,7 @@
 		   }
 		]
 	   },
-	   "question":{
+	  {
 	   	"text":"Do you prefer coffee or tea?",
 	     	"author":"Kennan",
 		"choices": [
@@ -138,12 +140,12 @@
 		   }
 		]
 	   }
-      }
+   ]
     },
     "media": {
       "name":"media",
-      "questions": {
-	   "question":{
+      "questions": [
+	  {
 	   	"text":"Do you watch Game of Thrones?",
 	     	"author":"Brian",
 		"choices": [
@@ -157,7 +159,7 @@
 		   }
 		]
 	   },
-           "question":{
+           {
 	   	"text":"Did Avengers:Endgame live up to it's hype?",
 	     	"author":"Gerald",
 		"choices": [
@@ -171,7 +173,7 @@
 		   }
 		]
 	   },
-	   "question":{
+	   {
 	   	"text":"Do you prefer the new Star Wars movies or the original ones?",
 	     	"author":"An-Phong",
 		"choices": [
@@ -185,12 +187,12 @@
 		   }
 		]
 	   }
-      }
+   ]
     },
     "wyr": {
       "name":"wyr",
-      "questions": {
-	   "question":{
+      "questions": [
+	   {
 	   	"text":"Would you rather be color blind or have no taste buds?",
 	     	"author":"Kennan",
 		"choices": [
@@ -204,7 +206,7 @@
 		   }
 		]
 	   },
-           "question":{
+           {
 	   	"text":"Would you rather be the funniest or most intelligent person in the room?",
 	     	"author":"Brian",
 		"choices": [
@@ -218,7 +220,7 @@
 		   }
 		]
 	   },
-	   "question":{
+	   {
 	   	"text":"Would you rather look 10 years older from the neck up or neck down?",
 	     	"author":"Gerald",
 		"choices": [
@@ -232,12 +234,12 @@
 		   }
 		]
 	   }
-      }
+   ]
     },
     "lifestyle": {
       "name":"lifestyle",
-      "questions": {
-	   "question":{
+      "questions": [
+	   {
 	   	"text":"Do you prefer to stay up late or sleep early?",
 	     	"author":"An-Phong",
 		"choices": [
@@ -251,7 +253,7 @@
 		   }
 		]
 	   },
-           "question":{
+           {
 	   	"text":"Do you like technology or prefer things old fashioned?",
 	     	"author":"Kennan",
 		"choices": [
@@ -265,7 +267,7 @@
 		   }
 		]
 	   },
-	   "question":{
+	   {
 	   	"text":"Do you like working with music or in silence?",
 	     	"author":"Brian",
 		"choices": [
@@ -279,12 +281,12 @@
 		   }
 		]
 	   }
-      }
+   ]
     },
-    "misc": { 
+    "misc": {
       "name":"misc",
-      "questions": {
-	   "question":{
+      "questions": [
+	   {
 	   	"text":"Do you prefer Mac or Windows?",
 	     	"author":"Gerald",
 		"choices": [
@@ -298,7 +300,7 @@
 		   }
 		]
 	   },
-           "question":{
+           {
 	   	"text":"Do you prefer a hike or the beach?",
 	     	"author":"An-Phong",
 		"choices": [
@@ -312,7 +314,7 @@
 		   }
 		]
 	   },
-	   "question":{
+	   {
 	   	"text":"Do you have a tattoo?",
 	     	"author":"Kennan",
 		"choices": [
@@ -326,6 +328,6 @@
 		   }
 		]
 	   }
-      }
+   ]
     }
 }

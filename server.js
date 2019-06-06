@@ -1,6 +1,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 
 var app = express();
 var PORT = process.env.PORT || 3927;
@@ -10,7 +11,7 @@ app.set('view engine', 'handlebars');
 
 var questions = require('./questionData');
 
-
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/',function(req, res, next) {
@@ -55,6 +56,27 @@ app.get('*',function(req, res, next){
 
 app.get('*', function(req, res, next)   {
     res.status(404).render('404');
+});
+
+app.post('/:category/create_question/add_question', function(req, res, next){
+  if (req.body){
+    var category = req.params.category.toLowerCase();
+    if (questions[category]) {
+      questions[category].questions.push({
+        text: req.body.text,
+        author: req.body.author,
+        choices: req.body.choices
+      });
+      res.status(200).send("Question successfully added");
+      console.log("Question successfully added");
+    } else {
+      next();
+    }
+  }else {
+    res.status(400).send({
+      error: "Request body needs to be in an appropriate category."
+    });
+  }
 });
 
 app.listen(PORT, function(err) {
