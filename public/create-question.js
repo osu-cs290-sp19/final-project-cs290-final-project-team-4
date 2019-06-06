@@ -37,11 +37,14 @@ function handlePostQuestionClick(){
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);
     alert("Your Question has been Submitted!");
+
+    document.getElementById('newQuestionQues').value = "";
+    document.getElementById('newQuestionAuth').value = "";
+    document.getElementById('newQuestionRes1').value = "";
+    document.getElementById('newQuestionRes2').value = "";
+    document.getElementById('newQuestionCategory').value = "";
   }
-  newQuestionText.value = "";
-  newQuestionFirstAnswer.value = "";
-  newQuestionSecondAnswer.value = "";
-  newQuestionCategory.value = "";
+
 }
 
 var acceptButton = document.getElementById("postQuestionButton");
