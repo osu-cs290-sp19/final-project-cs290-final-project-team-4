@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/',function(req, res, next) {
-    console.log('==questionData', questions);
     res.status(200).render('homepage', {database});
 });
 
