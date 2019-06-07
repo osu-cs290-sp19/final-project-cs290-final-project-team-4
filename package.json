@@ -22,8 +22,8 @@
     "buildHomeQ": "handlebars views/partials/homeQuestion.handlebars -f public/homeQuestionTemplate.js",
 
     "buildStats": "handlebars views/partials/questionStats.handlebars -f public/questionStatsTemplate.js",
-    "buildStatsPercentage": "handlebars views/partials/questionStatsPercentage.handlebars -f public/questionStatsPercentageTemplate.js",
-    "prestart": "npm run buildHomeQ && npm run buildStatsPercentage && npm run buildStats && npm run buildAnswerQuestion && npm run buildQListEntry && npm run buildQListOption && npm run buildFooter && npm run buildHeader",
+    "buildStatsPercentages": "handlebars views/partials/questionStatsPercentages.handlebars -f public/questionStatsPercentagesTemplate.js",
+    "prestart": "npm run buildHomeQ && npm run buildStatsPercentages && npm run buildStats && npm run buildAnswerQuestion && npm run buildQListEntry && npm run buildQListOption && npm run buildFooter && npm run buildHeader",
     "start": "node server.js"
   },
   "repository": {

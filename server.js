@@ -64,11 +64,12 @@ app.get('/categories', function(req, res, next) {
 app.get('/stats/:username', function(req, res, next){
   var username = req.params.username;
   var questionObjects = [];
+  var listCat = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"]
   for (var i = 0; i < 7; i++){
-    for (var j = 0; j < database[i].questions.length; j++){
-      if (database[i].questions[j].author){
-        if (database[i].questions[j].author === username){
-          questionObjects.push(database[i].questions[j]);
+    for (var j = 0; j < database[listCat[i]].questions.length; j++){
+      if (database[listCat[i]].questions[j].author){
+        if (database[listCat[i]].questions[j].author === username){
+          questionObjects.push(database[listCat[i]].questions[j]);
         }
       }
     }
