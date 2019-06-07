@@ -8,7 +8,13 @@ function handlePostQuestionClick(){
   var newQuestionFirstAnswer = document.getElementById('newQuestionRes1').value;
   var newQuestionSecondAnswer = document.getElementById('newQuestionRes2').value;
   var newQuestionAuthor = document.getElementById('newQuestionAuth').value;
-  var newQuestionCategory = document.getElementById('newQuestionCategory').value;
+  var newQuestionCategory = document.getElementById('newQuestionCategory').value.toLowerCase();
+    
+  if (newQuestionCategory === "Movies & TV")
+      newQuestion = "media";
+  else if (newQuestionCategory === "Would You Rather?")
+      newQuestion = "wyr";
+
 
   if (!newQuestionText || !newQuestionAuthor || !newQuestionFirstAnswer || !newQuestionSecondAnswer){
     alert("You must fill in all of the fields!");
@@ -41,7 +47,7 @@ function handlePostQuestionClick(){
         alert("Error storing question on server: " + message);
       }
     });
-
+    
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);
     alert("Your Question has been Submitted!");
