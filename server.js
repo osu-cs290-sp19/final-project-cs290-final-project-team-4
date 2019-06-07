@@ -30,7 +30,7 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
     if (database[cat] && num >= 0 && num < database[cat].questions.length) {
         var question = database[cat][num];
         res.status(200).render('answerQuestion', {
-		question: question.text
+		question: question.text,
 		Ans1: question.choices[0].option,
 		Ans2: question.choices[1].option,
 		Ans1s: question.choices[0].num,
