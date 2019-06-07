@@ -46,7 +46,7 @@ app.get('/answer_question/:category', function (req, res, next) {
     if (database[cat]) {
 	var nameL = database[cat].name;
         var questionsL = database[cat].questions;
-        res.status(200).render('listOfQuestions', {
+        res.status(200).render('categoryQList', {
 		name: nameL,
 		questions: questionsL
 	});
