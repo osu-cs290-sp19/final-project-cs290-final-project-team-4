@@ -61,19 +61,22 @@ app.get('/categories', function(req, res, next) {
     res.status(200).sendFile(__dirname + '/public/categories.html');
 });
 
-/*
-app.get('/stats/:username', function(req, res, next){
-  var username = req.params.username.toLowerCase();
-  for (var i = 0; i < 7; i++){
-    for (var j = 0; j < questions[i].question.length)
-    if (questions[i].questions[j].author){
-      if (questions[i].questions[j].author === username){
 
+app.get('/stats/:username', function(req, res, next){
+  var username = req.params.username;
+  var questionObjects = [];
+  for (var i = 0; i < 7; i++){
+    for (var j = 0; j < database[i].questions.length; j++){
+      if (database[i].questions[j].author){
+        if (database[i].questions[j].author === username){
+          questionObjects.push(database[i].questions[j]);
+        }
       }
     }
+    res.status(200).render('statsPage', {questionObjects: questionObjects});
   }
 });
-*/
+
 app.get('*',function(req, res, next){
 	res.status(404).render('404');
 });

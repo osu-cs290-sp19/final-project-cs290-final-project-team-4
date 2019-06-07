@@ -57,3 +57,16 @@ function handlePostQuestionClick(){
 
 var acceptButton = document.getElementById("postQuestionButton");
 acceptButton.addEventListener('click', handlePostQuestionClick);
+
+var questionStatsContainers = document.getElementsByClassName("question-stats-container");
+questionStatsContainers.forEach(function(element){
+  var answerPercentages = element.getElementsByClassName("answer-percentage");
+  var totalAnswers = 0;
+  answerPercentages.forEach(function(ele){
+    totalAnswers += ele.value;
+  });
+  answerPercentages.forEach(function(elem){
+    elem.value = (elem.value / totalAnswers);
+  });
+  totalAnswers = 0;
+});
