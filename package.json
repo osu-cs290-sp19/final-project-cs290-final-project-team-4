@@ -13,13 +13,17 @@
   "devDependencies": {},
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
-    "build": "handlebars views/answerQuestion.handlebars -f public/answerQuestionTemplate.js",
-    "buildCatRes": "handlebars views/categories.handlebars -f public/categoriesResultsTemplate.js",
-    "buildCatResQ": "handlebars views/partials/category-list-question.handlebars -f public/categoriesResultsQuestionPartial.js",
+
+    "buildAnswerQuestion": "handlebars views/partials/answerQuestion.handlebars -f public/answerQuestionTemplate.js",
+    "buildQListEntry": "handlebars views/partials/categoryQListEntry.handlebars -f public/QListEntryTemplate.js",
+    "buildQListOption": "handlebars views/partials/categoryQListOption.handlebars -f public/QListOptionTemplate.js",
+    "buildFooter": "handlebars views/partials/footer.handlebars -f public/footerTemplate.js",
+    "buildHeader": "handlebars views/partials/header.handlebars -f public/headerTemplate.js",
     "buildHomeQ": "handlebars views/partials/homeQuestion.handlebars -f public/homeQuestionTemplate.js",
+
     "buildStats": "handlebars views/partials/questionStats.handlebars -f public/questionStatsTemplate.js",
     "buildStatsPercentage": "handlebars views/partials/questionStatsPercentage.handlebars -f public/questionStatsPercentageTemplate.js",
-    "start": "npm run buildHomeQ && npm run buildStatsPercentage && npm run buildStats",
+    "prestart": "npm run buildHomeQ && npm run buildStatsPercentage && npm run buildStats && npm run buildAnswerQuestion && npm run buildQListEntry && npm run buildQListOption && npm run buildFooter && npm run buildHeader",
     "start": "node server.js"
   },
   "repository": {
