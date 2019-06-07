@@ -10,7 +10,7 @@ var PORT = process.env.PORT || 3927;
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-var questions = require('./questionData');
+var database = require('./questionData');
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -27,9 +27,15 @@ app.get('/create_question', function(req, res, next) {
 app.get('/answer_question/:category/:number', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
     var num = req.params.number;
-    if (questions[category] && num >= 0 && num < questions[cat].questions.length) {
-        var question = questions[req.params.category][req.params.number];
-        res.status(200).render('answerQuestion', question);
+    if (database[cat] && num >= 0 && num < database[cat].questions.length) {
+        var question = database[cat][num];
+        res.status(200).render('answerQuestion', {
+		question: question.text
+		Ans1: question.choices[0].option
+		Ans2: question.choices[1].option
+		Ans1s: question.choices[0].num
+		Ans2s: question.choices[1].num
+	});
     }
     else {
         res.status(404).render('404');
@@ -38,9 +44,13 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
 
 app.get('/answer_question/:category', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
-    if (questions[cat]) {
-        var questions = questions[req.params.category];
-        res.status(200).render('listOfQuestions', questions);
+    if (database[cat]) {
+	var nameL = database[cat].name;
+        var questionsL = database[cat].questions;
+        res.status(200).render('listOfQuestions', {
+		name: nameL
+		questions: questionsL
+	});
     }
     else {
         res.status(404).render('404');

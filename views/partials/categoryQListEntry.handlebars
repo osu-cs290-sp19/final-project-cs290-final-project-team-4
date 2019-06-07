@@ -1,0 +1,11 @@
+﻿<div class="question-container">
+    <div class="question">
+        <p>{{text}}</p>
+    </div>
+    <div class="author">
+        <p>{{author}}</p>
+    </div>
+    {{#each choices}}
+        {{>categoryListOption}}
+    {{/each}}
+</div>
