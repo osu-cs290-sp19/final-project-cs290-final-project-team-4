@@ -31,9 +31,9 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
         var question = database[cat][num];
         res.status(200).render('answerQuestion', {
 		question: question.text
-		Ans1: question.choices[0].option
-		Ans2: question.choices[1].option
-		Ans1s: question.choices[0].num
+		Ans1: question.choices[0].option,
+		Ans2: question.choices[1].option,
+		Ans1s: question.choices[0].num,
 		Ans2s: question.choices[1].num
 	});
     }
@@ -48,7 +48,7 @@ app.get('/answer_question/:category', function (req, res, next) {
 	var nameL = database[cat].name;
         var questionsL = database[cat].questions;
         res.status(200).render('listOfQuestions', {
-		name: nameL
+		name: nameL,
 		questions: questionsL
 	});
     }
