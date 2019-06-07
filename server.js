@@ -2,6 +2,7 @@ var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 var app = express();
 var PORT = process.env.PORT || 3927;
@@ -50,6 +51,19 @@ app.get('/categories', function(req, res, next) {
     res.status(200).sendFile(__dirname + '/public/categories.html');
 });
 
+/*
+app.get('/stats/:username', function(req, res, next){
+  var username = req.params.username.toLowerCase();
+  for (var i = 0; i < 7; i++){
+    for (var j = 0; j < questions[i].question.length)
+    if (questions[i].questions[j].author){
+      if (questions[i].questions[j].author === username){
+
+      }
+    }
+  }
+});
+*/
 app.get('*',function(req, res, next){
 	res.status(404).render('404');
 });
@@ -62,10 +76,19 @@ app.post('/:category/create_question/add_question', function(req, res, next){
   if (req.body){
     var category = req.params.category.toLowerCase();
     if (questions[category]) {
-      questions[category].questions.push({
-        text: req.body.text,
-        author: req.body.author,
-        choices: req.body.choices
+      fs.readFile('questionData.json', 'utf8', function(err, data){
+        if (err){
+          console.log(err);
+        } else {
+          var obj = JSON.parse(data);
+          obj[category].questions.push({
+            text: req.body.text,
+            author: req.body.author.toLowerCase(),
+            choices: req.body.choices
+          });
+          json = JSON.stringify(obj, null, 3);
+          fs.writeFile('questionData.json', json, 'utf8', function(){});
+        }
       });
       res.status(200).send("Question successfully added");
       console.log("Question successfully added");

@@ -1,333 +1,359 @@
 {
-    "sports":{
+   "sports": {
       "name": "sports",
       "questions": [
-      {
-	   	"text":"Do you prefer College Football or NFL?",
-	     	"author":"Kennan",
-		"choices": [
-		   {
-			"option": "College Football",
-			"num": 0
-		   },
-		   {
-			"option": "NFL",
-			"num": 0
-		   }
-		]
-	   },
-     {
-	   	"text":"Is Lebron James the best player in the history of the NBA?",
-	     	"author":"Brian",
-		"choices": [
-		   {
-			"option": "Yes",
-			"num": 0
-		   },
-		   {
-			"option": "No",
-			"num": 0
-		   }
-		]
-	   },
-	   {
-	   	"text":"Will the OSU Baseball team defend it's title?",
-	     	"author":"Gerald",
-		"choices": [
-		   {
-			"option": "Yes",
-			"num": 0
-		   },
-		   {
-			"option": "No",
-			"num": 0
-		   }
-		]
-	  }
-
+         {
+            "text": "Do you prefer College Football or NFL?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "College Football",
+                  "num": 0
+               },
+               {
+                  "option": "NFL",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Is Lebron James the best player in the history of the NBA?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Will the OSU Baseball team defend it's title?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "A or B",
+            "author": "brian",
+            "choices": [
+               {
+                  "option": "A ",
+                  "num": 0
+               },
+               {
+                  "option": "B",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Tom Brady or Joe Montana?",
+            "author": "brian",
+            "choices": [
+               {
+                  "option": "Tom Brady",
+                  "num": 0
+               },
+               {
+                  "option": "Joe Montana",
+                  "num": 0
+               }
+            ]
+         }
       ]
-    },
-
-    "politics": {
+   },
+   "politics": {
       "name": "politics",
       "questions": [
-	   {
-	   	"text":"Are you pro-life or pro-choice?",
-	     	"author":"An-Phong",
-		"choices": [
-		   {
-			"option": "Pro-life",
-			"num": 0
-		   },
-		   {
-			"option": "Pro-choice",
-			"num": 0
-		   }
-		]
-	   },
-     {
-	   	"text":"Should the United States build the wall?",
-	     	"author":"Kennan",
-		"choices": [
-		   {
-			"option": "Yes",
-			"num": 0
-		   },
-		   {
-			"option": "No",
-			"num": 0
-		   }
-		]
-	   },
-	   {
-	   	"text":"Where do you stand on the legalization of Marijuana?",
-	     	"author":"Brian",
-		"choices": [
-		   {
-			"option": "Legalize",
-			"num": 0
-		   },
-		   {
-			"option": "Prohibit",
-			"num": 0
-		   }
-		]
-	   }
-   ]
-    },
-    "food":{
-      "name":"food",
+         {
+            "text": "Are you pro-life or pro-choice?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "Pro-life",
+                  "num": 0
+               },
+               {
+                  "option": "Pro-choice",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Should the United States build the wall?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Where do you stand on the legalization of Marijuana?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Legalize",
+                  "num": 0
+               },
+               {
+                  "option": "Prohibit",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "food": {
+      "name": "food",
       "questions": [
-	   {
-	   	"text":"Do you prefer cookies or brownies?",
-	     	"author":"Gerald",
-		"choices": [
-		   {
-			"option": "Cookies",
-			"num": 0
-		   },
-		   {
-			"option": "Brownies",
-			"num": 0
-		   }
-		]
-	   },
-           {
-	   	"text":"Do you prefer white bread or wheat bread?",
-	     	"author":"An-Phong",
-		"choices": [
-		   {
-			"option": "White",
-			"num": 0
-		   },
-		   {
-			"option": "Wheat",
-			"num": 0
-		   }
-		]
-	   },
-	  {
-	   	"text":"Do you prefer coffee or tea?",
-	     	"author":"Kennan",
-		"choices": [
-		   {
-			"option": "Coffee",
-			"num": 0
-		   },
-		   {
-			"option": "Tea",
-			"num": 0
-		   }
-		]
-	   }
-   ]
-    },
-    "media": {
-      "name":"media",
+         {
+            "text": "Do you prefer cookies or brownies?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Cookies",
+                  "num": 0
+               },
+               {
+                  "option": "Brownies",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer white bread or wheat bread?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "White",
+                  "num": 0
+               },
+               {
+                  "option": "Wheat",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer coffee or tea?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Coffee",
+                  "num": 0
+               },
+               {
+                  "option": "Tea",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "media": {
+      "name": "media",
       "questions": [
-	  {
-	   	"text":"Do you watch Game of Thrones?",
-	     	"author":"Brian",
-		"choices": [
-		   {
-			"option": "Yes",
-			"num": 0
-		   },
-		   {
-			"option": "No",
-			"num": 0
-		   }
-		]
-	   },
-           {
-	   	"text":"Did Avengers:Endgame live up to it's hype?",
-	     	"author":"Gerald",
-		"choices": [
-		   {
-			"option": "Yes",
-			"num": 0
-		   },
-		   {
-			"option": "No",
-			"num": 0
-		   }
-		]
-	   },
-	   {
-	   	"text":"Do you prefer the new Star Wars movies or the original ones?",
-	     	"author":"An-Phong",
-		"choices": [
-		   {
-			"option": "New Movies",
-			"num": 0
-		   },
-		   {
-			"option": "Original Movies",
-			"num": 0
-		   }
-		]
-	   }
-   ]
-    },
-    "wyr": {
-      "name":"wyr",
+         {
+            "text": "Do you watch Game of Thrones?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Did Avengers:Endgame live up to it's hype?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer the new Star Wars movies or the original ones?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "New Movies",
+                  "num": 0
+               },
+               {
+                  "option": "Original Movies",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "wyr": {
+      "name": "wyr",
       "questions": [
-	   {
-	   	"text":"Would you rather be color blind or have no taste buds?",
-	     	"author":"Kennan",
-		"choices": [
-		   {
-			"option": "Color Blind",
-			"num": 0
-		   },
-		   {
-			"option": "No Taste Buds",
-			"num": 0
-		   }
-		]
-	   },
-           {
-	   	"text":"Would you rather be the funniest or most intelligent person in the room?",
-	     	"author":"Brian",
-		"choices": [
-		   {
-			"option": "Funniest",
-			"num": 0
-		   },
-		   {
-			"option": "Most Intelligent",
-			"num": 0
-		   }
-		]
-	   },
-	   {
-	   	"text":"Would you rather look 10 years older from the neck up or neck down?",
-	     	"author":"Gerald",
-		"choices": [
-		   {
-			"option": "Neck Up",
-			"num": 0
-		   },
-		   {
-			"option": "Neck Down",
-			"num": 0
-		   }
-		]
-	   }
-   ]
-    },
-    "lifestyle": {
-      "name":"lifestyle",
+         {
+            "text": "Would you rather be color blind or have no taste buds?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Color Blind",
+                  "num": 0
+               },
+               {
+                  "option": "No Taste Buds",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Would you rather be the funniest or most intelligent person in the room?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Funniest",
+                  "num": 0
+               },
+               {
+                  "option": "Most Intelligent",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Would you rather look 10 years older from the neck up or neck down?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Neck Up",
+                  "num": 0
+               },
+               {
+                  "option": "Neck Down",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "lifestyle": {
+      "name": "lifestyle",
       "questions": [
-	   {
-	   	"text":"Do you prefer to stay up late or sleep early?",
-	     	"author":"An-Phong",
-		"choices": [
-		   {
-			"option": "Stay up late",
-			"num": 0
-		   },
-		   {
-			"option": "Sleep Early",
-			"num": 0
-		   }
-		]
-	   },
-           {
-	   	"text":"Do you like technology or prefer things old fashioned?",
-	     	"author":"Kennan",
-		"choices": [
-		   {
-			"option": "Technology",
-			"num": 0
-		   },
-		   {
-			"option": "Old Fashioned",
-			"num": 0
-		   }
-		]
-	   },
-	   {
-	   	"text":"Do you like working with music or in silence?",
-	     	"author":"Brian",
-		"choices": [
-		   {
-			"option": "With Music",
-			"num": 0
-		   },
-		   {
-			"option": "In Silence",
-			"num": 0
-		   }
-		]
-	   }
-   ]
-    },
-    "misc": {
-      "name":"misc",
+         {
+            "text": "Do you prefer to stay up late or sleep early?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "Stay up late",
+                  "num": 0
+               },
+               {
+                  "option": "Sleep Early",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you like technology or prefer things old fashioned?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Technology",
+                  "num": 0
+               },
+               {
+                  "option": "Old Fashioned",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you like working with music or in silence?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "With Music",
+                  "num": 0
+               },
+               {
+                  "option": "In Silence",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "misc": {
+      "name": "misc",
       "questions": [
-	   {
-	   	"text":"Do you prefer Mac or Windows?",
-	     	"author":"Gerald",
-		"choices": [
-		   {
-			"option": "Mac",
-			"num": 0
-		   },
-		   {
-			"option": "Windows",
-			"num": 0
-		   }
-		]
-	   },
-           {
-	   	"text":"Do you prefer a hike or the beach?",
-	     	"author":"An-Phong",
-		"choices": [
-		   {
-			"option": "Hiking",
-			"num": 0
-		   },
-		   {
-			"option": "Beach",
-			"num": 0
-		   }
-		]
-	   },
-	   {
-	   	"text":"Do you have a tattoo?",
-	     	"author":"Kennan",
-		"choices": [
-		   {
-			"option": "Yes",
-			"num": 0
-		   },
-		   {
-			"option": "No",
-			"num": 0
-		   }
-		]
-	   }
-   ]
-    }
+         {
+            "text": "Do you prefer Mac or Windows?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Mac",
+                  "num": 0
+               },
+               {
+                  "option": "Windows",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer a hike or the beach?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "Hiking",
+                  "num": 0
+               },
+               {
+                  "option": "Beach",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you have a tattoo?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   }
 }
