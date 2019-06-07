@@ -1,11 +1,11 @@
 ﻿<div class="question-container">
     <div class="question">
-        <p>{{text}}</p>
-    </div>
-    <div class="author">
-        <p>{{author}}</p>
+        <a href="/answer_question/{{cat}}/{{num}}">{{text}}</a>
     </div>
     {{#each choices}}
         {{>categoryQListOption}}
     {{/each}}
+    <div class="author">
+        <p>{{author}}</p>
+    </div>
 </div>
