@@ -15,7 +15,6 @@ var database = require('./questionData');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-
 var min = 0;
 var catMax = Object.keys(database).length;
 var sportsMax = Object.keys(database['sports']['questions']).length;
@@ -25,21 +24,21 @@ var mediaMax = Object.keys(database['media']['questions']).length;
 var wyrMax = Object.keys(database['wyr']['questions']).length;
 var lifestyleMax = Object.keys(database['lifestyle']['questions']).length;
 var miscMax = Object.keys(database['misc']['questions']).length;
-//console.log("text===",database['politics']['questions'][0].text);
+
 function loadRandSportsQuestion(min, sportsMax) {
-   return Math.floor(Math.random() * (sportsMax-min)) + min; };
+   return database.sports.questions[Math.floor(Math.random() * (sportsMax-min)) + min]};
 function loadRandpoliticsQuestion(min, politicsMax) {
-  return Math.floor(Math.random() * (politicsMax-min)) + min; };
+   return database.politics.questions[Math.floor(Math.random() * (politicsMax-min)) + min]};
 function loadRandFoodQuestion(min, foodMax) {
-  return Math.floor(Math.random() * (foodMax-min)) + min; };
+  return database.food.questions[Math.floor(Math.random() * (foodMax-min)) + min]};
 function loadRandMediaQuestion(min, mediaMax) {
-  return Math.floor(Math.random() * (mediaMax-min)) + min; };
+  return database.media.questions[Math.floor(Math.random() * (mediaMax-min)) + min]};
 function loadRandWYRQuestion(min, wyrMax) {
-  return Math.floor(Math.random() * (wyrMax-min)) + min; };
+  return database.wyr.questions[Math.floor(Math.random() * (wyrMax-min)) + min]};
 function loadRandLifestyleQuestion(min, lifestyleMax) {
-  return Math.floor(Math.random() * (lifestyleMax-min)) + min; };
+  return database.lifestyle.questions[Math.floor(Math.random() * (lifestyleMax-min)) + min]};
 function loadRandMiscQuestion(min, miscMax) {
-  return Math.floor(Math.random() * (miscMax-min)) + min; };
+  return database.misc.questions[Math.floor(Math.random() * (miscMax-min)) + min]};
 
 app.get('/',function(req, res, next) {
     var randSport = loadRandSportsQuestion(min, sportsMax);
@@ -49,18 +48,11 @@ app.get('/',function(req, res, next) {
     var randWYR = loadRandWYRQuestion(min, wyrMax);
     var randLifestyle = loadRandLifestyleQuestion(min, lifestyleMax);
     var randMisc = loadRandMiscQuestion(min, miscMax);
-//res.status(200).render('homepage', {database:[database['politics']]});
-//res.status(200).render('homepage', {database});
-res.status(200).render('homepage', {
-  database:[database['sports']['questions'][randSport]],
-  database:[database['politics']['questions'][randPolitic]],
-  database:[database['food']['questions'][randFood]],
-  database:[database['media']['questions'][randMedia]],
-  database:[database['wyr']['questions'][randWYR]],
-  database:[database['lifestyle']['questions'][randLifestyle]],
-  database:[database['misc']['questions'][randMisc]]}
-);
-//    res.status(200).render('homepage', {database:[database['sports']['questions'][randSport]]});
+
+var qArray = [randSport,randPolitic,randFood,randMedia,randWYR,randLifestyle,randMisc];
+
+  res.status(200).render('homepage', {qArray: qArray});
+
 });
 
 app.get('/create_question', function(req, res, next) {
