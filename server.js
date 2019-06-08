@@ -12,8 +12,10 @@ app.set('view engine', 'handlebars');
 
 var database = require('./questionData');
 
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
+
 
 
 app.get('/',function(req, res, next) {
@@ -23,6 +25,7 @@ app.get('/',function(req, res, next) {
 app.get('/create_question', function(req, res, next) {
     res.status(200).render('createQuestion');
 });
+
 
 app.get('/answer_question/:category/:number', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
@@ -84,9 +87,13 @@ app.get('/stats/:username', function(req, res, next){
         }
       }
     }
-    res.status(200).render('statsPage', {questionObjects: questionObjects});
   }
+    res.status(200).render('statsPage', {questionObjects: questionObjects});
+ 
 });
+
+
+
 
 app.get('*',function(req, res, next){
 	res.status(404).render('404');
