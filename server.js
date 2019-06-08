@@ -4,9 +4,20 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var Chart = require('chart.js');
+var MongoClient = require('mongodb').MongoClient;
 
 var app = express();
-var PORT = process.env.PORT || 3927;
+var PORT = process.env.PORT || 3912;
+
+var mongoHost = process.env.MONGO_HOST || "classmongo.engr.oregonstate.edu";
+var mongoPort = process.env.MONGO_PORT || 27017;
+var mongoUser = process.env.MONGO_USER || "cs290_kaneshke";
+var mongoPassword = process.env.MONGO_PASSWORD || "cs290_team4";
+var mongoDBName = process.env.MONGO_DB_NAME || "cs290_kaneshke";
+
+var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
+var db = null;
+
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -67,6 +78,31 @@ app.get('/create_question', function(req, res, next) {
     res.status(200).render('createQuestion');
 });
 
+app.post('/users/:userId/login', function(req, res, next){
+    var userId = req.params.userId.toLowerCase();
+    if(req.body && req.body.login && req.body.password){
+         var userInfo = {
+	   username: req.body.username,
+           password: req.body.password
+	 };
+         var user = db.collection('users');
+	 users.updateOne(
+	   { userId: req.params.user },
+	   { $push: { users: userInfo } },
+	   function (err, result) {
+		if (err) {
+		   res.status(500).send({
+			error: "Error inserting user info into DB."
+		   });
+		}else{
+		   res.status(200).send("Success");
+	        }
+	   }
+	 );
+    }else{
+	res.status(400).send("Login must have both username and password");
+    }
+});
 
 app.get('/answer_question/:category/:number', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
@@ -140,10 +176,6 @@ app.get('*',function(req, res, next){
 	res.status(404).render('404');
 });
 
-app.get('*', function(req, res, next)   {
-    res.status(404).render('404');
-});
-
 app.post('/:category/create_question/add_question', function(req, res, next){
   if (req.body){
     var category = req.params.category.toLowerCase();
@@ -180,3 +212,14 @@ app.listen(PORT, function(err) {
   }
   console.log("== Server is listening on PORT", PORT);
 });
+
+MongoClient.connect(mongoURL, { useNewUrlParser: true}, function (err, client){
+  if (err) {
+   throw err;
+  }
+  db = client.db(mongoDBName);
+  app.listen(PORT, function () {
+    console.log("== Server listening on port", PORT);
+  });
+});
+
