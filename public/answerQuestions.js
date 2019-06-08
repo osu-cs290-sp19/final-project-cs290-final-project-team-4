@@ -32,7 +32,8 @@ function choicesToStats(){
 }
 
 function updateStatDisplay(questionNumber){
-  var answerPercentage = Number(answerStatsBoxes[questionNumber].querySelector('.percentage').value);
+  var answerPercentage = Number(answerStatsBoxes[questionNumber].querySelector('.percentage').textContent);
+  console.log("answerPercentage ", answerPercentage);
   answerPercentage++;
 }
 
