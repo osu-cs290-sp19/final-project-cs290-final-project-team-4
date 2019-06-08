@@ -1,6 +1,6 @@
 console.log("answerQuestions.js loaded");
 
-var answerChoices = document.getElementsByClassName('answer-choice-button');
+var answerChoices = document.getElementsByClassName('answer-choice-event-button');
 var answerStatsBoxes = document.getElementsByClassName('answer-stats-box');
 var dontAnswer = document.querySelector('.dont-answer-button');
 
@@ -42,9 +42,11 @@ function answerSelected (event){
   for (var i = 0; i < answerChoices.length; i++){
     if (event.target == answerChoices[i]){
       console.log("You have selected answer choice ", i);
-      updateStatDisplay(i);
-      choicesToStats();
-      changeDBStats(i);
+      if (answerStatsBoxes){
+        updateStatDisplay(i);
+        choicesToStats();
+        changeDBStats(i);
+      }
     }
     if (event.target == dontAnswer){
       console.log("You have decided not to answer");
@@ -52,7 +54,7 @@ function answerSelected (event){
   }
 }
 
-var answerContainer = document.querySelector('.answerContainer');
+var answerContainer = document.querySelector('.answer-event-box');
 if(answerContainer){
   answerContainer.addEventListener('click', answerSelected);
 }

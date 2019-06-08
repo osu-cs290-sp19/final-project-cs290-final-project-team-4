@@ -268,10 +268,10 @@ textarea{
   color: black;
   display: flex;
   justify-content: center;
-
+  align-items: center;
   font-size: 130%;
   min-width: 75%;
-  margin-left: 13%;
+  margin-left: 13%
 }
 
 .return-button-container{
