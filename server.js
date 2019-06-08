@@ -12,31 +12,55 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 var database = require('./questionData');
-
-
-var min = 0;
-var max = Object.keys(database).length;
-
-console.log("json length ==", max);
-/*
-function loadRandQuestions(min, max) {
-   var randQuestion = Math.floor(Math.random() * (max-min)) + min;
-   if(questionData[randQuestion]) {
-
-   } else {
-
-   }
-};
-*/
-
-
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 
+var min = 0;
+var catMax = Object.keys(database).length;
+var sportsMax = Object.keys(database['sports']['questions']).length;
+var politicsMax = Object.keys(database['politics']['questions']).length;
+var foodMax = Object.keys(database['food']['questions']).length;
+var mediaMax = Object.keys(database['media']['questions']).length;
+var wyrMax = Object.keys(database['wyr']['questions']).length;
+var lifestyleMax = Object.keys(database['lifestyle']['questions']).length;
+var miscMax = Object.keys(database['misc']['questions']).length;
+//console.log("text===",database['politics']['questions'][0].text);
+function loadRandSportsQuestion(min, sportsMax) {
+   return Math.floor(Math.random() * (sportsMax-min)) + min; };
+function loadRandpoliticsQuestion(min, politicsMax) {
+  return Math.floor(Math.random() * (politicsMax-min)) + min; };
+function loadRandFoodQuestion(min, foodMax) {
+  return Math.floor(Math.random() * (foodMax-min)) + min; };
+function loadRandMediaQuestion(min, mediaMax) {
+  return Math.floor(Math.random() * (mediaMax-min)) + min; };
+function loadRandWYRQuestion(min, wyrMax) {
+  return Math.floor(Math.random() * (wyrMax-min)) + min; };
+function loadRandLifestyleQuestion(min, lifestyleMax) {
+  return Math.floor(Math.random() * (lifestyleMax-min)) + min; };
+function loadRandMiscQuestion(min, miscMax) {
+  return Math.floor(Math.random() * (miscMax-min)) + min; };
 
 app.get('/',function(req, res, next) {
-    res.status(200).render('homepage', {database});
+    var randSport = loadRandSportsQuestion(min, sportsMax);
+    var randPolitic = loadRandpoliticsQuestion(min, politicsMax);
+    var randFood = loadRandFoodQuestion(min, foodMax);
+    var randMedia = loadRandMediaQuestion(min, mediaMax);
+    var randWYR = loadRandWYRQuestion(min, wyrMax);
+    var randLifestyle = loadRandLifestyleQuestion(min, lifestyleMax);
+    var randMisc = loadRandMiscQuestion(min, miscMax);
+//res.status(200).render('homepage', {database:[database['politics']]});
+//res.status(200).render('homepage', {database});
+res.status(200).render('homepage', {
+  database:[database['sports']['questions'][randSport]],
+  database:[database['politics']['questions'][randPolitic]],
+  database:[database['food']['questions'][randFood]],
+  database:[database['media']['questions'][randMedia]],
+  database:[database['wyr']['questions'][randWYR]],
+  database:[database['lifestyle']['questions'][randLifestyle]],
+  database:[database['misc']['questions'][randMisc]]}
+  );
+//    res.status(200).render('homepage', {database:[database['sports']['questions'][randSport]]});
 });
 
 app.get('/create_question', function(req, res, next) {
