@@ -28,8 +28,9 @@ function answerSelected (event){
 }
 
 var answerContainer = document.querySelector('.answerContainer');
-answerContainer.addEventListener('click', answerSelected);
-
+if(answerContainer){
+  answerContainer.addEventListener('click', answerSelected);
+}
 
 for (var i = 0; i < answerChoices.length; i+=2){
   answerChoices[i].classList.toggle('orangeChoice');

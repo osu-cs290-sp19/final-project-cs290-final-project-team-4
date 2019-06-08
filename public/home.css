@@ -229,3 +229,120 @@ a.fab.fa-instagram:hover {
 .hidden{
   display: none;
 }
+
+/*Question Answer Pages*/
+.top-bar{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  height: 30px;
+}
+
+.questionBox{
+/*  background-color: black;*/
+  color: black;
+  display: flex;
+  justify-content: center;
+
+  font-size: 130%;
+  min-width: 75%;
+  margin-left: 13%;
+}
+
+.return-button-container{
+  display: inline;
+  background-color: darkgrey;
+  max-width: 20%;
+  color: white;
+  justify-content: center;
+  border-radius: 2px;
+  margin-right: 10px;
+  font-size: 80%;
+}
+
+.return-button-container:hover{
+  cursor: pointer;
+  background-color: #383838;
+}
+
+.return-to-category-button{
+  display: flex;
+  text-align: center;
+}
+
+.answerContainer{
+  /*background-color: black;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 600px;
+  padding: 5px 0 5px 0;
+}
+
+.answer-choice-button{
+  background-color: rgb(204, 0, 255);
+  border: 1px solid black;
+  border-radius: 10px;
+  flex-basis: 40%;
+  min-height: 100px;
+  margin: 3px;
+  font-size: 200%;
+}
+
+.answer-stats-box{
+  background-color: rgb(204, 0, 255);
+  border: 1px solid black;
+  border-radius: 10px;
+  flex-basis: 40%;
+  min-height: 100px;
+  margin: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.answer-choice-name{
+  font-size: 150%;
+  display: flex;
+  justify-content: center;
+}
+
+.percentage{
+  font-size: 500%;
+}
+
+.answer-choice-button:hover {
+  cursor: pointer;
+  background-color: #e066ff;
+}
+
+.orangeChoice{
+  background-color: rgb(255, 153, 51);
+}
+
+.orangeChoice:hover {
+  background-color: #ff8000;
+}
+
+.orangeStat{
+  background-color: rgb(255, 153, 51);
+}
+
+.dont-answer-button{
+  background-color: black;
+  margin: 1px 10px 1px 10px;
+  width: 81%;
+  justify-content: center;
+  min-height: 10%;
+  max-height: 20%;
+  border-radius: 10px;
+  font-size: 200%;
+  color: white;
+}
+
+.dont-answer-button:hover {
+  cursor: pointer;
+  background-color: darkgrey;
+}
