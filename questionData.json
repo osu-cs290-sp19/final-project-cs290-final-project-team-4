@@ -12,7 +12,7 @@
                },
                {
                   "option": "NFL",
-                  "num": 0
+                  "num": 1
                }
             ]
          },
@@ -22,7 +22,7 @@
             "choices": [
                {
                   "option": "Warriors",
-                  "num": 17
+                  "num": 18
                },
                {
                   "option": "Bulls",
@@ -92,11 +92,11 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 0
+                  "num": 2
                },
                {
                   "option": "No",
-                  "num": 0
+                  "num": 2
                }
             ]
          },
@@ -111,6 +111,20 @@
                {
                   "option": "D",
                   "num": 1
+               }
+            ]
+         },
+         {
+            "text": "A or Z?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
+                  "num": 1
+               },
+               {
+                  "option": "Z",
+                  "num": 0
                }
             ]
          }
@@ -204,7 +218,7 @@
                },
                {
                   "option": "Tea",
-                  "num": 0
+                  "num": 1
                }
             ]
          }
@@ -317,7 +331,7 @@
                },
                {
                   "option": "Sleep Early",
-                  "num": 0
+                  "num": 2
                }
             ]
          },
@@ -327,11 +341,11 @@
             "choices": [
                {
                   "option": "Technology",
-                  "num": 0
+                  "num": 1
                },
                {
                   "option": "Old Fashioned",
-                  "num": 0
+                  "num": 2
                }
             ]
          },
@@ -341,7 +355,7 @@
             "choices": [
                {
                   "option": "With Music",
-                  "num": 41
+                  "num": 42
                },
                {
                   "option": "In Silence",
