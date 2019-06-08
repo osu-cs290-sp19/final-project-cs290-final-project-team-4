@@ -106,11 +106,11 @@
             "choices": [
                {
                   "option": "C",
-                  "num": 0
+                  "num": 3
                },
                {
                   "option": "D",
-                  "num": 0
+                  "num": 1
                }
             ]
          }

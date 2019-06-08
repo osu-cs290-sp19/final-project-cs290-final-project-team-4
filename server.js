@@ -72,6 +72,9 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
     var num = req.params.number;
     var numInt = Number(num) + 1;
+    if (numInt >= database[cat].questions.length) {
+      numInt = 0;
+    }
     if (database[cat] && num >= 0 && num < database[cat].questions.length) {
         var question = database[cat].questions[num];
         res.status(200).render('answerQuestion', {
@@ -134,18 +137,43 @@ app.get('/stats/:username', function(req, res, next){
   }
     res.status(200).render('statsPage', {questionObjects: questionObjects});
 
-});
+  });
 
 
 
 
-app.get('*',function(req, res, next){
-	res.status(404).render('404');
-});
+  app.get('*',function(req, res, next){
+  res.status(404).render('404');
+  });
 
-app.get('*', function(req, res, next)   {
+  app.get('*', function(req, res, next)   {
     res.status(404).render('404');
-});
+  });
+
+  app.post('/answer_question/:category/:questionNumber/:answerNumber', function(req, res, next){
+    var category = req.params.category.toLowerCase();
+    var questionNumber = req.params.questionNumber;
+    var questionNumberInt = Number(questionNumber);
+
+    var answerNumber = req.params.answerNumber;
+    var answerNumberInt = Number(answerNumber);
+    if (database[category] && questionNumber < database[category].questions.length &&
+      answerNumber < database[category].questions[questionNumber].choices.length){
+        fs.readFile('questionData.json', 'utf8', function(err, data){
+          if (err){
+            res.status(500).send("Server Error");
+          } else {
+            var obj = JSON.parse(data);
+            obj[category].questions[questionNumber].choices[answerNumber].num++;
+            json = JSON.stringify(obj, null, 3);
+            fs.writeFile('questionData.json', json, 'utf8', function () { });
+            database[category].questions[questionNumber].choices[answerNumber].num++;
+          }
+        });
+      } else {
+        next();
+      }
+    });
 
 app.post('/:category/create_question/add_question', function(req, res, next){
   if (req.body){
