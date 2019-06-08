@@ -191,6 +191,12 @@ a.fab.fa-instagram:hover {
 }
 
 /*Create-Question*/
+textarea{
+    resize: none;
+    font-family: sans-serif;
+    color: black;
+}
+
 .create-container{
     text-align: center;
     width: 100%;
