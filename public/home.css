@@ -230,6 +230,16 @@ textarea{
     max-width: 100%;
 }
 
+.answer-one-icon {
+    color: #ff9933;
+    font-size: 20px;
+}
+
+.answer-two-icon {
+    color: #cc00ff;
+    font-size: 20px;
+}
+
 /*Stats Pages*/
 
 .stats-page-container{
