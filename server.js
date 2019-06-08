@@ -59,7 +59,7 @@ res.status(200).render('homepage', {
   database:[database['wyr']['questions'][randWYR]],
   database:[database['lifestyle']['questions'][randLifestyle]],
   database:[database['misc']['questions'][randMisc]]}
-  );
+);
 //    res.status(200).render('homepage', {database:[database['sports']['questions'][randSport]]});
 });
 
