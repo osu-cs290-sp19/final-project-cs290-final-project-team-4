@@ -231,10 +231,6 @@ a.fab.fa-instagram:hover {
   flex: 0 0 20%;
 }
 
-.hidden{
-  display: none;
-}
-
 /*Question Answer Pages*/
 .top-bar{
   display: flex;
@@ -350,4 +346,8 @@ a.fab.fa-instagram:hover {
 .dont-answer-button:hover {
   cursor: pointer;
   background-color: darkgrey;
+}
+
+.hidden{
+  display: none;
 }

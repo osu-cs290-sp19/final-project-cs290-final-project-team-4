@@ -78,7 +78,9 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
 		Ans1: question.choices[0].option,
 		Ans2: question.choices[1].option,
 		Ans1s: question.choices[0].num,
-		Ans2s: question.choices[1].num
+		Ans2s: question.choices[1].num,
+    cat: cat,
+    num: num + 1
 	});
     }
     else {

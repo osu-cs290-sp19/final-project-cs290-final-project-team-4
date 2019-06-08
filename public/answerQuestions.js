@@ -1,3 +1,4 @@
+console.log("answerQuestions.js loaded");
 
 var answerChoices = document.getElementsByClassName('answer-choice-button');
 var answerStatsBoxes = document.getElementsByClassName('answer-stats-box');
