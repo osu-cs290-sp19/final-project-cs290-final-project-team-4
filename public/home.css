@@ -404,3 +404,8 @@ textarea{
     margin: 0px;
     min-height: 500px;
 }
+
+/* Don't put anything below this! */
+.hidden{
+  display: none;
+}
