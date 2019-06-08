@@ -200,6 +200,11 @@ a.fab.fa-instagram:hover {
     color: white;
     border: 3px solid black;
     background-color: rgb(138,22,134);
+    text-align: center;
+}
+
+.catQLink:hover{
+    color: purple;
 }
 
 .text-input{

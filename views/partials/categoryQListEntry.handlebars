@@ -1,11 +1,16 @@
-﻿<div class="question-container">
-    <div class="question">
-        <a href="/answer_question/{{cat}}/{{num}}">{{text}}</a>
-    </div>
-    {{#each choices}}
-        {{>categoryQListOption}}
-    {{/each}}
-    <div class="author">
-        <p>{{author}}</p>
-    </div>
+﻿<div class="question">
+    <a href="/answer_question/{{cat}}/{{num}}" class="question-content">
+        <div class="question-text">
+            <h3>{{text}}</h3>
+        </div>
+        <div class="question-author">
+            <p>{{author}}</p>
+        </div>
+        <div class="question-dice answer-one-icon">
+            <p>{{choices.[0].option}} <i class="fas fa-dice-one"></i></p>
+        </div>
+        <div class="question-dice answer-two-icon">
+            <p>{{choices.[1].option}} <i class="fas fa-dice-two"></i></p>
+        </div>
+    </a>
 </div>
