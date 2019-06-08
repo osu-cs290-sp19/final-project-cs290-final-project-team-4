@@ -4,18 +4,18 @@
     </div>
     <div class="question-content">
       <p class="question-text">
-        <h3>{{questions.[0].text}}</h3>
+        <h3>{{text}}</h3>
       </p>
       <p class="question-author">
-        <a href="#">{{questions.[0].author}}</a>
+        <a href="#">{{author}}</a>
       </p>
        <div class="question-dice answer-one-icon">
-         <a href="#">{{questions.[0].choices.[0].option}}<i class="fas fa-dice-one"></i></a>
-         <p>{{questions.[0].choices.[0].num}}</p>
+         <a href="#">{{choices.[0].option}}<i class="fas fa-dice-one"></i></a>
+         <p>{{choices.[0].num}}</p>
       </div>
       <div class="question-dice answer-two-icon">
-        <a href="#">{{questions.[0].choices.[1].option}}<i class="fas fa-dice-two"></i></a>
-        <p>{{questions.[0].choices.[1].num}}</p>
+        <a href="#">{{choices.[1].option}}<i class="fas fa-dice-two"></i></a>
+        <p>{{choices.[1].num}}</p>
       </div>
    </div>
   </article>
