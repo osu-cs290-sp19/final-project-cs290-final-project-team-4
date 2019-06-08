@@ -59,7 +59,7 @@ res.status(200).render('homepage', {
   database:[database['wyr']['questions'][randWYR]],
   database:[database['lifestyle']['questions'][randLifestyle]],
   database:[database['misc']['questions'][randMisc]]}
-  );
+);
 //    res.status(200).render('homepage', {database:[database['sports']['questions'][randSport]]});
 });
 
@@ -100,7 +100,7 @@ app.get('/answer_question/:category', function (req, res, next) {
 	            author: questionsA[i].author,
 	            text: questionsA[i].text,
 	            cat: cat,
-                    num: i
+                num: i
 	        })
 	    }
         res.status(200).render('categoryQList', {
@@ -114,7 +114,7 @@ app.get('/answer_question/:category', function (req, res, next) {
 });
 
 app.get('/categories', function(req, res, next) {
-    res.status(200).sendFile(__dirname + '/public/categories.html');
+    res.status(200).render('categories');
 });
 
 
@@ -161,7 +161,12 @@ app.post('/:category/create_question/add_question', function(req, res, next){
             choices: req.body.choices
           });
           json = JSON.stringify(obj, null, 3);
-          fs.writeFile('questionData.json', json, 'utf8', function(){});
+          fs.writeFile('questionData.json', json, 'utf8', function () { });
+          database[category].questions.push({
+              text: req.body.text,
+              author: req.body.author,
+              choices: req.body.choices
+          });
         }
       });
       res.status(200).send("Question successfully added");
