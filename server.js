@@ -71,6 +71,7 @@ app.get('/create_question', function(req, res, next) {
 app.get('/answer_question/:category/:number', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
     var num = req.params.number;
+    var numInt = Number(num) + 1;
     if (database[cat] && num >= 0 && num < database[cat].questions.length) {
         var question = database[cat].questions[num];
         res.status(200).render('answerQuestion', {
@@ -80,7 +81,7 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
 		Ans1s: question.choices[0].num,
 		Ans2s: question.choices[1].num,
     cat: cat,
-    num: num + 1
+    num: numInt
 	});
     }
     else {
