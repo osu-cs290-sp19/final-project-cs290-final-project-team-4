@@ -17,6 +17,20 @@
             ]
          },
          {
+            "text": "Do you think the current Golden State Warriors' \"Hamptons Five Lineup\" of Steph Curry, Klay Thompson, Kevin Durant, Andre Iguodala, and Draymond Green would defeat the 1995-96 Chicago Bulls' Starting Lineup of Ron Harper, Michael Jordan, Luc Longley, Scottie Pippen, and Dennis Rodman in a five - on - five basketball game?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Warriors",
+                  "num": 16
+               },
+               {
+                  "option": "Bulls",
+                  "num": 20
+               }
+            ]
+         },
+         {
             "text": "Is Lebron James the best player in the history of the NBA?",
             "author": "Brian",
             "choices": [
@@ -69,6 +83,20 @@
                {
                   "option": "Joe Montana",
                   "num": 165
+               }
+            ]
+         },
+         {
+            "text": "Will the Houston Rockets ever win a championship with Mike D'Antoni as their head coach?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
                }
             ]
          }

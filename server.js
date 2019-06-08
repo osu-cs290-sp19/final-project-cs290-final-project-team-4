@@ -147,7 +147,7 @@ app.get('*', function(req, res, next)   {
 app.post('/:category/create_question/add_question', function(req, res, next){
   if (req.body){
     var category = req.params.category.toLowerCase();
-    if (questions[category]) {
+    if (database[category]) {
       fs.readFile('questionData.json', 'utf8', function(err, data){
         if (err){
           console.log(err);
@@ -155,7 +155,7 @@ app.post('/:category/create_question/add_question', function(req, res, next){
           var obj = JSON.parse(data);
           obj[category].questions.push({
             text: req.body.text,
-            author: req.body.author.toLowerCase(),
+            author: req.body.author,
             choices: req.body.choices
           });
           json = JSON.stringify(obj, null, 3);
