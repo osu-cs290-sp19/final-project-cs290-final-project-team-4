@@ -13,6 +13,22 @@ app.set('view engine', 'handlebars');
 var database = require('./questionData');
 
 
+var min = 0;
+var max = Object.keys(database).length;
+
+console.log("json length ==", max);
+/*
+function loadRandQuestions(min, max) {
+   var randQuestion = Math.floor(Math.random() * (max-min)) + min;
+   if(questionData[randQuestion]) {
+
+   } else {
+
+   }
+};
+*/
+
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
@@ -89,7 +105,7 @@ app.get('/stats/:username', function(req, res, next){
     }
   }
     res.status(200).render('statsPage', {questionObjects: questionObjects});
- 
+
 });
 
 
