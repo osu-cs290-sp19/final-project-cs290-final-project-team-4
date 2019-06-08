@@ -159,7 +159,12 @@ app.post('/:category/create_question/add_question', function(req, res, next){
             choices: req.body.choices
           });
           json = JSON.stringify(obj, null, 3);
-          fs.writeFile('questionData.json', json, 'utf8', function(){});
+          fs.writeFile('questionData.json', json, 'utf8', function () { });
+          database[category].questions.push({
+              text: req.body.text,
+              author: req.body.author,
+              choices: req.body.choices
+          });
         }
       });
       res.status(200).send("Question successfully added");
