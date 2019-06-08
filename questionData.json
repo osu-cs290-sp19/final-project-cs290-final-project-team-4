@@ -8,7 +8,7 @@
             "choices": [
                {
                   "option": "College Football",
-                  "num": 1
+                  "num": 3
                },
                {
                   "option": "NFL",
@@ -22,7 +22,7 @@
             "choices": [
                {
                   "option": "Warriors",
-                  "num": 16
+                  "num": 17
                },
                {
                   "option": "Bulls",

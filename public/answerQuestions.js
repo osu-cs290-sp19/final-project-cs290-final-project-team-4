@@ -31,16 +31,16 @@ function choicesToStats(){
   }
 }
 
-/*function updateStatDisplay(questionNumber){
-  var answerPercentage = Number(answerChoices[questionNumber].querySelector('.percentage').value);
+function updateStatDisplay(questionNumber){
+  var answerPercentage = Number(answerStatsBoxes[questionNumber].querySelector('.percentage').value);
   answerPercentage++;
 }
-*/
+
 function answerSelected (event){
   for (var i = 0; i < answerChoices.length; i++){
     if (event.target == answerChoices[i]){
       console.log("You have selected answer choice ", i);
-  /*  updateStatDisplay(i); */
+      updateStatDisplay(i);
       choicesToStats();
       changeDBStats(i);
     }
