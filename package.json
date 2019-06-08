@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chart.js": "^2.8.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.1.2",
@@ -13,14 +14,12 @@
   "devDependencies": {},
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
-
     "buildAnswerQuestion": "handlebars views/partials/answerQuestion.handlebars -f public/answerQuestionTemplate.js",
     "buildQListEntry": "handlebars views/partials/categoryQListEntry.handlebars -f public/QListEntryTemplate.js",
     "buildQListOption": "handlebars views/partials/categoryQListOption.handlebars -f public/QListOptionTemplate.js",
     "buildFooter": "handlebars views/partials/footer.handlebars -f public/footerTemplate.js",
     "buildHeader": "handlebars views/partials/header.handlebars -f public/headerTemplate.js",
     "buildHomeQ": "handlebars views/partials/homeQuestion.handlebars -f public/homeQuestionTemplate.js",
-
     "buildStats": "handlebars views/partials/questionStats.handlebars -f public/questionStatsTemplate.js",
     "buildStatsPercentages": "handlebars views/partials/questionStatsPercentages.handlebars -f public/questionStatsPercentagesTemplate.js",
     "prestart": "npm run buildHomeQ && npm run buildStatsPercentages && npm run buildStats && npm run buildAnswerQuestion && npm run buildQListEntry && npm run buildQListOption && npm run buildFooter && npm run buildHeader",

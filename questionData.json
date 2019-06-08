@@ -22,11 +22,11 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 0
+                  "num": 6
                },
                {
                   "option": "No",
-                  "num": 0
+                  "num": 11
                }
             ]
          },
@@ -46,29 +46,29 @@
          },
          {
             "text": "A or B",
-            "author": "brian",
+            "author": "Brian",
             "choices": [
                {
                   "option": "A ",
-                  "num": 0
+                  "num": 4
                },
                {
                   "option": "B",
-                  "num": 0
+                  "num": 10
                }
             ]
          },
          {
             "text": "Tom Brady or Joe Montana?",
-            "author": "brian",
+            "author": "Brian",
             "choices": [
                {
                   "option": "Tom Brady",
-                  "num": 0
+                  "num": 180
                },
                {
                   "option": "Joe Montana",
-                  "num": 0
+                  "num": 165
                }
             ]
          }
@@ -111,11 +111,11 @@
             "choices": [
                {
                   "option": "Legalize",
-                  "num": 0
+                  "num": 10
                },
                {
                   "option": "Prohibit",
-                  "num": 0
+                  "num": 9
                }
             ]
          }
@@ -177,11 +177,11 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 0
+                  "num": 65
                },
                {
                   "option": "No",
-                  "num": 0
+                  "num": 72
                }
             ]
          },
@@ -238,11 +238,11 @@
             "choices": [
                {
                   "option": "Funniest",
-                  "num": 0
+                  "num": 9
                },
                {
                   "option": "Most Intelligent",
-                  "num": 0
+                  "num": 19
                }
             ]
          },
@@ -299,11 +299,11 @@
             "choices": [
                {
                   "option": "With Music",
-                  "num": 0
+                  "num": 41
                },
                {
                   "option": "In Silence",
-                  "num": 0
+                  "num": 3
                }
             ]
          }

@@ -1,9 +1,9 @@
 <div class="question-stats-container">
-    <div class="question">
-        <p>{{text}}</p>
-    </div>
-    </div>
-    {{#each choices}}
+    <div class="question question-stats-box">
+      <p class="question-stats-text">{{text}}</p>
+      {{#each choices}}
         {{>questionStatsPercentages}}
-    {{/each}}
+      {{/each}}
+      <div><canvas id="question-stats-chart" width="400", height="400"></canvas></div>
+    </div>
 </div>

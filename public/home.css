@@ -54,7 +54,7 @@ input#login-password {
 /*   display: inline-block;
    padding-top: 4px;
    padding-right: 10px;
-   padding-left: 10px; 
+   padding-left: 10px;
    height 24px;
    vertical-align: text-top;*/
    color: white;
@@ -91,7 +91,7 @@ a {
    color: black;
    padding: 12px 16px;
    text-decoration: none;
-   display: block;   
+   display: block;
 }
 
 .nav-item.nav-drop-down-content a:hover {
@@ -139,12 +139,12 @@ a {
 .question-author {
    margin-top: 8px;
    text-align: right;
-   font-weight: bold; 
+   font-weight: bold;
 }
 .question-author a {
    color: black;
    font-size: 16px;
-} 
+}
 .question-dice {
    display: flex;
    flex-wrap: wrap;
@@ -157,7 +157,7 @@ a {
 }
 .answer-two-icon a {
    color: #cc00ff;
-   font-size: 20px; 
+   font-size: 20px;
 }
 div.footer {
    height: 40px;
@@ -168,7 +168,7 @@ div.footer {
    width: 100%;
    background-color: rgb(138,22,100);
    text-align: center;
-   border: 2px solid black; 
+   border: 2px solid black;
 }
 a.fab.fa-facebook-square {
    padding: 5px;
@@ -213,4 +213,19 @@ a.fab.fa-instagram:hover {
     min-width: 20%;
     background-color: rgb(138,22,100);
     margin-bottom: 10px;
+}
+
+/*Stats Pages*/
+
+.stats-page-container{
+  display: flex;
+  justify-content: center;
+}
+
+.question-stats-container{
+  flex: 0 0 20%;
+}
+
+.hidden{
+  display: none;
 }

@@ -9,7 +9,7 @@ function handlePostQuestionClick(){
   var newQuestionSecondAnswer = document.getElementById('newQuestionRes2').value;
   var newQuestionAuthor = document.getElementById('newQuestionAuth').value;
   var newQuestionCategory = document.getElementById('newQuestionCategory').value.toLowerCase();
-    
+
   if (newQuestionCategory === "Movies & TV")
       newQuestion = "media";
   else if (newQuestionCategory === "Would You Rather?")
@@ -47,7 +47,7 @@ function handlePostQuestionClick(){
         alert("Error storing question on server: " + message);
       }
     });
-    
+
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);
     alert("Your Question has been Submitted!");
@@ -61,18 +61,53 @@ function handlePostQuestionClick(){
 
 }
 
-var acceptButton = document.getElementById("postQuestionButton");
-acceptButton.addEventListener('click', handlePostQuestionClick);
+/* Stats Page JS */
 
-var questionStatsContainers = document.getElementsByClassName("question-stats-container");
-questionStatsContainers.forEach(function(element){
-  var answerPercentages = element.getElementsByClassName("answer-percentage");
-  var totalAnswers = 0;
-  answerPercentages.forEach(function(ele){
-    totalAnswers += ele.value;
+var acceptButton = document.getElementById("postQuestionButton");
+if (acceptButton){
+  acceptButton.addEventListener('click', handlePostQuestionClick);
+}
+
+var myChart = null, questionStatsChart = null;
+var data = [], labels = [];
+var questionStatsContainers = document.querySelectorAll('.question-stats-container');
+questionStatsContainers.forEach( function (element, index, array){
+  var answerPercentageBoxes = element.querySelectorAll('.answer-percentage-box');
+  answerPercentageBoxes.forEach( function (ele){
+    data.push(Number(ele.querySelector('.answer-percentage').textContent));
+    labels.push(ele.querySelector('.answer-percentage-option').textContent);
   });
-  answerPercentages.forEach(function(elem){
-    elem.value = (elem.value / totalAnswers);
+  console.log("data = ", data);
+  console.log("labels = ", labels);
+  questionStatsChart = element.querySelector('#question-stats-chart');
+  myChart = new Chart(questionStatsChart, {
+    type: 'pie',
+    data: {
+      labels: labels,
+      datasets: [{
+
+        data: data,
+        backgroundColor: [
+          'rgb(255, 153, 51)',
+          'rgb(204, 0, 255)'
+        ],
+        backgroundColorHover: [
+          '#ff8000',
+          '#e066ff'
+        ],
+        borderColor: 'black',
+        borderWidth: 1
+      }],
+    },
+
+    options:{
+      animation:{
+        animateRoatate: true,
+        animateScale: true
+      }
+    }
+
   });
-  totalAnswers = 0;
+  console.log(myChart);
+  data = [], labels = [];
 });

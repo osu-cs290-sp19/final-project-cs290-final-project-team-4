@@ -3,6 +3,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var Chart = require('chart.js');
 
 var app = express();
 var PORT = process.env.PORT || 3927;
@@ -89,7 +90,7 @@ app.get('/stats/:username', function(req, res, next){
     }
   }
     res.status(200).render('statsPage', {questionObjects: questionObjects});
- 
+
 });
 
 
