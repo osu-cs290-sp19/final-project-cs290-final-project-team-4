@@ -8,11 +8,11 @@
             "choices": [
                {
                   "option": "College Football",
-                  "num": 0
+                  "num": 3
                },
                {
                   "option": "NFL",
-                  "num": 0
+                  "num": 1
                }
             ]
          },
@@ -22,11 +22,11 @@
             "choices": [
                {
                   "option": "Warriors",
-                  "num": 16
+                  "num": 18
                },
                {
                   "option": "Bulls",
-                  "num": 20
+                  "num": 21
                }
             ]
          },
@@ -40,7 +40,7 @@
                },
                {
                   "option": "No",
-                  "num": 11
+                  "num": 12
                }
             ]
          },
@@ -92,10 +92,38 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 0
+                  "num": 2
                },
                {
                   "option": "No",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "C or D?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "C",
+                  "num": 3
+               },
+               {
+                  "option": "D",
+                  "num": 1
+               }
+            ]
+         },
+         {
+            "text": "A or Z?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
+                  "num": 1
+               },
+               {
+                  "option": "Z",
                   "num": 0
                }
             ]
@@ -139,7 +167,7 @@
             "choices": [
                {
                   "option": "Legalize",
-                  "num": 10
+                  "num": 11
                },
                {
                   "option": "Prohibit",
@@ -190,7 +218,21 @@
                },
                {
                   "option": "Tea",
-                  "num": 0
+                  "num": 1
+               }
+            ]
+         },
+         {
+            "text": "Do you like Chocolate or that one thing you can never remember that you know tasted incredibly good during that one trip to China that you went on when you were 7 years old?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Chocolate",
+                  "num": 1
+               },
+               {
+                  "option": "That one thing you can never remember that you know tasted incredibly good during that one trip to China that you went on when you were 7 years old",
+                  "num": 1
                }
             ]
          }
@@ -303,7 +345,7 @@
                },
                {
                   "option": "Sleep Early",
-                  "num": 0
+                  "num": 2
                }
             ]
          },
@@ -313,11 +355,11 @@
             "choices": [
                {
                   "option": "Technology",
-                  "num": 0
+                  "num": 1
                },
                {
                   "option": "Old Fashioned",
-                  "num": 0
+                  "num": 2
                }
             ]
          },
@@ -327,7 +369,7 @@
             "choices": [
                {
                   "option": "With Music",
-                  "num": 41
+                  "num": 42
                },
                {
                   "option": "In Silence",
@@ -346,11 +388,11 @@
             "choices": [
                {
                   "option": "Mac",
-                  "num": 0
+                  "num": 3
                },
                {
                   "option": "Windows",
-                  "num": 0
+                  "num": 4
                }
             ]
          },
@@ -374,7 +416,7 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 0
+                  "num": 1
                },
                {
                   "option": "No",

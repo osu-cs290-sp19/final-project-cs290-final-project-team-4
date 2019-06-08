@@ -191,6 +191,12 @@ a.fab.fa-instagram:hover {
 }
 
 /*Create-Question*/
+textarea{
+    resize: none;
+    font-family: sans-serif;
+    color: black;
+}
+
 .create-container{
     text-align: center;
     width: 100%;
@@ -218,6 +224,20 @@ a.fab.fa-instagram:hover {
     min-width: 20%;
     background-color: rgb(138,22,100);
     margin-bottom: 10px;
+}
+
+.catQuestion{
+    max-width: 100%;
+}
+
+.answer-one-icon {
+    color: #ff9933;
+    font-size: 20px;
+}
+
+.answer-two-icon {
+    color: #cc00ff;
+    font-size: 20px;
 }
 
 /*Stats Pages*/
@@ -248,10 +268,10 @@ a.fab.fa-instagram:hover {
   color: black;
   display: flex;
   justify-content: center;
-
+  align-items: center;
   font-size: 130%;
   min-width: 75%;
-  margin-left: 13%;
+  margin-left: 13%
 }
 
 .return-button-container{
@@ -366,6 +386,7 @@ a.fab.fa-instagram:hover {
     height: 150px;
     width: 150px;
     color: white;
+    text-align: center;
 }
 
 #category-button:hover {
@@ -373,9 +394,18 @@ a.fab.fa-instagram:hover {
         color: white;
 }
 
+.category-name{
+   padding-top: 25px;
+}
+
 .cat-container {
     display: flex;
     flex-wrap: wrap;
     margin: 0px;
     min-height: 500px;
+}
+
+/* Don't put anything below this! */
+.hidden{
+  display: none;
 }
