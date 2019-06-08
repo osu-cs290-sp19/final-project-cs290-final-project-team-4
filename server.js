@@ -98,7 +98,7 @@ app.get('/answer_question/:category', function (req, res, next) {
 	            author: questionsA[i].author,
 	            text: questionsA[i].text,
 	            cat: cat,
-                    num: i
+                num: i
 	        })
 	    }
         res.status(200).render('categoryQList', {
@@ -112,7 +112,7 @@ app.get('/answer_question/:category', function (req, res, next) {
 });
 
 app.get('/categories', function(req, res, next) {
-    res.status(200).sendFile(__dirname + '/public/categories.html');
+    res.status(200).render('categories');
 });
 
 
