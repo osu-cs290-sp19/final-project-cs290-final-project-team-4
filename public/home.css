@@ -203,13 +203,18 @@ textarea{
     width: 70%;
 }
 
-#postQuestionButton {
+#askQuestionButton {
     color: white;
     font-size: 18px;
     height: 38px;
     min-width: 20%;
     background-color: rgb(138,22,100);
     margin-bottom: 10px;
+}
+
+#askQuestionButton:hover {
+    cursor: pointer;
+    background-color: rgb(220,20,60);
 }
 
 .catQuestion{

@@ -127,6 +127,24 @@
                   "num": 0
                }
             ]
+         },
+         {
+            "text": "A, B, or C?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
+                  "num": 0
+               },
+               {
+                  "option": "B",
+                  "num": 1
+               },
+               {
+                  "option": "C",
+                  "num": 0
+               }
+            ]
          }
       ]
    },
@@ -157,7 +175,7 @@
                },
                {
                   "option": "No",
-                  "num": 0
+                  "num": 1
                }
             ]
          },
