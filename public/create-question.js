@@ -71,11 +71,16 @@ if (textContainer){
 }
 
 function addAnswerChoice(event){
-  var newTextContainer = document.createElement('div');
-  var responsesContainer = document.querySelector('.responses-container');
-  newTextContainer.classList.add('textContainer');
-  newTextContainer.innerHTML = textContainerHTML;
-  responsesContainer.appendChild(newTextContainer);
+  var questionAnswerBoxes = document.querySelectorAll('#newQuestionRes');
+  if (questionAnswerBoxes.length >= 4){
+    alert("You can have a maximum of 4 answer choices.");
+  } else {
+    var newTextContainer = document.createElement('div');
+    var responsesContainer = document.querySelector('.responses-container');
+    newTextContainer.classList.add('textContainer');
+    newTextContainer.innerHTML = textContainerHTML;
+    responsesContainer.appendChild(newTextContainer);
+  }
 }
 
 var addAnswerChoiceButton = document.querySelector('.add-answer-choice-button');
