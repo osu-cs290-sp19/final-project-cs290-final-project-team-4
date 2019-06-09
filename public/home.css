@@ -39,24 +39,8 @@ input#login-password {
    min-height: 20px;
    background-color: rgb(220,220,220);
    border-radius: 4px;
-}/*
-.nav-bar {
-   margin: 0;
-   min-height: 28px;
-   padding-top: 3px;
-   padding-right: 10px;
-   padding-left: 20px;
-   border-bottom: 1px solid rgb(40,40,40);
-   background-color: rgb(220,220,220);
-   font-size: 16px;
-}*/
+}
 .nav-item {
-/*   display: inline-block;
-   padding-top: 4px;
-   padding-right: 10px;
-   padding-left: 10px;
-   height 24px;
-   vertical-align: text-top;*/
    color: white;
    font: 16px;
    display: inline-block;
@@ -66,10 +50,6 @@ input#login-password {
 a {
   text-decoration: none;
   color: black;
-/*
-  font-size: 20px;
-  text-decoration: none;
-  color: white;*/
 }
 .nav-item.nav-drop {
    position: relative;
@@ -123,9 +103,10 @@ a {
    min-height: 24px;
    background-color: white;/*rgb(138,22,100);*/
    padding: 30px;
+   font-size: 14px;
 }
 .question {
-   flex: 1 32%;
+   flex: 1 30%;
    margin: 5px;
    padding: 20px;
    border: 5px solid rgb(138,22,100);
@@ -146,18 +127,23 @@ a {
    font-size: 16px;
 }
 .question-dice {
-   display: flex;
-   flex-wrap: wrap;
-   float: left;
-   padding: 10px;
+  /* display: flex;
+   flex-wrap: wrap;*/
+   padding-left: 10px;
 }
 .answer-one-icon a {
    color: #ff9933;
-   font-size: 20px;
+   font-size: 14px;
+}
+.fas.fa-dice-one {
+  padding-left: 10px;
+}
+.fas.fa-dice-two {
+  padding-left: 10px;
 }
 .answer-two-icon a {
    color: #cc00ff;
-   font-size: 20px;
+   font-size: 14px;
 }
 div.footer {
    height: 40px;
@@ -232,12 +218,12 @@ textarea{
 
 .answer-one-icon {
     color: #ff9933;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .answer-two-icon {
     color: #cc00ff;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 /*Stats Pages*/
@@ -260,9 +246,7 @@ textarea{
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid black;
-  height: 30px;
 }
-
 .questionBox{
 /*  background-color: black;*/
   color: black;
