@@ -6,11 +6,8 @@
         <div class="question-author">
             <p>{{author}}</p>
         </div>
-        <div class="question-dice answer-one-icon">
-            <p>{{choices.[0].option}} <i class="fas fa-dice-one"></i></p>
-        </div>
-        <div class="question-dice answer-two-icon">
-            <p>{{choices.[1].option}} <i class="fas fa-dice-two"></i></p>
-        </div>
+        {{#each choices}}
+          {{> categoryQListAnswer}}
+        {{/each}}
     </div>
 </a>
