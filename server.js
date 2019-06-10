@@ -7,7 +7,7 @@ var Chart = require('chart.js');
 var MongoClient = require('mongodb').MongoClient;
 
 var app = express();
-var PORT = process.env.PORT || 3912;
+var PORT = process.env.PORT || 39270;
 
 var mongoHost = process.env.MONGO_HOST || "classmongo.engr.oregonstate.edu";
 var mongoPort = process.env.MONGO_PORT || 27017;
@@ -15,7 +15,7 @@ var mongoUser = process.env.MONGO_USER || "cs290_kaneshke";
 var mongoPassword = process.env.MONGO_PASSWORD || "cs290_team4";
 var mongoDBName = process.env.MONGO_DB_NAME || "cs290_kaneshke";
 
-var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' + mongoHost + ':' + mongoPort + '/' + mongoDBName;
+var mongoURL = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
 var db = null;
 
 
