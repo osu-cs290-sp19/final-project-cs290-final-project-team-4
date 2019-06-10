@@ -266,7 +266,8 @@ textarea{
   align-items: center;
   font-size: 130%;
   min-width: 75%;
-  margin-left: 13%
+  margin-right: 5%;
+  margin-left: 10%
 }
 
 .return-button-container{
@@ -276,20 +277,20 @@ textarea{
   color: white;
   justify-content: center;
   border-radius: 2px;
-  margin-right: 10px;
-  font-size: 80%;
 }
 
 .return-button-container:hover{
   cursor: pointer;
   background-color: #383838;
+  color: white;
 }
-
 .return-to-category-button{
   display: flex;
   text-align: center;
 }
-
+a.return-to-category-button:hover{
+  color: white;
+}
 .answerContainer{
   /*background-color: black;*/
   display: flex;
@@ -360,6 +361,7 @@ textarea{
   border-radius: 10px;
   font-size: 200%;
   color: white;
+  padding-left: 10px;
 }
 
 .dont-answer-button:hover {
