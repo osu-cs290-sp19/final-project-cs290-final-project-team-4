@@ -132,8 +132,12 @@ a {
    padding-left: 10px;
 }
 .answer-one-icon a {
-   color: #ff9933;
+   color: black;
    font-size: 14px;
+   font-weight: 700;
+}
+.answer-one-icon p {
+  margin: 0px;
 }
 .fas.fa-dice-one {
   padding-left: 10px;
@@ -142,8 +146,12 @@ a {
   padding-left: 10px;
 }
 .answer-two-icon a {
-   color: #cc00ff;
-   font-size: 14px;
+  color: black;
+  font-size: 14px;
+  font-weight: 700;
+}
+.answer-two-icon p {
+  margin: 0px;
 }
 div.footer {
    height: 40px;
@@ -217,13 +225,21 @@ textarea{
 }
 
 .answer-one-icon {
-    color: #ff9933;
+    color: black;
     font-size: 16px;
+    border-radius: 4px;
+    background-color: #ff9933;
+    margin: 0px;
+    font-weight: 700;
+
 }
 
 .answer-two-icon {
-    color: #cc00ff;
+    color: black;
     font-size: 16px;
+    font-weight: 700;
+    background-color: #cc00ff;
+    border-radius: 4px;
 }
 
 /*Stats Pages*/
