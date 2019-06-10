@@ -58,8 +58,9 @@ function handlePostQuestionClick(){
 
     document.getElementById('newQuestionQues').value = "";
     document.getElementById('newQuestionAuth').value = "";
-    document.getElementById('newQuestionRes1').value = "";
-    document.getElementById('newQuestionRes2').value = "";
+    newQuestionAnswers.forEach(function (element) {
+      element.value = "";
+    });
     document.getElementById('newQuestionCategory').value = "";
   }
 
@@ -104,21 +105,22 @@ questionStatsContainers.forEach( function (element, index, array){
     data.push(Number(ele.querySelector('.answer-percentage').textContent));
     labels.push(ele.querySelector('.answer-percentage-option').textContent);
   });
-  console.log("data = ", data);
-  console.log("labels = ", labels);
   questionStatsChart = element.querySelector('#question-stats-chart');
   myChart = new Chart(questionStatsChart, {
     type: 'pie',
     data: {
       labels: labels,
       datasets: [{
-
         data: data,
         backgroundColor: [
+          'rgb(255, 153, 51)',
+          'rgb(204, 0, 255)',
           'rgb(255, 153, 51)',
           'rgb(204, 0, 255)'
         ],
         backgroundColorHover: [
+          '#ff8000',
+          '#e066ff',
           '#ff8000',
           '#e066ff'
         ],
@@ -135,6 +137,5 @@ questionStatsContainers.forEach( function (element, index, array){
     }
 
   });
-  console.log(myChart);
   data = [], labels = [];
 });

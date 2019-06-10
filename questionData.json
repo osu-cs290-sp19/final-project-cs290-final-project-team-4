@@ -275,6 +275,28 @@
                   "num": 1
                }
             ]
+         },
+         {
+            "text": "What is your favorite fruit?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Banana",
+                  "num": 0
+               },
+               {
+                  "option": "Apple",
+                  "num": 0
+               },
+               {
+                  "option": "Orange",
+                  "num": 0
+               },
+               {
+                  "option": "Watermelon",
+                  "num": 0
+               }
+            ]
          }
       ]
    },
