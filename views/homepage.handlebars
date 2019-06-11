@@ -1,4 +1,10 @@
-<main class="home-container">
-  {{#each qArray}}
-    {{>homeQuestion}}
-  {{/each}}
+<main class="home-container answer-event-box">
+    {{#each qArray}}
+        {{>homeQuestion}}
+    {{/each}}
+    {{#each qArrayNum}}
+        <div class="HPQuestionIndex">{{num}}</div>
+        <div class="HPQuestionLength">{{len}}</div>
+    {{/each}}
+
+</main>
