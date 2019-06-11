@@ -1,4 +1,5 @@
 /* This is the js file for the homepage*/
+<<<<<<< HEAD
 console.log("home js loaded");
 function getUserIdFromURL() {
    var path = window.location.pathname;
@@ -41,6 +42,21 @@ console.log(loginButton);
 
 
 
+=======
+/* navbar bars functionality */
+var barsIcon = document.querySelector('.bars-icon');
+if(barsIcon){
+  barsIcon.addEventListener('click', function (event){
+    var x = document.querySelector('.nav-list');
+    if (x.className === "nav-list") {
+      x.className += " responsive";
+    } else {
+      x.className = "nav-list";
+    }
+  });
+}
+
+>>>>>>> f49e439929db8f53be2f36984011d0a4637e8a90
 var questionBoxes = document.querySelectorAll('.question-content');
 var questionAnswers = [], diceImage = null;
 if (questionBoxes){
