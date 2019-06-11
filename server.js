@@ -255,7 +255,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
 
     var answerNumber = req.params.answerNumber;
     var answerNumberInt = Number(answerNumber);
-    var collection = db.collection('category');
+    var collection = db.collection(category);
 
     collection.updateOne(
       { name: category},
