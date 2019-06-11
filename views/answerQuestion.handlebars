@@ -2,9 +2,6 @@
   <div class="questionBox">
     <p>{{question}}</p>
   </div>
-  <div class="return-button-container">
-    <a href="/answer_question/{{cat}}" class="return-to-category-button">Return to List</a>
-  </div>
 </article>
 <main class="answerContainer answer-event-box">
   {{#each choices}}
@@ -14,4 +11,7 @@
     {{> answerStatsBox}}
   {{/each}}
   <a href="/answer_question/{{cat}}/{{num}}" class="dont-answer-button">I prefer not to answer. Next Question.</a>
+  <div class="return-button-container">
+    <a href="/answer_question/{{cat}}" class="return-to-category-button">Return to List</a>
+  </div>
 </main>
