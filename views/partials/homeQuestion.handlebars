@@ -1,16 +1,26 @@
-  <article class="question">
+  <article class="question homepageQuestion">
     <div class="question-icon">
       <i class="far fa-question-circle"></i>
     </div>
     <div class="question-content">
-      <p class="question-text">
-        <h3>{{text}}</h3>
-      </p>
-      <p class="question-author">
-        <a href="#">{{author}}</a>
-      </p>
-      {{#each choices}}
+        <p class="question-text">
+            <h3>{{text}}</h3>
+        </p>
+        <p class="question-author">
+            <a href="#">{{author}}</a>
+        </p>
+        {{#each choices}}
         {{> homeAnswer}}
+        {{/each}}
+    </div>
+  </article>
+
+  <article class="question homeQuestionFiller hidden">
+      <h3>{{text}}</h3>
+      {{#each choices}}
+         <div class="answer-stats-box homepageStat">
+              <div>{{option}}</div>
+              <p class="percentage homepageStat">{{num}}</p>
+         </div>
       {{/each}}
-   </div>
   </article>

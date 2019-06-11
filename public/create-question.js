@@ -97,13 +97,21 @@ if (acceptButton){
 }
 
 var myChart = null, questionStatsChart = null;
-var data = [], labels = [];
+var data = [], labels = [], answerChoiceLabel, newAnswerChoiceLabel = "", answerChoiceLabelWords = [];
 var questionStatsContainers = document.querySelectorAll('.question-stats-container');
 questionStatsContainers.forEach( function (element, index, array){
   var answerPercentageBoxes = element.querySelectorAll('.answer-percentage-box');
   answerPercentageBoxes.forEach( function (ele){
     data.push(Number(ele.querySelector('.answer-percentage').textContent));
-    labels.push(ele.querySelector('.answer-percentage-option').textContent);
+    answerChoiceLabel = ele.querySelector('.answer-percentage-option').textContent;
+    answerChoiceLabelWords = answerChoiceLabel.split(" ");
+    for (var i = 0; i < 8; i++){
+      if (answerChoiceLabelWords[i]){
+        newAnswerChoiceLabel += (answerChoiceLabelWords[i] + " ");
+      }
+    }
+    labels.push(newAnswerChoiceLabel);
+    newAnswerChoiceLabel = "";
   });
   questionStatsChart = element.querySelector('#question-stats-chart');
   myChart = new Chart(questionStatsChart, {
