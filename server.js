@@ -218,20 +218,29 @@ app.post('/users/:userId/login', function(req, res, next){
 
 app.get('/stats/:username', function(req, res, next){
   var username = req.params.username;
-  var questionObjects = [];
+  var questions = [], collection = null, newQuestions = [];
   var listCat = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"];
-  var collection = db.collection('users');
-  collection.find({users: username}).toArray(function(err, users){
+  listCat.forEach(function (element, index){
+    collection = db.collection(element);
+    newQuestions = collection.find( {author: username} ).toArray();
+    questions.push(newQuestions);
+  });
+  console.log(questions);
+  /*
+  questions.find({author: username}).toArray(function(err, questionsByAuthor){
     if(err){
       res.status(500).send({
         error: "Error fetching user from DB"
       });
-    } else if(users.length < 1){
+    } else if(questions.length < 1){
+      console.log("Array too small!");
       next();
     }else{
-      res.status(200).render('statsPage', users[0]);
-    }
+      */
+      res.status(200).render('statsPage', questions);
+  /*  }
   });
+  */
 });
 
 
@@ -262,6 +271,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
           console.log("== update result:", result);
           if(result.matchedCount > 0) {
             res.status(200).send("Success");
+            console.log("Success");
           } else {
             next();
           }
