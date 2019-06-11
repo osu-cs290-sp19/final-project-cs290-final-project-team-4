@@ -33,7 +33,7 @@ input#login-password {
 }
 .nav-list {
    margin: 0;
-   padding: 10px;
+   padding: 10px 10px 15px 10px;
 }
 .nav-bar {
 /**/
@@ -42,6 +42,9 @@ input#login-password {
    min-height: 20px;
    background-color: rgb(220,220,220);
    border-radius: 4px;
+}
+.nav-bar li.active {
+  border-bottom: 3px solid rgb(138,22,134);
 }
 .nav-item {
    color: white;
@@ -277,6 +280,8 @@ textarea{
     font-weight: 700;
     background-color: #cc00ff;
     border-radius: 4px;
+    font-size: 22px;
+    font-weight: normal;
 }
 
 /*Stats Pages*/
@@ -397,6 +402,8 @@ a.return-to-category-button:hover{
 
 .orangeChoice{
   background-color: rgb(255, 153, 51);
+  font-size: 22px;
+  font-weight: normal;
 }
 
 .orangeChoice:hover {
@@ -457,10 +464,17 @@ a.return-to-category-button:hover{
     margin: 0px;
     min-height: 500px;
 }
+.nav-bar .bars-icon {
+  display: none;
+}
 
 @media (max-width: 600px){
   .nav-list li:not(:first-child) {
     display: none;
+  }
+  .nav-bar .bars-icon {
+    float: left;
+    display: block;
   }
   .nav-list.responsive {
     position: relative;
@@ -473,7 +487,7 @@ a.return-to-category-button:hover{
   .nav-list.responsive li {
     float: none;
     display: block;
-    text-align: left;
+    text-align: center;
   }
 }
 /*Homepage Answers*/
