@@ -4,9 +4,21 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var Chart = require('chart.js');
+var MongoClient = require('mongodb').MongoClient;
+
+
+var mongoHost = process.env.MONGO_HOST || "classmongo.engr.oregonstate.edu";
+var mongoPort = process.env.MONGO_PORT || 27017;
+var mongoUser = process.env.MONGO_USER || "cs290_kaneshke";
+var mongoPassword = process.env.MONGO_PASSWORD || "cs290_team4";
+var mongoDBName = process.env.MONGO_DB_NAME || "cs290_kaneshke";
+
+
+var mongoURL = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
+var db = null;
 
 var app = express();
-var PORT = process.env.PORT || 3927;
+var PORT = process.env.PORT || 39270;
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -41,8 +53,38 @@ function loadRandLifestyleQuestion(min, lifestyleMax) {
 function loadRandMiscQuestion(min, miscMax) {
   return Math.floor(Math.random() * (miscMax-min)) + min; };
 
+app.post('/:category/create_question/add_question', function(req, res, next){
+  var category = req.params.category.toLowerCase();
+  if (req.body && req.body.text && req.body.author && req.body.choices){
+    var categoryBin = db.collection(category);
+    var obj = {
+      text: req.body.text,
+      author: req.body.author,
+      choices: req.body.choices
+    };
+    categoryBin.updateOne(
+      {name: category},
+      {$push: {obj}},
+      function (err, result) {
+        if(err) {
+          res.status(500).send({
+            error: "Error inserting question into DB"
+          });
+        }else{
+          console.log("==update result:", result);
+          if(result.matchedCount > 0) {
+            res.status(200).send("Success");
+          }else{
+            next();
+          }
+        }
+      }
+    );
+  }
+});         
+
 app.get('/',function(req, res, next) {
-    var randSport = loadRandSportsQuestion(min, sportsMax);
+   var randSport = loadRandSportsQuestion(min, sportsMax);
     var randPolitic = loadRandpoliticsQuestion(min, politicsMax);
     var randFood = loadRandFoodQuestion(min, foodMax);
     var randMedia = loadRandMediaQuestion(min, mediaMax);
@@ -58,8 +100,9 @@ res.status(200).render('homepage', {
   database:[database['media']['questions'][randMedia]],
   database:[database['wyr']['questions'][randWYR]],
   database:[database['lifestyle']['questions'][randLifestyle]],
-  database:[database['misc']['questions'][randMisc]]}
-);
+  database:[database['misc']['questions'][randMisc]]} 
+
+  );
 //    res.status(200).render('homepage', {database:[database['sports']['questions'][randSport]]});
 });
 
@@ -93,71 +136,107 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
 });
 
 app.get('/answer_question/:category', function (req, res, next) {
-    var cat = req.params.category.toLowerCase();
-    if (database[cat]) {
-	    var nameL = database[cat].name;
-	    var questionsA = database[cat].questions;
-	    var questionsB = [];
-	    for (var i = 0; i < questionsA.length; i++) {
-	        questionsB.push({
-	            choices: questionsA[i].choices,
-	            author: questionsA[i].author,
-	            text: questionsA[i].text,
-	            cat: cat,
-                num: i
-	        })
-	    }
-        res.status(200).render('categoryQList', {
-		name: nameL,
-		questions: questionsB
-	});
-    }
-    else {
-        res.status(404).render('404');
-    }
-});
-
+    var category = req.params.category.toLowerCase();
+    var collection = db.collection(category);
+    collection.find({}).toArray(function (err, questions){
+      if (err) {
+        res.status(500).send({
+          error: "Error fetching questions from DB"
+        });
+       } else {
+         console.log("==questions:", category);
+         res.status(200).render('categoryQList', {
+           questions: questions
+         });
+       }
+        });
+    });
+   
 app.get('/categories', function(req, res, next) {
     res.status(200).render('categories');
 });
 
+app.post('/users/:userId/login', function(req, res, next){
+    var userId = req.params.userId.toLowerCase();
+    if(req.body && req.body.username && req.body.password){
+         var userInfo = {
+           username: req.body.username,
+           password: req.body.password
+         };
+         var user = db.collection('users');
+         user.updateOne(
+           { userId: userId },
+           { $push: { user: userInfo } },
+           function (err, result) {
+              if (err) {
+                res.status(500).send({
+                    error: "Error inserting user info into DB."
+                });
+              }else{
+                res.status(200).send("Success");           
+              }
+            }
+         );
+    }else{
+        res.status(400).send("Login must have both username and password");
+    }
+});
 
 app.get('/stats/:username', function(req, res, next){
   var username = req.params.username;
   var questionObjects = [];
-  var listCat = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"]
-  for (var i = 0; i < 7; i++){
-    for (var j = 0; j < database[listCat[i]].questions.length; j++){
-      if (database[listCat[i]].questions[j].author){
-        if (database[listCat[i]].questions[j].author === username){
-          questionObjects.push(database[listCat[i]].questions[j]);
-        }
-      }
+  var listCat = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"];
+  var collection = db.collection('users');
+  collection.find({users: username}).toArray(function(err, users){
+    if(err){
+      res.status(500).send({
+        error: "Error fetching user from DB"
+      });
+    } else if(users.length < 1){
+      next();
+    }else{
+      res.status(200).render('statsPage', users[0]);
     }
-  }
-    res.status(200).render('statsPage', {questionObjects: questionObjects});
-
   });
+});
 
 
-
-
-  app.get('*',function(req, res, next){
+app.get('*',function(req, res, next){
   res.status(404).render('404');
-  });
-
-  app.get('*', function(req, res, next)   {
-    res.status(404).render('404');
-  });
-
-  app.post('/answer_question/:category/:questionNumber/:answerNumber', function(req, res, next){
+});
+  
+app.post('/answer_question/:category/:questionNumber/:answerNumber', function(req, res, next){
     var category = req.params.category.toLowerCase();
     var questionNumber = req.params.questionNumber;
     var questionNumberInt = Number(questionNumber);
 
     var answerNumber = req.params.answerNumber;
     var answerNumberInt = Number(answerNumber);
-    if (database[category] && questionNumber < database[category].questions.length &&
+    var collection = db.collection('category');
+
+    collection.updateOne(
+      { name: category},
+      { questions: questions[questionNumberInt]},
+      { choices: choices[answerNumberInt]},
+      {$push: {num: num+1}},
+      function(err, result) {
+        if(err) {
+          res.status(500).send({
+            error: "Error adding vote to number"
+          });
+        } else {
+          console.log("== update reult:", result);
+          if(result.matchedCount > 0) {
+            res.status(200).send("Success");
+          } else {
+            next();
+          }
+        }
+      }  
+    );
+
+
+    /*if (database[category] && questionNumber < database[category].questions.length &&
       answerNumber < database[category].questions[questionNumber].choices.length){
         fs.readFile('questionData.json', 'utf8', function(err, data){
           if (err){
@@ -170,49 +249,17 @@ app.get('/stats/:username', function(req, res, next){
             database[category].questions[questionNumber].choices[answerNumber].num++;
           }
         });
-      } else {
-        next();
-      }
-    });
-
-app.post('/:category/create_question/add_question', function(req, res, next){
-  if (req.body){
-    var category = req.params.category.toLowerCase();
-    if (database[category]) {
-      fs.readFile('questionData.json', 'utf8', function(err, data){
-        if (err){
-          console.log(err);
-        } else {
-          var obj = JSON.parse(data);
-          obj[category].questions.push({
-            text: req.body.text,
-            author: req.body.author,
-            choices: req.body.choices
-          });
-          json = JSON.stringify(obj, null, 3);
-          fs.writeFile('questionData.json', json, 'utf8', function () { });
-          database[category].questions.push({
-              text: req.body.text,
-              author: req.body.author,
-              choices: req.body.choices
-          });
-        }
-      });
-      res.status(200).send("Question successfully added");
-      console.log("Question successfully added");
     } else {
       next();
-    }
-  }else {
-    res.status(400).send({
-      error: "Request body needs to be in an appropriate category."
-    });
-  }
+  }*/
 });
 
-app.listen(PORT, function(err) {
-  if(err) {
-    throw err;
+MongoClient.connect(mongoURL, function (err, client){
+  if (err) {
+   throw err;
   }
-  console.log("== Server is listening on PORT", PORT);
+  db = client.db(mongoDBName);
+  app.listen(PORT, function () {
+    console.log("== Server listening on port", PORT);
+  });
 });
