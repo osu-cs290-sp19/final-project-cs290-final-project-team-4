@@ -25,33 +25,37 @@ var wyrMax = Object.keys(database['wyr']['questions']).length;
 var lifestyleMax = Object.keys(database['lifestyle']['questions']).length;
 var miscMax = Object.keys(database['misc']['questions']).length;
 
-function loadRandSportsQuestion(min, sportsMax) {
-   return database.sports.questions[Math.floor(Math.random() * (sportsMax-min)) + min]};
-function loadRandpoliticsQuestion(min, politicsMax) {
-   return database.politics.questions[Math.floor(Math.random() * (politicsMax-min)) + min]};
-function loadRandFoodQuestion(min, foodMax) {
-  return database.food.questions[Math.floor(Math.random() * (foodMax-min)) + min]};
-function loadRandMediaQuestion(min, mediaMax) {
-  return database.media.questions[Math.floor(Math.random() * (mediaMax-min)) + min]};
-function loadRandWYRQuestion(min, wyrMax) {
-  return database.wyr.questions[Math.floor(Math.random() * (wyrMax-min)) + min]};
-function loadRandLifestyleQuestion(min, lifestyleMax) {
-  return database.lifestyle.questions[Math.floor(Math.random() * (lifestyleMax-min)) + min]};
-function loadRandMiscQuestion(min, miscMax) {
-  return database.misc.questions[Math.floor(Math.random() * (miscMax-min)) + min]};
+function getRandNum(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
-app.get('/',function(req, res, next) {
-    var randSport = loadRandSportsQuestion(min, sportsMax);
-    var randPolitic = loadRandpoliticsQuestion(min, politicsMax);
-    var randFood = loadRandFoodQuestion(min, foodMax);
-    var randMedia = loadRandMediaQuestion(min, mediaMax);
-    var randWYR = loadRandWYRQuestion(min, wyrMax);
-    var randLifestyle = loadRandLifestyleQuestion(min, lifestyleMax);
-    var randMisc = loadRandMiscQuestion(min, miscMax);
+app.get('/', function (req, res, next) {
+    var RSports = getRandNum(min, sportsMax);
+    var RPolitics = getRandNum(min, politicsMax);
+    var RFood = getRandNum(min, foodMax);
+    var RMedia = getRandNum(min, mediaMax);
+    var RWyr = getRandNum(min, wyrMax);
+    var RLifestyle = getRandNum(min, lifestyleMax);
+    var RMisc = getRandNum(min, miscMax);
 
-var qArray = [randSport,randPolitic,randFood,randMedia,randWYR,randLifestyle,randMisc];
+    var randSport = database.sports.questions[RSports];
+    var randPolitic = database.politics.questions[RPolitics];
+    var randFood = database.food.questions[RFood];
+    var randMedia = database.media.questions[RMedia];
+    var randWYR = database.wyr.questions[RWyr];
+    var randLifestyle = database.lifestyle.questions[RLifestyle];
+    var randMisc = database.misc.questions[RMisc];
 
-  res.status(200).render('homepage', {qArray: qArray});
+    var qArrayNum = [{ num: RSports, len: randSport.choices.length }, { num: RPolitics, len: randPolitic.choices.length },
+                        { num: RFood, len: randFood.choices.length }, { num: RMedia, len: randMedia.choices.length },
+                        { num: RWyr, len: randWYR.choices.length }, { num: RLifestyle, len: randLifestyle.choices.length },
+                        { num: RMisc, len: randMisc.choices.length }]
+    var qArray = [randSport,randPolitic,randFood,randMedia,randWYR,randLifestyle,randMisc];
+
+    res.status(200).render('homepage', {
+        qArray: qArray,
+        qArrayNum: qArrayNum
+    });
 
 });
 
