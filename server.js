@@ -27,7 +27,7 @@ var database = require('./questionData');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-
+/*
 var min = 0;
 var catMax = Object.keys(database).length;
 var sportsMax = Object.keys(database['sports']['questions']).length;
@@ -52,7 +52,7 @@ function loadRandLifestyleQuestion(min, lifestyleMax) {
   return Math.floor(Math.random() * (lifestyleMax-min)) + min; };
 function loadRandMiscQuestion(min, miscMax) {
   return Math.floor(Math.random() * (miscMax-min)) + min; };
-
+*/
 app.post('/:category/create_question/add_question', function(req, res, next){
   var category = req.params.category.toLowerCase();
   if (req.body && req.body.text && req.body.author && req.body.choices){
@@ -81,8 +81,8 @@ app.post('/:category/create_question/add_question', function(req, res, next){
       }
     );
   }
-});         
-
+});
+/*
 app.get('/',function(req, res, next) {
    var randSport = loadRandSportsQuestion(min, sportsMax);
     var randPolitic = loadRandpoliticsQuestion(min, politicsMax);
@@ -101,11 +101,11 @@ res.status(200).render('homepage', {
   database:[database['media']['questions'][randMedia]],
   database:[database['wyr']['questions'][randWYR]],
   database:[database['lifestyle']['questions'][randLifestyle]],
-  database:[database['misc']['questions'][randMisc]]} 
+  database:[database['misc']['questions'][randMisc]]}
 
   );
 //    res.status(200).render('homepage', {database:[database['sports']['questions'][randSport]]});
-
+*/
 function getRandNum(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
@@ -183,7 +183,7 @@ app.get('/answer_question/:category', function (req, res, next) {
        }
         });
     });
-   
+
 app.get('/categories', function(req, res, next) {
     res.status(200).render('categories');
 });
@@ -205,7 +205,7 @@ app.post('/users/:userId/login', function(req, res, next){
                     error: "Error inserting user info into DB."
                 });
               }else{
-                res.status(200).send("Success");           
+                res.status(200).send("Success");
               }
             }
          );
@@ -236,7 +236,7 @@ app.get('/stats/:username', function(req, res, next){
 app.get('*',function(req, res, next){
   res.status(404).render('404');
 });
-  
+
 app.post('/answer_question/:category/:questionNumber/:answerNumber', function(req, res, next){
     var category = req.params.category.toLowerCase();
     var questionNumber = req.params.questionNumber;
@@ -264,7 +264,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
             next();
           }
         }
-      }  
+      }
     );
 });
 
