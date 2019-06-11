@@ -12,7 +12,7 @@ body {
    border-radius: 4px
 }
 .loginContainer {
-   position: absolute;
+ position: absolute;
    right: 20px;
    top: 20px;
    font-size: 12px;
@@ -36,6 +36,9 @@ input#login-password {
    padding: 10px;
 }
 .nav-bar {
+/**/
+  overflow: hidden;
+/**/
    min-height: 20px;
    background-color: rgb(220,220,220);
    border-radius: 4px;
@@ -47,6 +50,13 @@ input#login-password {
    padding: 5px;
    min-height: 24px;
 }
+/**/
+.nav-bar a {
+  border-bottom-color: rgb(138,22,134)
+  color: white;
+}
+
+/**/
 a {
   text-decoration: none;
   color: black;
@@ -297,22 +307,35 @@ textarea{
 }
 
 .return-button-container{
+  background-color: black;
+  margin: 1px 10px 1px 10px;
+  width: 81%;
+  justify-content: center;
+  min-height: 10%;
+  max-height: 20%;
+  border-radius: 10px;
+  font-size: 200%;
+  color: white;
+  padding-left: 10px;
+  /*
   display: inline;
   background-color: darkgrey;
   max-width: 20%;
   color: white;
   justify-content: center;
   border-radius: 2px;
+  */
 }
 
 .return-button-container:hover{
   cursor: pointer;
-  background-color: #383838;
+  background-color: darkgrey;
   color: white;
 }
 .return-to-category-button{
   display: flex;
   text-align: center;
+  color: white;
 }
 a.return-to-category-button:hover{
   color: white;
@@ -348,17 +371,18 @@ a.return-to-category-button:hover{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 32px;
 }
 
 .answer-choice-name{
-  font-size: 150%;
+  font-size: 32px;
   display: flex;
   justify-content: center;
 }
 
 .percentage{
-  font-size: 500%;
-}
+  font-size: 32px;;
+  }
 
 .answer-choice-button:hover {
   cursor: pointer;

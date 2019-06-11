@@ -4,6 +4,7 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var Chart = require('chart.js');
+var shuffleArray = require('shuffle-array')
 
 var app = express();
 var PORT = process.env.PORT || 3927;
@@ -66,11 +67,11 @@ app.get('/create_question', function(req, res, next) {
 
 app.get('/answer_question/:category/:number', function (req, res, next) {
     var cat = req.params.category.toLowerCase();
-    var num = req.params.number;
-    var numInt = Number(num) + 1;
-    if (numInt >= database[cat].questions.length) {
-      numInt = 0;
-    }
+    var num = Number(req.params.number);
+    var newNum = num;
+    do {
+      newNum = Math.floor(Math.random() * database[cat].questions.length);
+    } while (newNum === num);
     if (database[cat] && num >= 0 && num < database[cat].questions.length) {
         var question = database[cat].questions[num];
         var answers = [], answerPercentages = [];
@@ -78,7 +79,7 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
 		question: question.text,
 		choices: question.choices,
     cat: cat,
-    num: numInt
+    num: newNum
 	});
     }
     else {
@@ -101,6 +102,7 @@ app.get('/answer_question/:category', function (req, res, next) {
                 num: i
 	        })
 	    }
+      shuffleArray(questionsB);
         res.status(200).render('categoryQList', {
 		name: nameL,
 		questions: questionsB
