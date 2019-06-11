@@ -236,16 +236,19 @@ textarea{
 }
 
 .answer-one-icon {
+  display: table;
+  padding: 5px;
     color: black;
     font-size: 16px;
     border-radius: 4px;
     background-color: #ff9933;
     margin: 0px;
     font-weight: 700;
-
 }
 
 .answer-two-icon {
+  display: table;
+  padding: 5px;
     color: black;
     font-size: 16px;
     font-weight: 700;
