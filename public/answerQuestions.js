@@ -76,6 +76,10 @@ function answerSelectedHP(event) {
                 changeDBStatsHome(i, j);
                 homePageQuestions[i].classList.add('hidden');
                 homeCovers[i].classList.remove('hidden');
+                updateStatDisplay(k);
+                for (var l = k - j; l < l + Number(homePageQLength[i].innerHTML) ; l++)
+                    answerStatsBoxes[l].classList.remove('hidden');
+                
             }
             k++;
         }

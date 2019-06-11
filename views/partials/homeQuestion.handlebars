@@ -15,6 +15,12 @@
     </div>
   </article>
 
-    <article class="question homeQuestionFiller hidden">
-        <p>Thank you for your Response</p>
-    </article>
+  <article class="question homeQuestionFiller hidden">
+      <h3>{{text}}</h3>
+      {{#each choices}}
+         <div class="answer-stats-box homepageStat">
+              <div>{{option}}</div>
+              <p class="percentage homepageStat">{{num}}</p>
+         </div>
+      {{/each}}
+  </article>
