@@ -22,7 +22,7 @@
             "choices": [
                {
                   "option": "Warriors",
-                  "num": 18
+                  "num": 20
                },
                {
                   "option": "Bulls",
@@ -240,7 +240,7 @@
             "choices": [
                {
                   "option": "White",
-                  "num": 0
+                  "num": 1
                },
                {
                   "option": "Wheat",

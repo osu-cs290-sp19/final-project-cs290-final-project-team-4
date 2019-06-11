@@ -4,6 +4,7 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var Chart = require('chart.js');
+var shuffleArray = require('shuffle-array')
 
 var app = express();
 var PORT = process.env.PORT || 3927;
@@ -101,6 +102,7 @@ app.get('/answer_question/:category', function (req, res, next) {
                 num: i
 	        })
 	    }
+      shuffleArray(questionsB);
         res.status(200).render('categoryQList', {
 		name: nameL,
 		questions: questionsB
