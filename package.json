@@ -10,19 +10,25 @@
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.1.2",
     "merge-descriptors": "^1.0.1",
+<<<<<<< HEAD
     "mongodb": "^3.2.7"
+=======
+    "shuffle-array": "^1.0.1"
+>>>>>>> 0f1c2dd73a5aff3ec1ad0527b870cc43307a178b
   },
   "devDependencies": {},
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
     "buildQListEntry": "handlebars views/partials/categoryQListEntry.handlebars -f public/QListEntryTemplate.js",
+    "buildAnswerQuestionsTemplates": "handlebars views/partials/answerStatsBox.handlebars views/partials/answerButton.handlebars -f public/answerQuestionTemplates.js",
+    "buildAnswerTemplates": "handlebars views/partials/homeAnswer.handlebars views/partials/categoryQListAnswer.handlebars -f public/answerTemplates.js",
     "buildQListOption": "handlebars views/partials/categoryQListOption.handlebars -f public/QListOptionTemplate.js",
     "buildFooter": "handlebars views/partials/footer.handlebars -f public/footerTemplate.js",
     "buildHeader": "handlebars views/partials/header.handlebars -f public/headerTemplate.js",
     "buildHomeQ": "handlebars views/partials/homeQuestion.handlebars -f public/homeQuestionTemplate.js",
     "buildStats": "handlebars views/partials/questionStats.handlebars -f public/questionStatsTemplate.js",
     "buildStatsPercentages": "handlebars views/partials/questionStatsPercentages.handlebars -f public/questionStatsPercentagesTemplate.js",
-    "prestart": "npm run buildHomeQ && npm run buildStatsPercentages && npm run buildStats && npm run buildQListEntry && npm run buildQListOption && npm run buildFooter && npm run buildHeader",
+    "prestart": "npm run buildHomeQ && npm run buildAnswerTemplates && npm run buildAnswerQuestionsTemplates && npm run buildStatsPercentages && npm run buildStats && npm run buildQListEntry && npm run buildQListOption && npm run buildFooter && npm run buildHeader",
     "start": "node server.js"
   },
   "repository": {

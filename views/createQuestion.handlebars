@@ -7,13 +7,16 @@
             <div class="quest">
                 <textarea id="newQuestionQues" class="question text-input" placeholder="Enter your question here..."></textarea>
             </div>
-            <div class="textContainer">
-                <textarea id="newQuestionRes1" class="question text-input" placeholder="Enter the first response..."></textarea>
+            <div class="responses-container">
+              <div class="textContainer">
+                  <textarea id="newQuestionRes" class="question text-input" placeholder="Enter your response..."></textarea>
+              </div>
+              <div class="textContainer">
+                  <textarea id="newQuestionRes" class="question text-input" placeholder="Enter your response..."></textarea>
+              </div>
             </div>
-            <div class="textContainer">
-                <textarea id="newQuestionRes2" class="question text-input" placeholder="Enter the second response..."></textarea>
-            </div>
-            <div class="textContainer">
+            <button type="button" id="askQuestionButton" class="add-answer-choice-button">Add Another Answer Choice</button>
+            <div class="textContainer category-selector">
                 <select id="newQuestionCategory">
                     <option selected>Sports</option>
                     <option>Politics</option>
@@ -29,7 +32,7 @@
                 <div>
                     <textarea id="newQuestionAuth" class="question" placeholder="Enter your name..."></textarea>
                 </div>
-                <button type="button" id="postQuestionButton">Post Question</button>
+                <button type="button" id="askQuestionButton" class="postQuestionButton">Post Question</button>
             </div>
         </div>
     </div>

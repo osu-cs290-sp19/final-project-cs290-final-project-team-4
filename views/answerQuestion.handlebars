@@ -2,28 +2,16 @@
   <div class="questionBox">
     <p>{{question}}</p>
   </div>
+</article>
+<main class="answerContainer answer-event-box">
+  {{#each choices}}
+    {{> answerButton}}
+  {{/each}}
+  {{#each choices}}
+    {{> answerStatsBox}}
+  {{/each}}
+  <a href="/answer_question/{{cat}}/{{num}}" class="dont-answer-button">I prefer not to answer. Next Question.</a>
   <div class="return-button-container">
     <a href="/answer_question/{{cat}}" class="return-to-category-button">Return to List</a>
   </div>
-</article>
-<main class="answerContainer answer-event-box">
-  <button type="button" class="answer-choice-button answer-choice-event-button">{{Ans1}}</button>
-  <button type="button" class="answer-choice-button answer-choice-event-button">{{Ans2}}</button>
-  <div class="answer-stats-box">
-    <div class="answer-choice-name">
-      <p>{{Ans1}}</p>
-    </div>
-    <div>
-      <p class="percentage">{{Ans1s}}</p>
-    </div>
-  </div>
-  <div class="answer-stats-box">
-    <div class="answer-choice-name">
-      <p>{{Ans2}}</p>
-    </div>
-    <div>
-      <p class="percentage">{{Ans2s}}</p>
-    </div>
-  </div>
-  <a href="/answer_question/{{cat}}/{{num}}" class="dont-answer-button">I prefer not to answer. Next Question.</a>
 </main>

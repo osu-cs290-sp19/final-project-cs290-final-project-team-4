@@ -22,11 +22,11 @@
             "choices": [
                {
                   "option": "Warriors",
-                  "num": 18
+                  "num": 20
                },
                {
                   "option": "Bulls",
-                  "num": 21
+                  "num": 22
                }
             ]
          },
@@ -36,7 +36,7 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 6
+                  "num": 7
                },
                {
                   "option": "No",
@@ -92,7 +92,7 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 2
+                  "num": 3
                },
                {
                   "option": "No",
@@ -120,11 +120,51 @@
             "choices": [
                {
                   "option": "A",
-                  "num": 1
+                  "num": 5
                },
                {
                   "option": "Z",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "A, B, or C?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
                   "num": 0
+               },
+               {
+                  "option": "B",
+                  "num": 1
+               },
+               {
+                  "option": "C",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "A, B, C, or D?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
+                  "num": 1
+               },
+               {
+                  "option": "B",
+                  "num": 1
+               },
+               {
+                  "option": "C",
+                  "num": 1
+               },
+               {
+                  "option": "D",
+                  "num": 1
                }
             ]
          }
@@ -157,7 +197,7 @@
                },
                {
                   "option": "No",
-                  "num": 0
+                  "num": 1
                }
             ]
          },
@@ -200,7 +240,7 @@
             "choices": [
                {
                   "option": "White",
-                  "num": 0
+                  "num": 1
                },
                {
                   "option": "Wheat",
@@ -233,6 +273,28 @@
                {
                   "option": "That one thing you can never remember that you know tasted incredibly good during that one trip to China that you went on when you were 7 years old",
                   "num": 1
+               }
+            ]
+         },
+         {
+            "text": "What is your favorite fruit?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Banana",
+                  "num": 0
+               },
+               {
+                  "option": "Apple",
+                  "num": 0
+               },
+               {
+                  "option": "Orange",
+                  "num": 0
+               },
+               {
+                  "option": "Watermelon",
+                  "num": 0
                }
             ]
          }

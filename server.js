@@ -16,7 +16,7 @@ var mongoDBName = process.env.MONGO_DB_NAME || "cs290_kaneshke";
 
 var mongoURL = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
 var db = null;
-
+var shuffleArray = require('shuffle-array')
 var app = express();
 var PORT = process.env.PORT || 39270;
 
@@ -93,6 +93,7 @@ app.get('/',function(req, res, next) {
     var randMisc = loadRandMiscQuestion(min, miscMax);
 //res.status(200).render('homepage', {database:[database['politics']]});
 //res.status(200).render('homepage', {database});
+});
 res.status(200).render('homepage', {
   database:[database['sports']['questions'][randSport]],
   database:[database['politics']['questions'][randPolitic]],
@@ -104,7 +105,38 @@ res.status(200).render('homepage', {
 
   );
 //    res.status(200).render('homepage', {database:[database['sports']['questions'][randSport]]});
-});
+
+function getRandNum(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+app.get('/', function (req, res, next) {
+  var RSports = getRandNum(min, sportsMax);
+  var RPolitics = getRandNum(min, politicsMax);
+  var RFood = getRandNum(min, foodMax);
+  var RMedia = getRandNum(min, mediaMax);
+  var RWyr = getRandNum(min, wyrMax);
+  var RLifestyle = getRandNum(min, lifestyleMax);
+  var RMisc = getRandNum(min, miscMax);
+
+  var randSport = database.sports.questions[RSports];
+  var randPolitic = database.politics.questions[RPolitics];
+  var randFood = database.food.questions[RFood];
+  var randMedia = database.media.questions[RMedia];
+  var randWYR = database.wyr.questions[RWyr];
+  var randLifestyle = database.lifestyle.questions[RLifestyle];
+  var randMisc = database.misc.questions[RMisc];
+
+  var qArrayNum = [{ num: RSports, len: randSport.choices.length }, { num: RPolitics, len: randPolitic.choices.length },
+                      { num: RFood, len: randFood.choices.length }, { num: RMedia, len: randMedia.choices.length },
+                      { num: RWyr, len: randWYR.choices.length }, { num: RLifestyle, len: randLifestyle.choices.length },
+                      { num: RMisc, len: randMisc.choices.length }]
+  var qArray = [randSport,randPolitic,randFood,randMedia,randWYR,randLifestyle,randMisc];
+
+  res.status(200).render('homepage', {
+      qArray: qArray,
+      qArrayNum: qArrayNum
+  });});
 
 app.get('/create_question', function(req, res, next) {
     res.status(200).render('createQuestion');
@@ -225,7 +257,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
             error: "Error adding vote to number"
           });
         } else {
-          console.log("== update reult:", result);
+          console.log("== update result:", result);
           if(result.matchedCount > 0) {
             res.status(200).send("Success");
           } else {
@@ -234,24 +266,6 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
         }
       }  
     );
-
-
-    /*if (database[category] && questionNumber < database[category].questions.length &&
-      answerNumber < database[category].questions[questionNumber].choices.length){
-        fs.readFile('questionData.json', 'utf8', function(err, data){
-          if (err){
-            res.status(500).send("Server Error");
-          } else {
-            var obj = JSON.parse(data);
-            obj[category].questions[questionNumber].choices[answerNumber].num++;
-            json = JSON.stringify(obj, null, 3);
-            fs.writeFile('questionData.json', json, 'utf8', function () { });
-            database[category].questions[questionNumber].choices[answerNumber].num++;
-          }
-        });
-    } else {
-      next();
-  }*/
 });
 
 MongoClient.connect(mongoURL, function (err, client){
