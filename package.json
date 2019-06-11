@@ -10,11 +10,8 @@
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.1.2",
     "merge-descriptors": "^1.0.1",
-<<<<<<< HEAD
-    "mongodb": "^3.2.7"
-=======
+    "mongodb": "^3.2.7",
     "shuffle-array": "^1.0.1"
->>>>>>> 0f1c2dd73a5aff3ec1ad0527b870cc43307a178b
   },
   "devDependencies": {},
   "scripts": {
