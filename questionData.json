@@ -26,7 +26,7 @@
                },
                {
                   "option": "Bulls",
-                  "num": 21
+                  "num": 22
                }
             ]
          },
@@ -36,7 +36,7 @@
             "choices": [
                {
                   "option": "Yes",
-                  "num": 6
+                  "num": 7
                },
                {
                   "option": "No",
@@ -124,7 +124,7 @@
                },
                {
                   "option": "Z",
-                  "num": 0
+                  "num": 1
                }
             ]
          },
@@ -142,7 +142,7 @@
                },
                {
                   "option": "C",
-                  "num": 1
+                  "num": 2
                }
             ]
          },
