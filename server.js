@@ -3,6 +3,7 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var shuffleArray = require('shuffle-array');
 var Chart = require('chart.js');
 var MongoClient = require('mongodb').MongoClient;
 
@@ -16,7 +17,7 @@ var mongoDBName = process.env.MONGO_DB_NAME || "cs290_kaneshke";
 
 var mongoURL = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
 var db = null;
-var shuffleArray = require('shuffle-array')
+
 var app = express();
 var PORT = process.env.PORT || 39270;
 
@@ -27,7 +28,7 @@ var database = require('./questionData');
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-/*
+
 var min = 0;
 var catMax = Object.keys(database).length;
 var sportsMax = Object.keys(database['sports']['questions']).length;
@@ -37,6 +38,7 @@ var mediaMax = Object.keys(database['media']['questions']).length;
 var wyrMax = Object.keys(database['wyr']['questions']).length;
 var lifestyleMax = Object.keys(database['lifestyle']['questions']).length;
 var miscMax = Object.keys(database['misc']['questions']).length;
+/*
 //console.log("text===",database['politics']['questions'][0].text);
 function loadRandSportsQuestion(min, sportsMax) {
    return Math.floor(Math.random() * (sportsMax-min)) + min; };

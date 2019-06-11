@@ -1,5 +1,4 @@
 /* This is the js file for the homepage*/
-<<<<<<< HEAD
 console.log("home js loaded");
 function getUserIdFromURL() {
    var path = window.location.pathname;
@@ -40,9 +39,6 @@ console.log(loginButton);
 
    loginButton.addEventListener('click', handleLoginClick);
 
-
-
-=======
 /* navbar bars functionality */
 var barsIcon = document.querySelector('.bars-icon');
 if(barsIcon){
@@ -56,7 +52,6 @@ if(barsIcon){
   });
 }
 
->>>>>>> f49e439929db8f53be2f36984011d0a4637e8a90
 var questionBoxes = document.querySelectorAll('.question-content');
 var questionAnswers = [], diceImage = null;
 if (questionBoxes){
