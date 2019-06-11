@@ -97,21 +97,13 @@ if (acceptButton){
 }
 
 var myChart = null, questionStatsChart = null;
-var data = [], labels = [], answerChoiceLabel, newAnswerChoiceLabel = "", answerChoiceLabelWords = [];
+var data = [], labels = [];
 var questionStatsContainers = document.querySelectorAll('.question-stats-container');
 questionStatsContainers.forEach( function (element, index, array){
   var answerPercentageBoxes = element.querySelectorAll('.answer-percentage-box');
   answerPercentageBoxes.forEach( function (ele){
     data.push(Number(ele.querySelector('.answer-percentage').textContent));
-    answerChoiceLabel = ele.querySelector('.answer-percentage-option').textContent;
-    answerChoiceLabelWords = answerChoiceLabel.split(" ");
-    for (var i = 0; i < 8; i++){
-      if (answerChoiceLabelWords[i]){
-        newAnswerChoiceLabel += (answerChoiceLabelWords[i] + " ");
-      }
-    }
-    labels.push(newAnswerChoiceLabel);
-    newAnswerChoiceLabel = "";
+    labels.push(ele.querySelector('.answer-percentage-option').textContent);
   });
   questionStatsChart = element.querySelector('#question-stats-chart');
   myChart = new Chart(questionStatsChart, {
@@ -123,14 +115,14 @@ questionStatsContainers.forEach( function (element, index, array){
         backgroundColor: [
           'rgb(255, 153, 51)',
           'rgb(204, 0, 255)',
-          'rgb(255, 153, 51)',
-          'rgb(204, 0, 255)'
+          'rgb(255,255,0)',
+          'rgb(0,0,245)'
         ],
         backgroundColorHover: [
           '#ff8000',
           '#e066ff',
-          '#ff8000',
-          '#e066ff'
+          'rgb(235,235,0)',
+          'rgb(0,0,225)',
         ],
         borderColor: 'black',
         borderWidth: 1
