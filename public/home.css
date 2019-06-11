@@ -104,6 +104,12 @@ a {
 .nav-item.nav-log a {
    color: white;
 }
+
+.bars-icon{
+  color: rgb(138,22,134);
+  font-size: 200%;
+}
+
 .home-container {
    margin: 0px;
    border: 2px solid black;
@@ -445,6 +451,24 @@ a.return-to-category-button:hover{
     min-height: 500px;
 }
 
+@media (max-width: 600px){
+  .nav-list li:not(:first-child) {
+    display: none;
+  }
+  .nav-list.responsive {
+    position: relative;
+  }
+  .nav-list.responsive li.bars-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav-list.responsive li {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 /* Don't put anything below this! */
 .hidden{
   display: none;

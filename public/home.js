@@ -1,4 +1,17 @@
 /* This is the js file for the homepage*/
+/* navbar bars functionality */
+var barsIcon = document.querySelector('.bars-icon');
+if(barsIcon){
+  barsIcon.addEventListener('click', function (event){
+    var x = document.querySelector('.nav-list');
+    if (x.className === "nav-list") {
+      x.className += " responsive";
+    } else {
+      x.className = "nav-list";
+    }
+  });
+}
+
 var questionBoxes = document.querySelectorAll('.question-content');
 var questionAnswers = [], diceImage = null;
 if (questionBoxes){
