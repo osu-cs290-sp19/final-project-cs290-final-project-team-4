@@ -130,11 +130,12 @@ app.get('/', function (req, res, next) {
                       { num: RWyr, len: randWYR.choices.length }, { num: RLifestyle, len: randLifestyle.choices.length },
                       { num: RMisc, len: randMisc.choices.length }]
   var qArray = [randSport,randPolitic,randFood,randMedia,randWYR,randLifestyle,randMisc];
-
+  console.log (qArray);
   res.status(200).render('homepage', {
       qArray: qArray,
       qArrayNum: qArrayNum
-  });});
+  });
+});
 
 app.get('/create_question', function(req, res, next) {
     res.status(200).render('createQuestion');
@@ -177,7 +178,7 @@ app.get('/answer_question/:category', function (req, res, next) {
       }else if (questions.length < 1) {
         next();
       } else {
-
+         shuffleArray(questions);
          console.log("==questions:", questions);
          res.status(200).render('categoryQList', {
            name: questions[0].name,
