@@ -7,6 +7,7 @@ var shuffleArray = require('shuffle-array');
 var Chart = require('chart.js');
 var MongoClient = require('mongodb').MongoClient;
 
+var ObjectId = require('mongodb').ObjectId;
 
 var mongoHost = process.env.MONGO_HOST || "classmongo.engr.oregonstate.edu";
 var mongoPort = process.env.MONGO_PORT || 27017;
@@ -111,7 +112,7 @@ function getRandNum(min, max) {
 }
 
 app.get('/', function (req, res, next) {
-  
+
   var collection = db.collection('questions');
   collection.find({}).toArray(function (err, questions){
     if (err) {
@@ -189,27 +190,37 @@ app.get('/create_question', function(req, res, next) {
 
 
 app.get('/answer_question/:category/:number', function (req, res, next) {
-    var cat = req.params.category.toLowerCase();
-    var num = req.params.number;
-    var numInt = Number(num) + 1;
-    if (numInt >= database[cat].questions.length) {
-      numInt = 0;
+  var cat = req.params.category.toLowerCase();
+  var questionID = req.params.number;
+  var collection = db.collection('questions');
+  collection.find({_id: ObjectId(questionID)}).toArray(function (err, currentQuestion){
+    if (err){
+      res.status(500).send({
+        error: "Error fetching currentQuestion from DB"
+      });
+    }else if (currentQuestion.length < 1) {
+      next();
+    } else {
+      collection.find({name: cat}, {_id: {$ne: ObjectId(questionID)} } ).toArray(function (err, newQuestionPossibilities){
+        if (err){
+          res.status(500).send({
+            error: "Error fetching possible next questions from DB"
+          });
+        }else if (newQuestionPossibilities.length < 1) {
+          next();
+        } else {
+          var choices = currentQuestion[0].questions.choices;
+          shuffleArray(newQuestionPossibilities);
+          res.status(200).render('answerQuestion', {
+        		text: currentQuestion[0].questions.text,
+        		choices: choices,
+            cat: cat,
+            num: newQuestionPossibilities[0]._id
+          });
+        }
+      });
     }
-    if (database[cat] && num >= 0 && num < database[cat].questions.length) {
-        var question = database[cat].questions[num];
-        res.status(200).render('answerQuestion', {
-		question: question.text,
-		Ans1: question.choices[0].option,
-		Ans2: question.choices[1].option,
-		Ans1s: question.choices[0].num,
-		Ans2s: question.choices[1].num,
-    cat: cat,
-    num: numInt
-	});
-    }
-    else {
-        res.status(404).render('404');
-    }
+  });
 });
 
 app.get('/answer_question/:category', function (req, res, next) {

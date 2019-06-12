@@ -11,6 +11,7 @@ body {
    padding: 5px 20px 5px 20px;
    border-radius: 4px
 }
+/*
 .loginContainer {
  position: absolute;
    right: 20px;
@@ -24,7 +25,7 @@ body {
    margin: 2px;
    padding: 1px;
    background-color: white;
-}
+}*/
 input#login-username {
    border: none;
 }
@@ -103,12 +104,13 @@ a {
 .nav-item.nav-log {
    position: absolute;
    top: 70px;
-   right: 20px;
+   right: 17px;
 }
+/* moved to @media for screen changes
 .nav-item.nav-log a {
    color: white;
 }
-
+*/
 .bars-icon{
   color: rgb(138,22,134);
   font-size: 200%;
@@ -497,6 +499,50 @@ a.return-to-category-button:hover{
     display: block;
     text-align: center;
     border-bottom: none;
+  }
+}
+div.loginContainer {
+ position: absolute;
+   right: 20px;
+   top: 20px;
+   font-size: 12px;
+}
+.loginInfo {
+   display: block;
+   border: 1px solid black;
+   border-radius: 3px;
+   margin: 2px;
+   padding: 1px;
+   background-color: white;
+}
+.nav-item.nav-log a {
+   color: white;
+}
+@media (max-width: 600px) {
+  div.loginContainer {
+    display: contents;
+    position: absolute;
+     right: 20px;
+     top: 20px;
+     font-size: 12px;
+  }
+  .loginInfo {
+     display: block;
+     border: 1px solid black;
+     border-radius: 3px;
+     margin: 2px;
+     padding: 1px;
+     background-color: white;
+  }
+  .nav-item.nav-log a {
+    position: relative;
+    top: 100px;
+    background-color: rgb(138,22,134);
+    box-shadow: 2px 2px darkgrey;
+    border: 2px solid rgb(138,22,134);
+    border-radius: 4px;
+    padding: 1px;
+    color: white;
   }
 }
 /*Homepage Answers*/
