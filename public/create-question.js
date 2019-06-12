@@ -14,9 +14,9 @@ function handlePostQuestionClick(){
   var newQuestionAnswers = document.querySelectorAll('#newQuestionRes');
 
   if (newQuestionCategory === "Movies & TV")
-      newQuestion = "media";
+      newQuestionCategory = "media";
   else if (newQuestionCategory === "Would You Rather?")
-      newQuestion = "wyr";
+      newQuestionCategory = "wyr";
 
 
   if (!newQuestionText || !newQuestionAuthor || !newQuestionAnswers){
