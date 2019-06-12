@@ -4,12 +4,12 @@
     </div>
     <div class="question-content">
         <p class="question-text">
-            <h3>{{text}}</h3>
+            <h3>{{questions.text}}</h3>
         </p>
         <p class="question-author">
             <a href="#">{{author}}</a>
         </p>
-        {{#each choices}}
+        {{#each questions.choices}}
         {{> homeAnswer}}
         {{/each}}
     </div>
@@ -17,7 +17,7 @@
 
   <article class="question homeQuestionFiller hidden">
       <h3>{{text}}</h3>
-      {{#each choices}}
+      {{#each questions.choices}}
          <div class="answer-stats-box homepageStat">
               <div>{{option}}</div>
               <p class="percentage homepageStat">{{num}}</p>

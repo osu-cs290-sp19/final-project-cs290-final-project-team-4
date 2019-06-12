@@ -1,9 +1,9 @@
 <main class="home-container answer-event-box">
     {{#each qArray}}
         {{>homeQuestion}}
+	<div class="HPQuestionIndex">{{_id}}</div>
     {{/each}}
     {{#each qArrayNum}}
-        <div class="HPQuestionIndex">{{num}}</div>
         <div class="HPQuestionLength">{{len}}</div>
     {{/each}}
 
