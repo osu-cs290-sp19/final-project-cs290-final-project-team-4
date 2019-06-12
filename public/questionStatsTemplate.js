@@ -5,12 +5,12 @@ templates['questionStats'] = template({"1":function(container,depth0,helpers,par
 
   return ((stack1 = container.invokePartial(partials.questionStatsPercentages,depth0,{"name":"questionStatsPercentages","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {});
+    var stack1;
 
-  return "<div class=\"question-stats-container\">\n    <div class=\"question question-stats-box\">\n      <h3 class=\"question-stats-text\">"
-    + container.escapeExpression(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"text","hash":{},"data":data}) : helper)))
-    + "</h3>\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.choices : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "      <div><canvas id=\"question-stats-chart\" width=\"400\", height=\"400\"></canvas></div>\n    </div>\n</div>\n";
+  return "<div class=\"question-stats-container\">\r\n    <div class=\"question question-stats-box\">\r\n      <h3 class=\"question-stats-text\">"
+    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.questions : depth0)) != null ? stack1.text : stack1), depth0))
+    + "</h3>\r\n"
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : (container.nullContext || {}),((stack1 = (depth0 != null ? depth0.questions : depth0)) != null ? stack1.choices : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "      <div><canvas id=\"question-stats-chart\" width=\"400\", height=\"400\"></canvas></div>\r\n    </div>\r\n</div>\r\n";
 },"usePartial":true,"useData":true});
 })();
