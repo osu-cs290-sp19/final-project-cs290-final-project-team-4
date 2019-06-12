@@ -15,7 +15,8 @@ var mongoPassword = process.env.MONGO_PASSWORD || "cs290_team4";
 var mongoDBName = process.env.MONGO_DB_NAME || "cs290_kaneshke";
 
 
-var mongoURL = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
+var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' +
+mongoHost + ':' + mongoPort + '/' + mongoDBName;
 var db = null;
 
 var app = express();
@@ -58,15 +59,14 @@ function loadRandMiscQuestion(min, miscMax) {
 app.post('/:category/create_question/add_question', function(req, res, next){
   var category = req.params.category.toLowerCase();
   if (req.body && req.body.text && req.body.author && req.body.choices){
-    var categoryBin = db.collection(category);
+    var collection = db.collection('questions');
     var obj = {
       text: req.body.text,
       author: req.body.author,
       choices: req.body.choices
     };
-    categoryBin.updateOne(
-      {name: category},
-      {$push: {obj}},
+    collection.insertOne(
+      {name: category, questions: obj},
       function (err, result) {
         if(err) {
           res.status(500).send({
@@ -74,11 +74,7 @@ app.post('/:category/create_question/add_question', function(req, res, next){
           });
         }else{
           console.log("==update result:", result);
-          if(result.matchedCount > 0) {
-            res.status(200).send("Success");
-          }else{
-            next();
-          }
+          res.status(200).send("Success");
         }
       }
     );
@@ -171,17 +167,23 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
 
 app.get('/answer_question/:category', function (req, res, next) {
     var category = req.params.category.toLowerCase();
-    var collection = db.collection(category);
-    collection.find({}).toArray(function (err, questions){
+    var collection = db.collection('questions');
+    
+    collection.find({name:category}).toArray(function (err, questions){
       if (err) {
         res.status(500).send({
           error: "Error fetching questions from DB"
         });
-       } else {
-         console.log("==questions:", category);
+      }else if (questions.length < 1) {
+        next();
+      } else {
+        
+         console.log("==questions:", questions);
          res.status(200).render('categoryQList', {
+           name: questions[0].name,
            questions: questions
          });
+         console.log("RAN");
        }
         });
     });
@@ -197,17 +199,18 @@ app.post('/users/:userId/login', function(req, res, next){
            username: req.body.username,
            password: req.body.password
          };
+         
          var user = db.collection('users');
-         user.updateOne(
-           { userId: userId },
-           { $push: { user: userInfo } },
+         user.insertOne(
+           { userId: userInfo.username},
+           { $push: {password: userInfo.password} },
            function (err, result) {
               if (err) {
                 res.status(500).send({
                     error: "Error inserting user info into DB."
                 });
               }else{
-                res.status(200).send("Success");
+                  res.status(200).send("Success");
               }
             }
          );
@@ -218,29 +221,20 @@ app.post('/users/:userId/login', function(req, res, next){
 
 app.get('/stats/:username', function(req, res, next){
   var username = req.params.username;
-  var questions = [], collection = null, newQuestions = [];
+  var questionObjects = [];
   var listCat = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"];
-  listCat.forEach(function (element, index){
-    collection = db.collection(element);
-    newQuestions = collection.find( {author: username} ).toArray();
-    questions.push(newQuestions);
-  });
-  console.log(questions);
-  /*
-  questions.find({author: username}).toArray(function(err, questionsByAuthor){
+  var collection = db.collection('users');
+  collection.find({userId: username}).toArray(function(err, users){
     if(err){
       res.status(500).send({
         error: "Error fetching user from DB"
       });
-    } else if(questions.length < 1){
-      console.log("Array too small!");
+    } else if(users.length < 1){
       next();
     }else{
-      */
-      res.status(200).render('statsPage', questions);
-  /*  }
+      res.status(200).render('statsPage', collection[0]);
+    }
   });
-  */
 });
 
 
@@ -255,7 +249,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
 
     var answerNumber = req.params.answerNumber;
     var answerNumberInt = Number(answerNumber);
-    var collection = db.collection(category);
+    var collection = db.collection('category');
 
     collection.updateOne(
       { name: category},
@@ -271,7 +265,6 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
           console.log("== update result:", result);
           if(result.matchedCount > 0) {
             res.status(200).send("Success");
-            console.log("Success");
           } else {
             next();
           }
