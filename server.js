@@ -110,7 +110,7 @@ function getRandNum(min, max) {
 }
 
 app.get('/', function (req, res, next) {
-  
+
   var collection = db.collection('questions');
   collection.find({}).toArray(function (err, questions){
     if (err) {
@@ -190,7 +190,6 @@ app.get('/create_question', function(req, res, next) {
 app.get('/answer_question/:category/:number', function (req, res, next) {
   var cat = req.params.category.toLowerCase();
   var questionID = req.params.number;
-  console.log(questionID);
   var collection = db.collection('questions');
   collection.find({_id: ObjectId(questionID)}).toArray(function (err, currentQuestion){
     if (err){
@@ -211,7 +210,7 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
           var choices = currentQuestion[0].questions.choices;
           shuffleArray(newQuestionPossibilities);
           res.status(200).render('answerQuestion', {
-        		question: currentQuestion[0].text,
+        		text: currentQuestion[0].questions.text,
         		choices: choices,
             cat: cat,
             num: newQuestionPossibilities[0]._id
