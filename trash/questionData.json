@@ -1,0 +1,491 @@
+{
+   "sports": {
+      "name": "Sports",
+      "questions": [
+         {
+            "text": "Do you prefer College Football or NFL?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "College Football",
+                  "num": 3
+               },
+               {
+                  "option": "NFL",
+                  "num": 1
+               }
+            ]
+         },
+         {
+            "text": "Do you think the current Golden State Warriors' \"Hamptons Five Lineup\" of Steph Curry, Klay Thompson, Kevin Durant, Andre Iguodala, and Draymond Green would defeat the 1995-96 Chicago Bulls' Starting Lineup of Ron Harper, Michael Jordan, Luc Longley, Scottie Pippen, and Dennis Rodman in a five - on - five basketball game?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Warriors",
+                  "num": 20
+               },
+               {
+                  "option": "Bulls",
+                  "num": 22
+               }
+            ]
+         },
+         {
+            "text": "Is Lebron James the best player in the history of the NBA?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 7
+               },
+               {
+                  "option": "No",
+                  "num": 12
+               }
+            ]
+         },
+         {
+            "text": "Will the OSU Baseball team defend it's title?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "A or B",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A ",
+                  "num": 4
+               },
+               {
+                  "option": "B",
+                  "num": 10
+               }
+            ]
+         },
+         {
+            "text": "Tom Brady or Joe Montana?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Tom Brady",
+                  "num": 180
+               },
+               {
+                  "option": "Joe Montana",
+                  "num": 165
+               }
+            ]
+         },
+         {
+            "text": "Will the Houston Rockets ever win a championship with Mike D'Antoni as their head coach?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 3
+               },
+               {
+                  "option": "No",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "C or D?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "C",
+                  "num": 3
+               },
+               {
+                  "option": "D",
+                  "num": 1
+               }
+            ]
+         },
+         {
+            "text": "A or Z?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
+                  "num": 5
+               },
+               {
+                  "option": "Z",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "A, B, or C?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
+                  "num": 0
+               },
+               {
+                  "option": "B",
+                  "num": 1
+               },
+               {
+                  "option": "C",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "A, B, C, or D?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "A",
+                  "num": 1
+               },
+               {
+                  "option": "B",
+                  "num": 1
+               },
+               {
+                  "option": "C",
+                  "num": 1
+               },
+               {
+                  "option": "D",
+                  "num": 1
+               }
+            ]
+         }
+      ]
+   },
+   "politics": {
+      "name": "Politics",
+      "questions": [
+         {
+            "text": "Are you pro-life or pro-choice?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "Pro-life",
+                  "num": 0
+               },
+               {
+                  "option": "Pro-choice",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Should the United States build the wall?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 1
+               }
+            ]
+         },
+         {
+            "text": "Where do you stand on the legalization of Marijuana?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Legalize",
+                  "num": 11
+               },
+               {
+                  "option": "Prohibit",
+                  "num": 9
+               }
+            ]
+         }
+      ]
+   },
+   "food": {
+      "name": "Food",
+      "questions": [
+         {
+            "text": "Do you prefer cookies or brownies?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Cookies",
+                  "num": 0
+               },
+               {
+                  "option": "Brownies",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer white bread or wheat bread?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "White",
+                  "num": 1
+               },
+               {
+                  "option": "Wheat",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer coffee or tea?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Coffee",
+                  "num": 0
+               },
+               {
+                  "option": "Tea",
+                  "num": 1
+               }
+            ]
+         },
+         {
+            "text": "Do you like Chocolate or that one thing you can never remember that you know tasted incredibly good during that one trip to China that you went on when you were 7 years old?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Chocolate",
+                  "num": 1
+               },
+               {
+                  "option": "That one thing you can never remember that you know tasted incredibly good during that one trip to China that you went on when you were 7 years old",
+                  "num": 1
+               }
+            ]
+         },
+         {
+            "text": "What is your favorite fruit?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Banana",
+                  "num": 0
+               },
+               {
+                  "option": "Apple",
+                  "num": 0
+               },
+               {
+                  "option": "Orange",
+                  "num": 0
+               },
+               {
+                  "option": "Watermelon",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "media": {
+      "name": "Movies & TV",
+      "questions": [
+         {
+            "text": "Do you watch Game of Thrones?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 65
+               },
+               {
+                  "option": "No",
+                  "num": 72
+               }
+            ]
+         },
+         {
+            "text": "Did Avengers:Endgame live up to it's hype?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 0
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer the new Star Wars movies or the original ones?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "New Movies",
+                  "num": 0
+               },
+               {
+                  "option": "Original Movies",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "wyr": {
+      "name": "Would You Rather?",
+      "questions": [
+         {
+            "text": "Would you rather be color blind or have no taste buds?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Color Blind",
+                  "num": 0
+               },
+               {
+                  "option": "No Taste Buds",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Would you rather be the funniest or most intelligent person in the room?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "Funniest",
+                  "num": 9
+               },
+               {
+                  "option": "Most Intelligent",
+                  "num": 19
+               }
+            ]
+         },
+         {
+            "text": "Would you rather look 10 years older from the neck up or neck down?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Neck Up",
+                  "num": 0
+               },
+               {
+                  "option": "Neck Down",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   },
+   "lifestyle": {
+      "name": "Lifestyle",
+      "questions": [
+         {
+            "text": "Do you prefer to stay up late or sleep early?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "Stay up late",
+                  "num": 0
+               },
+               {
+                  "option": "Sleep Early",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "Do you like technology or prefer things old fashioned?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Technology",
+                  "num": 1
+               },
+               {
+                  "option": "Old Fashioned",
+                  "num": 2
+               }
+            ]
+         },
+         {
+            "text": "Do you like working with music or in silence?",
+            "author": "Brian",
+            "choices": [
+               {
+                  "option": "With Music",
+                  "num": 42
+               },
+               {
+                  "option": "In Silence",
+                  "num": 3
+               }
+            ]
+         }
+      ]
+   },
+   "misc": {
+      "name": "Misc",
+      "questions": [
+         {
+            "text": "Do you prefer Mac or Windows?",
+            "author": "Gerald",
+            "choices": [
+               {
+                  "option": "Mac",
+                  "num": 3
+               },
+               {
+                  "option": "Windows",
+                  "num": 4
+               }
+            ]
+         },
+         {
+            "text": "Do you prefer a hike or the beach?",
+            "author": "An-Phong",
+            "choices": [
+               {
+                  "option": "Hiking",
+                  "num": 0
+               },
+               {
+                  "option": "Beach",
+                  "num": 0
+               }
+            ]
+         },
+         {
+            "text": "Do you have a tattoo?",
+            "author": "Kennan",
+            "choices": [
+               {
+                  "option": "Yes",
+                  "num": 1
+               },
+               {
+                  "option": "No",
+                  "num": 0
+               }
+            ]
+         }
+      ]
+   }
+}

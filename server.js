@@ -28,12 +28,13 @@ var PORT = process.env.PORT || 39270;
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-var database = require('./questionData');
+/*var database = require('./questionData');*/
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
 
 var min = 0;
+/*
 var catMax = Object.keys(database).length;
 var sportsMax = Object.keys(database['sports']['questions']).length;
 var politicsMax = Object.keys(database['politics']['questions']).length;
@@ -42,7 +43,7 @@ var mediaMax = Object.keys(database['media']['questions']).length;
 var wyrMax = Object.keys(database['wyr']['questions']).length;
 var lifestyleMax = Object.keys(database['lifestyle']['questions']).length;
 var miscMax = Object.keys(database['misc']['questions']).length;
-/*
+
 //console.log("text===",database['politics']['questions'][0].text);
 function loadRandSportsQuestion(min, sportsMax) {
    return Math.floor(Math.random() * (sportsMax-min)) + min; };
@@ -76,7 +77,6 @@ app.post('/:category/create_question/add_question', function(req, res, next){
             error: "Error inserting question into DB"
           });
         }else{
-          console.log("==update result:", result);
           res.status(200).send("Success");
         }
       }
@@ -145,12 +145,10 @@ app.get('/', function (req, res, next) {
         {len: q5 }, {len: q6 },
         {len: q7 }];
 
-       console.log("==questions:", qArray);
        res.status(200).render('homepage', {
          qArray: qArray,
          qArrayNum: qArrayNum
        });
-       console.log("RAN");
      }
       });
 
@@ -236,12 +234,10 @@ app.get('/answer_question/:category', function (req, res, next) {
         next();
       } else {
          shuffleArray(questions);
-         console.log("==questions:", questions);
          res.status(200).render('categoryQList', {
            name: questions[0].name,
            questions: questions
          });
-         console.log("RAN");
        }
         });
     });
@@ -286,7 +282,6 @@ app.get('/stats/:username', function(req, res, next){
         error: "Error fetching user from DB"
       });
     } else {
-      console.log(displayQuestions);
       res.status(200).render('statsPage', {displayQuestions: displayQuestions});
     }
   });
@@ -323,12 +318,7 @@ app.get('*',function(req, res, next){
 app.post('/answer_question/:category/:questionNumber/:answerNumber', function(req, res, next){
     var category = req.params.category.toLowerCase();
     var questionNumber = req.params.questionNumber
-
-	console.log("QID: ", questionNumber);
-
     var answerNumber = req.params.answerNumber;
-
-	console.log("QRE: ", answerNumber);
 
     var collection = db.collection('questions');
     var question = collection.find({ _id: ObjectId(questionNumber) });
@@ -342,7 +332,6 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
             error: "Error adding vote to number"
           });
         } else {
-          console.log("== update result:", result);
           if(result.matchedCount > 0) {
             res.status(200).send("Success");
           } else {

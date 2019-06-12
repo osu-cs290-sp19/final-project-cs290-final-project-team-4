@@ -21,7 +21,7 @@ function handlePostQuestionClick(){
 
   if (!newQuestionText || !newQuestionAuthor || !newQuestionAnswers){
     alert("You must fill in all of the fields!");
-  } else if (!newQuestionAnswers[0] || !newQuestionAnswers[1]) {
+  } else if (!newQuestionAnswers[0].value || !newQuestionAnswers[1].value) {
     alert("You must fill in at least the first two answer fields!");
   } else {
     var request = new XMLHttpRequest();
@@ -30,10 +30,12 @@ function handlePostQuestionClick(){
 
     var choices = [];
     newQuestionAnswers.forEach(function (element, index){
-      choices.push({
-        option: element.value,
-        num: 0
-      });
+      if (element.value){
+        choices.push({
+          option: element.value,
+          num: 0
+        });
+      }
     });
 
     var newQuestion = {
@@ -102,7 +104,7 @@ var questionStatsContainers = document.querySelectorAll('.question-stats-contain
 questionStatsContainers.forEach( function (element, index, array){
   var answerPercentageBoxes = element.querySelectorAll('.answer-percentage-box');
   answerPercentageBoxes.forEach( function (ele){
-    data.push(Number(ele.querySelector('.answer-percentage').textContent));
+    data.push(Number(ele.querySelector('.answer-percentage').textContent) + 10);
     labels.push(ele.querySelector('.answer-percentage-option').textContent);
   });
   questionStatsChart = element.querySelector('#question-stats-chart');
