@@ -79,14 +79,14 @@ function answerSelectedHP(event) {
         for (var j = 0; j < Number(homePageQLength[i].innerHTML); j++) {
             if (event.target == answerChoices[k]) {
                 console.log("Answer ", j, " of category", i, "selected");
-		var response = optionConts[k].textContent;
-                changeDBStatsHome(i, response);
+		/*var response = optionConts[k].textContent;*/
+                changeDBStatsHome(i, k);
                 homePageQuestions[i].classList.add('hidden');
                 homeCovers[i].classList.remove('hidden');
                 updateStatDisplay(k);
                 for (var l = k - j; l < l + Number(homePageQLength[i].innerHTML) ; l++)
                     answerStatsBoxes[l].classList.remove('hidden');
-                
+
             }
             k++;
         }

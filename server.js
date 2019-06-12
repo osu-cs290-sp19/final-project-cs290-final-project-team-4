@@ -318,28 +318,43 @@ app.get('*',function(req, res, next){
 app.post('/answer_question/:category/:questionNumber/:answerNumber', function(req, res, next){
     var category = req.params.category.toLowerCase();
     var questionNumber = req.params.questionNumber
-    var answerNumber = req.params.answerNumber;
+    var answerNumber = Number(req.params.answerNumber);
 
     var collection = db.collection('questions');
-    var question = collection.find({ _id: ObjectId(questionNumber) });
-
-    question.updateOne(
-      { option: answerNumber},
-      { $push: {num: num+1}},
-      function(err, result) {
-        if(err) {
-          res.status(500).send({
-            error: "Error adding vote to number"
-          });
-        } else {
-          if(result.matchedCount > 0) {
-            res.status(200).send("Success");
-          } else {
-            next();
+    /*var question = collection.find({ _id: ObjectId(questionNumber) });*/
+    collection.find({_id: ObjectId(questionNumber)}).toArray(function (err, myArr){
+      var thisQuestion = myArr[0];
+      (thisQuestion.questions.choices[answerNumber].num)++
+      console.log(thisQuestion.questions.choices[answerNumber]);
+      var obj = {
+        text: thisQuestion.questions.text,
+        author: thisQuestion.questions.author,
+        choices: thisQuestion.questions.choices
+      };
+      collection.insertOne(
+        {name: category, questions: obj},
+        function (err, result) {
+          if(err) {
+            res.status(500).send({
+              error: "Error inserting question into DB"
+            });
+          }else{
+            collection.removeOne(
+              {_id: ObjectId(questionNumber)},
+              function (err, success){
+                if(err) {
+                  res.status(500).send({
+                    error: "Error removing question from DB"
+                  });
+                }else{
+                  res.status(200).send("Success");
+                }
+              }
+            );
           }
         }
-      }
-    );
+      );
+  });/*  query['questions.choices.0'] = 'num';*/
 });
 
 MongoClient.connect(mongoURL, { useNewUrlParser: true }, function (err, client){
