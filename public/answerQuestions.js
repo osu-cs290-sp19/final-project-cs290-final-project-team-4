@@ -72,27 +72,27 @@ function updateStatDisplay(questionNumber){
 }
 
 function answerSelectedHP(event) {
-      console.log("homepage was clicked");
-      console.log(homePageQuestions);
-      homePageQuestions.forEach(function (element, index){
-        var thisQuestionAnswers = element.querySelectorAll('.answer-choice-event-button');
-        console.log(thisQuestionAnswers);
-        thisQuestionAnswers.forEach(function (elem, idx){
-          console.log("== event.target = ", event.target);
-          console.log("== elem = ", elem);
-          if (event.target === elem) {
-              var thisQuestionId = element.querySelector('.HPQuestionID').value;
-              changeDBStatsHome(thisQuestionId, idx);
-              updateStatDisplay(idx);
-              element.classList.add('hidden');
-            /*  homeCovers[element].classList.remove('hidden');*/
-              var answerStatsBoxes = element.querySelectorAll('.answer-stats-box');
-              answerStatsBoxes.forEach(function(el, ind){
-                el.classList.remove('hidden');
-              });
-          }
-        });
-      });
+  console.log("homepage was clicked");
+  homePageQuestions.forEach(function (element, index){
+    var thisQuestionAnswers = element.querySelectorAll('.answer-choice-event-button');
+    var theseAnswerStatsBoxes = element.querySelectorAll('.answer-stats-box');
+    var homeAnswersContainer = element.querySelector('.home-answers-container');
+    var homeStatsContainer = element.querySelector('.homeQuestionFiller');
+    console.log(thisQuestionAnswers);
+    thisQuestionAnswers.forEach(function (elem, idx){
+      console.log("== event.target = ", event.target);
+      console.log("== elem = ", elem);
+      if (event.target === elem) {
+          var thisQuestionId = element.querySelector('.HPQuestionID').value;
+          changeDBStatsHome(thisQuestionId, idx);
+          updateStatDisplay(idx);
+          homeAnswersContainer.classList.add('hidden');
+          theseAnswerStatsBoxes.forEach(function (el, ind){
+            el.classList.remove('hidden');
+          });
+      }
+    });
+  });
 }
       /*
 

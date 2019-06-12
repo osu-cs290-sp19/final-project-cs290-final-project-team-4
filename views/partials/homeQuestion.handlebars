@@ -10,18 +10,15 @@
         <p class="question-author">
             <a href="javascript:void(0);">{{questions.author}}</a>
         </p>
-        {{#each questions.choices}}
-        {{> homeAnswer}}
-        {{/each}}
+        <div class="home-answers-container">
+          {{#each questions.choices}}
+          {{> homeAnswer}}
+          {{/each}}
+        </div>
+        <div class="homeQuestionFiller">
+          {{#each questions.choices}}
+             {{> homepageQuestionStat}}
+          {{/each}}
+        </div>
     </div>
-  </article>
-
-  <article class="question homeQuestionFiller hidden">
-      <h3>{{text}}</h3>
-      {{#each questions.choices}}
-         <div class="answer-stats-box homepageStat">
-              <div>{{option}}</div>
-              <p class="percentage homepageStat">{{num}}</p>
-         </div>
-      {{/each}}
   </article>
