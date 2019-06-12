@@ -104,7 +104,7 @@ a {
 .nav-item.nav-log {
    position: absolute;
    top: 70px;
-   right: 20px;
+   right: 17px;
 }
 /* moved to @media for screen changes
 .nav-item.nav-log a {
@@ -536,8 +536,13 @@ div.loginContainer {
   }
   .nav-item.nav-log a {
     position: relative;
-    top: 80px;
-     color: black;
+    top: 100px;
+    background-color: rgb(138,22,134);
+    box-shadow: 2px 2px darkgrey;
+    border: 2px solid rgb(138,22,134);
+    border-radius: 4px;
+    padding: 1px;
+    color: white;
   }
 }
 /*Homepage Answers*/
