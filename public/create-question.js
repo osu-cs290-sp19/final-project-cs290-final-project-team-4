@@ -44,13 +44,13 @@ function handlePostQuestionClick(){
     console.log(newQuestion);
 
     var requestBody = JSON.stringify(newQuestion);
-  
-    /*request.addEventListener('load', function (event){
+    console.log(requestBody);
+    request.addEventListener('load', function (event){
       if (!event.target.status === 200){
         var message = event.target.response;
         alert("Error storing question on server: " + message);
       }
-    }); */
+    }); 
 
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);
