@@ -325,7 +325,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
     /*var question = collection.find({ _id: ObjectId(questionNumber) });*/
     collection.find({_id: ObjectId(questionNumber)}).toArray(function (err, myArr){
       var thisQuestion = myArr[0];
-      (thisQuestion.questions.choices[answerNumber].num)++
+      (thisQuestion.questions.choices[answerNumber].num)++;
       console.log(thisQuestion.questions.choices[answerNumber]);
       var obj = {
         text: thisQuestion.questions.text,

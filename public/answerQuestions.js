@@ -43,10 +43,10 @@ function changeDBStats(answerNumber){
   request.send();
 }
 
-function changeDBStatsHome(questionNumber, choiceNumber) {
+function changeDBStatsHome(questionNumber, choiceNumber, catName) {
   /*  var questionCategory = homePageCategories[catNumber].innerHTML;*/
     var request = new XMLHttpRequest();
-    var url = '/answer_question/home/' + questionNumber + '/' + choiceNumber;
+    var url = '/answer_question/' +  catName + '/' + questionNumber + '/' + choiceNumber;
     console.log("url = ", url);
     request.open('POST', url);
     request.send();
@@ -78,15 +78,18 @@ function answerSelectedHP(event) {
     var theseAnswerStatsBoxes = element.querySelectorAll('.answer-stats-box');
     var homeAnswersContainer = element.querySelector('.home-answers-container');
     var homeStatsContainer = element.querySelector('.homeQuestionFiller');
-    console.log(thisQuestionAnswers);
     thisQuestionAnswers.forEach(function (elem, idx){
-      console.log("== event.target = ", event.target);
-      console.log("== elem = ", elem);
       if (event.target === elem) {
           var thisQuestionId = element.querySelector('.HPQuestionID').value;
-          changeDBStatsHome(thisQuestionId, idx);
+          var catName = element.querySelector('.HPQuestionName').value;
+          changeDBStatsHome(thisQuestionId, idx, catName);
           updateStatDisplay(idx);
           homeAnswersContainer.classList.add('hidden');
+          var answerPercentages = element.querySelectorAll('.percentage');
+          var thisAnswerPercentage = Number(answerPercentages[idx].textContent);
+          thisAnswerPercentage++;
+          console.log("This Answer now has this many votes: ", thisAnswerPercentage);
+          answerPercentages[idx].textContent = thisAnswerPercentage;
           theseAnswerStatsBoxes.forEach(function (el, ind){
             el.classList.remove('hidden');
           });
