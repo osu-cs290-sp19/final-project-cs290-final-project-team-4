@@ -3,14 +3,20 @@ console.log("answerQuestions.js loaded");
 var answerChoices = document.getElementsByClassName('answer-choice-event-button');
 var answerStatsBoxes = document.getElementsByClassName('answer-stats-box');
 var dontAnswer = document.querySelector('.dont-answer-button');
-var homePageQIndex = document.getElementsByClassName('HPQuestionIndex');    /*  array of question indices*/
+var homePageQIndex = document.getElementsByClassName('HPQuestionID');    /*  array of question ID*/
 var homePageQLength = document.getElementsByClassName('HPQuestionLength');  /*  array of # choices per question*/
 var homePageQuestions = document.getElementsByClassName('homepageQuestion');        /*  array of qeustions*/
 var homePageAnswers = document.getElementsByClassName('homepageAnswer');     /*  array of all answers (not segmented by questions*/
+var homePageCategories = document.getElementsByClassName('HPQuestionName');
+var optionConts = document.getElementsByClassName('optionCont');
 var homeCovers = document.getElementsByClassName('homeQuestionFiller');
 
 for (var z = 0; z < homePageQIndex.length; z++) {
     homePageQIndex[z].classList.add('hidden');
+}
+
+for (var x = 0; x < homePageCategories.length; x++){
+	homePageCategories[x].classList.add('hidden');
 }
 
 for (var x = 0; x < homePageQLength.length; x++) {
@@ -21,7 +27,7 @@ for (var y = 0; y < answerStatsBoxes.length; y++){
   answerStatsBoxes[y].classList.add('hidden');
 }
 
-var catList = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"];
+//var catList = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"];
 
 function changeDBStats(answerNumber){
   var newAnswerCategory = null, questionNumber = null;
@@ -39,7 +45,7 @@ function changeDBStats(answerNumber){
 }
 
 function changeDBStatsHome(catNumber, choiceNumber) {
-    var questionCategory = catList[catNumber];
+    var questionCategory = homePageCategories[catNumber].innerHTML;
     var questionNumber = homePageQIndex[catNumber].innerHTML;
     var request = new XMLHttpRequest();
     var url = '/answer_question/' + questionCategory + '/' + questionNumber + '/' + choiceNumber;
@@ -73,7 +79,8 @@ function answerSelectedHP(event) {
         for (var j = 0; j < Number(homePageQLength[i].innerHTML); j++) {
             if (event.target == answerChoices[k]) {
                 console.log("Answer ", j, " of category", i, "selected");
-                changeDBStatsHome(i, j);
+		var response = optionConts[k].textContent;
+                changeDBStatsHome(i, response);
                 homePageQuestions[i].classList.add('hidden');
                 homeCovers[i].classList.remove('hidden');
                 updateStatDisplay(k);
