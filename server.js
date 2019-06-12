@@ -109,7 +109,50 @@ function getRandNum(min, max) {
 }
 
 app.get('/', function (req, res, next) {
-  var RSports = getRandNum(min, sportsMax);
+  
+  var collection = db.collection('questions');
+  collection.find({}).toArray(function (err, questions){
+    if (err) {
+      res.status(500).send({
+        error: "Error fetching questions from DB"
+      });
+    }else if (questions.length < 1) {
+      next();
+    } else {
+       var collectionLen = questions.length;
+       var qNum = [];
+       for(var a = 0; a < collectionLen; a=a+1){
+         qNum.push(a);
+       }
+       shuffleArray(qNum);
+       var qArray = [];
+       for(var numQ = 0; numQ <= 6; numQ=numQ+1 ){
+         var randNum = qNum[numQ];
+         qArray.push(questions[randNum]);
+       }
+       var q1 = qArray[0].questions.choices.length;
+       var q2 = qArray[1].questions.choices.length;
+       var q3 = qArray[2].questions.choices.length;
+       var q4 = qArray[3].questions.choices.length;
+       var q5 = qArray[4].questions.choices.length;
+       var q6 = qArray[5].questions.choices.length;
+       var q7 = qArray[6].questions.choices.length;
+       var qArrayNum = [{len: q1}, {len: q2 },
+        {len: q3 }, {len: q4 },
+        {len: q5 }, {len: q6 },
+        {len: q7 }];
+
+       console.log("==questions:", qArray);
+       res.status(200).render('homepage', {
+         qArray: qArray,
+         qArrayNum: qArrayNum
+       });
+       console.log("RAN");
+     }
+      });
+
+
+  /*var RSports = getRandNum(min, sportsMax);
   var RPolitics = getRandNum(min, politicsMax);
   var RFood = getRandNum(min, foodMax);
   var RMedia = getRandNum(min, mediaMax);
@@ -130,11 +173,13 @@ app.get('/', function (req, res, next) {
                       { num: RWyr, len: randWYR.choices.length }, { num: RLifestyle, len: randLifestyle.choices.length },
                       { num: RMisc, len: randMisc.choices.length }]
   var qArray = [randSport,randPolitic,randFood,randMedia,randWYR,randLifestyle,randMisc];
-
+  console.log (qArray);
   res.status(200).render('homepage', {
       qArray: qArray,
       qArrayNum: qArrayNum
-  });});
+  }); */
+});
+
 
 app.get('/create_question', function(req, res, next) {
     res.status(200).render('createQuestion');
@@ -177,7 +222,7 @@ app.get('/answer_question/:category', function (req, res, next) {
       }else if (questions.length < 1) {
         next();
       } else {
-
+         shuffleArray(questions);
          console.log("==questions:", questions);
          res.status(200).render('categoryQList', {
            name: questions[0].name,
