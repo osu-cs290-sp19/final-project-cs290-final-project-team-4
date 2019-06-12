@@ -1,12 +1,12 @@
 ﻿<a href="/answer_question/{{cat}}/{{num}}"  class="question catQuestion">
     <div class="question-content">
         <div class="question-text">
-            <h3>{{text}}</h3>
+            <h3>{{questions.text}}</h3>
         </div>
         <div class="question-author">
-            <p>{{author}}</p>
+            <p>{{questions.author}}</p>
         </div>
-        {{#each choices}}
+        {{#each questions.choices}}
           {{> categoryQListAnswer}}
         {{/each}}
     </div>
