@@ -1,14 +1,13 @@
 console.log("answerQuestions.js loaded");
 
-var answerChoices = document.getElementsByClassName('answer-choice-event-button');
-var answerStatsBoxes = document.getElementsByClassName('answer-stats-box');
+var answerChoices = document.querySelectorAll('.answer-choice-event-button');
+var answerStatsBoxes = document.querySelectorAll('.answer-stats-box');
 var dontAnswer = document.querySelector('.dont-answer-button');
 var homePageQIndex = document.getElementsByClassName('HPQuestionID');    /*  array of question ID*/
 var homePageQLength = document.getElementsByClassName('HPQuestionLength');  /*  array of # choices per question*/
-var homePageQuestions = document.getElementsByClassName('homepageQuestion');        /*  array of qeustions*/
+var homePageQuestions = document.querySelectorAll('.homepageQuestion');        /*  array of qeustions*/
 var homePageAnswers = document.getElementsByClassName('homepageAnswer');     /*  array of all answers (not segmented by questions*/
 var homePageCategories = document.getElementsByClassName('HPQuestionName');
-var optionConts = document.getElementsByClassName('optionCont');
 var homeCovers = document.getElementsByClassName('homeQuestionFiller');
 
 for (var z = 0; z < homePageQIndex.length; z++) {
@@ -44,11 +43,10 @@ function changeDBStats(answerNumber){
   request.send();
 }
 
-function changeDBStatsHome(catNumber, choiceNumber) {
-    var questionCategory = homePageCategories[catNumber].innerHTML;
-    var questionNumber = homePageQIndex[catNumber].innerHTML;
+function changeDBStatsHome(questionNumber, choiceNumber) {
+  /*  var questionCategory = homePageCategories[catNumber].innerHTML;*/
     var request = new XMLHttpRequest();
-    var url = '/answer_question/' + questionCategory + '/' + questionNumber + '/' + choiceNumber;
+    var url = '/answer_question/home/' + questionNumber + '/' + choiceNumber;
     console.log("url = ", url);
     request.open('POST', url);
     request.send();
@@ -74,12 +72,34 @@ function updateStatDisplay(questionNumber){
 }
 
 function answerSelectedHP(event) {
-    var k = 0;
-    for (var i = 0; i < homePageQuestions.length; i++) {
+      console.log("homepage was clicked");
+      console.log(homePageQuestions);
+      homePageQuestions.forEach(function (element, index){
+        var thisQuestionAnswers = element.querySelectorAll('.answer-choice-event-button');
+        console.log(thisQuestionAnswers);
+        thisQuestionAnswers.forEach(function (elem, idx){
+          console.log("== event.target = ", event.target);
+          console.log("== elem = ", elem);
+          if (event.target === elem) {
+              var thisQuestionId = element.querySelector('.HPQuestionID').value;
+              changeDBStatsHome(thisQuestionId, idx);
+              updateStatDisplay(idx);
+              element.classList.add('hidden');
+            /*  homeCovers[element].classList.remove('hidden');*/
+              var answerStatsBoxes = element.querySelectorAll('.answer-stats-box');
+              answerStatsBoxes.forEach(function(el, ind){
+                el.classList.remove('hidden');
+              });
+          }
+        });
+      });
+}
+      /*
+
         for (var j = 0; j < Number(homePageQLength[i].innerHTML); j++) {
             if (event.target == answerChoices[k]) {
                 console.log("Answer ", j, " of category", i, "selected");
-		/*var response = optionConts[k].textContent;*/
+		/*var response = optionConts[k].textContent;
                 changeDBStatsHome(i, k);
                 homePageQuestions[i].classList.add('hidden');
                 homeCovers[i].classList.remove('hidden');
@@ -90,8 +110,8 @@ function answerSelectedHP(event) {
             }
             k++;
         }
-    }
-}
+        k = 0;
+        */
 
 function answerSelected (event){
   for (var i = 0; i < answerChoices.length; i++){
