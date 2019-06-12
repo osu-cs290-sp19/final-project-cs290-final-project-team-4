@@ -109,7 +109,41 @@ function getRandNum(min, max) {
 }
 
 app.get('/', function (req, res, next) {
-  var RSports = getRandNum(min, sportsMax);
+  
+  var collection = db.collection('questions');
+    collection.find({name:'sports'}).toArray(function (err, questions){
+      if (err) {
+        res.status(500).send({
+          error: "Error fetching questions from DB"
+        });
+      }else if (questions.length < 1) {
+        next();
+      } else {
+        var sports = collection[Math.floor(Math.random()*collection.length)];
+         console.log("==questions:", questions);
+         res.status(200).render('homepage', questions[sports]
+        );
+      }
+    });
+    var collection = db.collection('questions');
+    collection.find({name:'politics'}).toArray(function (err, questions){
+      if (err) {
+        res.status(500).send({
+          error: "Error fetching questions from DB"
+        });
+      }else if (questions.length < 1) {
+        next();
+      } else {
+        var politics = collection[Math.floor(Math.random()*collection.length)];
+         console.log("==questions:", questions);
+         res.status(200).render('homepage', questions[politics]
+        );
+      }
+    });
+});
+  
+  
+  /*var RSports = getRandNum(min, sportsMax);
   var RPolitics = getRandNum(min, politicsMax);
   var RFood = getRandNum(min, foodMax);
   var RMedia = getRandNum(min, mediaMax);
@@ -135,7 +169,7 @@ app.get('/', function (req, res, next) {
       qArray: qArray,
       qArrayNum: qArrayNum
   });});
-
+*/
 app.get('/create_question', function(req, res, next) {
     res.status(200).render('createQuestion');
 });
