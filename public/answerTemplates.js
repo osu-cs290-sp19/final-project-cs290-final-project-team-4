@@ -10,8 +10,8 @@ templates['homeAnswer'] = template({"compiler":[7,">= 4.0.0"],"main":function(co
 templates['categoryQListAnswer'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"question-dice answer-one-icon\">\n  <p>"
+  return "<div class=\"question-dice answer-one-icon\">\r\n  <p>"
     + container.escapeExpression(((helper = (helper = helpers.option || (depth0 != null ? depth0.option : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"option","hash":{},"data":data}) : helper)))
-    + " <i class=\"fas fa-dice-one\"></i></p>\n</div>\n";
+    + " <i class=\"fas fa-dice-one\"></i></p>\r\n</div>\r\n";
 },"useData":true});
 })();

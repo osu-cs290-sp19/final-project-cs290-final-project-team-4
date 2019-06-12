@@ -13,10 +13,10 @@ function handlePostQuestionClick(){
   var newQuestionCategory = document.getElementById('newQuestionCategory').value.toLowerCase();
   var newQuestionAnswers = document.querySelectorAll('#newQuestionRes');
 
-  if (newQuestionCategory === "Movies & TV")
-      newQuestion = "media";
-  else if (newQuestionCategory === "Would You Rather?")
-      newQuestion = "wyr";
+  if (newQuestionCategory === "movies & tv")
+      newQuestionCategory = "media";
+  else if (newQuestionCategory === "would you rather?")
+      newQuestionCategory = "wyr";
 
 
   if (!newQuestionText || !newQuestionAuthor || !newQuestionAnswers){
@@ -50,7 +50,7 @@ function handlePostQuestionClick(){
         var message = event.target.response;
         alert("Error storing question on server: " + message);
       }
-    }); 
+    });
 
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(requestBody);

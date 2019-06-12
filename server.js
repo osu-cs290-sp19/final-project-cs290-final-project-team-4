@@ -173,12 +173,14 @@ app.get('/', function (req, res, next) {
                       { num: RWyr, len: randWYR.choices.length }, { num: RLifestyle, len: randLifestyle.choices.length },
                       { num: RMisc, len: randMisc.choices.length }]
   var qArray = [randSport,randPolitic,randFood,randMedia,randWYR,randLifestyle,randMisc];
-
+  console.log (qArray);
   res.status(200).render('homepage', {
       qArray: qArray,
       qArrayNum: qArrayNum
   }); */
 });
+
+
 app.get('/create_question', function(req, res, next) {
     res.status(200).render('createQuestion');
 });
@@ -211,7 +213,7 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
 app.get('/answer_question/:category', function (req, res, next) {
     var category = req.params.category.toLowerCase();
     var collection = db.collection('questions');
-    
+
     collection.find({name:category}).toArray(function (err, questions){
       if (err) {
         res.status(500).send({
@@ -220,7 +222,7 @@ app.get('/answer_question/:category', function (req, res, next) {
       }else if (questions.length < 1) {
         next();
       } else {
-        
+         shuffleArray(questions);
          console.log("==questions:", questions);
          res.status(200).render('categoryQList', {
            name: questions[0].name,
@@ -242,7 +244,7 @@ app.post('/users/:userId/login', function(req, res, next){
            username: req.body.username,
            password: req.body.password
          };
-         
+
          var user = db.collection('users');
          user.insertOne(
            { userId: userInfo.username},
@@ -264,10 +266,30 @@ app.post('/users/:userId/login', function(req, res, next){
 
 app.get('/stats/:username', function(req, res, next){
   var username = req.params.username;
+  var collection = db.collection('questions');
+  collection.find( {} ).toArray(function (err, displayQuestions){
+    if(err){
+      res.status(500).send({
+        error: "Error fetching user from DB"
+      });
+    } else {
+      console.log(displayQuestions);
+      res.status(200).render('statsPage', {displayQuestions: displayQuestions});
+    }
+  });
+});
+/*
+
+    });
+  });
+   console.log("questions = ", questions);
+  questions.find({author: username}).toArray(function(err, questionsByAuthor){
+=======
   var questionObjects = [];
   var listCat = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"];
   var collection = db.collection('users');
   collection.find({userId: username}).toArray(function(err, users){
+>>>>>>> fb920f897a25cb28590292a809c660499af515f4
     if(err){
       res.status(500).send({
         error: "Error fetching user from DB"
@@ -275,10 +297,10 @@ app.get('/stats/:username', function(req, res, next){
     } else if(users.length < 1){
       next();
     }else{
-      res.status(200).render('statsPage', collection[0]);
-    }
-  });
-});
+<<<<<<< HEAD
+      */
+
+
 
 
 app.get('*',function(req, res, next){
@@ -316,7 +338,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
     );
 });
 
-MongoClient.connect(mongoURL, function (err, client){
+MongoClient.connect(mongoURL, { useNewUrlParser: true }, function (err, client){
   if (err) {
    throw err;
   }

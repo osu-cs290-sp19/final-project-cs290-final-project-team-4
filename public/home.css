@@ -33,7 +33,7 @@ input#login-password {
 }
 .nav-list {
    margin: 0;
-   padding: 10px;
+   padding: 10px 10px 15px 10px;
 }
 .nav-bar {
 /**/
@@ -43,6 +43,10 @@ input#login-password {
    background-color: rgb(220,220,220);
    border-radius: 4px;
 }
+/*.nav-bar li.active {
+  border-bottom: 3px solid rgb(138,22,134);
+}*/
+
 .nav-item {
    color: white;
    font: 16px;
@@ -144,8 +148,8 @@ a {
 }
 .question-dice {
   /* display: flex;
-   flex-wrap: wrap;*/
-   padding-left: 10px;
+   flex-wrap: wrap;
+   padding-left: 10px;*/
 }
 .answer-one-icon a {
    color: black;
@@ -154,18 +158,24 @@ a {
 }
 .answer-one-icon p {
   margin: 0px;
+  font-size: 22px;
+  font-weight: normal;
 }
 .fas.fa-dice-one {
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .fas.fa-dice-two {
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .fas.fa-dice-three {
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .fas.fa-dice-four {
-  padding-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .answer-two-icon a {
   color: black;
@@ -277,6 +287,8 @@ textarea{
     font-weight: 700;
     background-color: #cc00ff;
     border-radius: 4px;
+    font-size: 22px;
+    font-weight: normal;
 }
 
 /*Stats Pages*/
@@ -397,6 +409,9 @@ a.return-to-category-button:hover{
 
 .orangeChoice{
   background-color: rgb(255, 153, 51);
+  font-size: 22px;
+  font-weight: normal;
+  border-radius: 4px;
 }
 
 .orangeChoice:hover {
@@ -457,10 +472,17 @@ a.return-to-category-button:hover{
     margin: 0px;
     min-height: 500px;
 }
+.nav-bar .bars-icon {
+  display: none;
+}
 
 @media (max-width: 600px){
   .nav-list li:not(:first-child) {
     display: none;
+  }
+  .nav-bar .bars-icon {
+    float: left;
+    display: block;
   }
   .nav-list.responsive {
     position: relative;
@@ -473,7 +495,8 @@ a.return-to-category-button:hover{
   .nav-list.responsive li {
     float: none;
     display: block;
-    text-align: left;
+    text-align: center;
+    border-bottom: none;
   }
 }
 /*Homepage Answers*/
