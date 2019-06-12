@@ -218,15 +218,23 @@ app.post('/users/:userId/login', function(req, res, next){
 
 app.get('/stats/:username', function(req, res, next){
   var username = req.params.username;
-  var questions = [], collection = null, newQuestions = [];
-  var listCat = ["sports", "politics", "food", "media", "wyr", "lifestyle", "misc"];
-  listCat.forEach(function (element, index){
-    collection = db.collection(element);
-    newQuestions = collection.find( {author: username} ).toArray();
-    questions.push(newQuestions);
+  var collection = db.collection('sports');
+  console.log(collection.find ({}) .pretty)
+  collection.find( { author: username } ).toArray(function (err, questions){
+    if(err){
+      res.status(500).send({
+        error: "Error fetching user from DB"
+      });
+    } else {
+      res.status(200).render('statsPage', questions);
+    }
   });
-  console.log(questions);
-  /*
+
+/*
+
+    });
+  });
+   console.log("questions = ", questions);
   questions.find({author: username}).toArray(function(err, questionsByAuthor){
     if(err){
       res.status(500).send({
@@ -237,7 +245,7 @@ app.get('/stats/:username', function(req, res, next){
       next();
     }else{
       */
-      res.status(200).render('statsPage', questions);
+
   /*  }
   });
   */
@@ -280,7 +288,7 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
     );
 });
 
-MongoClient.connect(mongoURL, function (err, client){
+MongoClient.connect(mongoURL, { useNewUrlParser: true }, function (err, client){
   if (err) {
    throw err;
   }
