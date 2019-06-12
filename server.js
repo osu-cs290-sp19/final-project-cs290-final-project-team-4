@@ -15,6 +15,8 @@ var mongoUser = process.env.MONGO_USER || "cs290_kaneshke";
 var mongoPassword = process.env.MONGO_PASSWORD || "cs290_team4";
 var mongoDBName = process.env.MONGO_DB_NAME || "cs290_kaneshke";
 
+var ObjectId = require('mongodb').ObjectId;
+
 
 var mongoURL = 'mongodb://' + mongoUser + ':' + mongoPassword + '@' +
 mongoHost + ':' + mongoPort + '/' + mongoDBName;
@@ -320,18 +322,20 @@ app.get('*',function(req, res, next){
 
 app.post('/answer_question/:category/:questionNumber/:answerNumber', function(req, res, next){
     var category = req.params.category.toLowerCase();
-    var questionNumber = req.params.questionNumber;
-    var questionNumberInt = Number(questionNumber);
+    var questionNumber = req.params.questionNumber
+
+	console.log("QID: ", questionNumber);
 
     var answerNumber = req.params.answerNumber;
-    var answerNumberInt = Number(answerNumber);
-    var collection = db.collection('category');
 
-    collection.updateOne(
-      { name: category},
-      { questions: questions[questionNumberInt]},
-      { choices: choices[answerNumberInt]},
-      {$push: {num: num+1}},
+	console.log("QRE: ", answerNumber);
+
+    var collection = db.collection('questions');
+    var question = collection.find({ _id: ObjectId(questionNumber) });
+
+    question.updateOne(
+      { option: answerNumber},
+      { $push: {num: num+1}},
       function(err, result) {
         if(err) {
           res.status(500).send({
