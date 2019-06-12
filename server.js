@@ -197,6 +197,7 @@ app.get('/answer_question/:category/:number', function (req, res, next) {
         error: "Error fetching currentQuestion from DB"
       });
     }else if (currentQuestion.length < 1) {
+      console.log("currentQuestion length < 1");
       next();
     } else {
       collection.find({name: cat}, {_id: {$ne: ObjectId(questionID)} } ).toArray(function (err, newQuestionPossibilities){
@@ -331,29 +332,30 @@ app.post('/answer_question/:category/:questionNumber/:answerNumber', function(re
         author: thisQuestion.questions.author,
         choices: thisQuestion.questions.choices
       };
-      collection.insertOne(
-        {name: category, questions: obj},
-        function (err, result) {
+      collection.removeOne(
+        {_id: ObjectId(questionNumber)},
+        function (err, success){
           if(err) {
             res.status(500).send({
-              error: "Error inserting question into DB"
+              error: "Error removing question from DB"
             });
           }else{
-            collection.removeOne(
-              {_id: ObjectId(questionNumber)},
-              function (err, success){
+            collection.insertOne(
+              {name: category, _id: thisQuestion._id, questions: obj},
+              function (err, result) {
                 if(err) {
                   res.status(500).send({
-                    error: "Error removing question from DB"
+                    error: "Error inserting question into DB"
                   });
                 }else{
-                  res.status(200).send("Success");
+                    res.status(200).send("Success");
                 }
               }
             );
           }
         }
       );
+
   });/*  query['questions.choices.0'] = 'num';*/
 });
 
