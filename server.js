@@ -221,18 +221,18 @@ app.post('/users/:userId/login', function(req, res, next){
 
 app.get('/stats/:username', function(req, res, next){
   var username = req.params.username;
-  var collection = db.collection('sports');
-  console.log(collection.find ({}) .pretty)
-  collection.find( { author: username } ).toArray(function (err, questions){
+  var collection = db.collection('questions');
+  collection.find( {} ).toArray(function (err, displayQuestions){
     if(err){
       res.status(500).send({
         error: "Error fetching user from DB"
       });
     } else {
-      res.status(200).render('statsPage', questions);
+      console.log(displayQuestions);
+      res.status(200).render('statsPage', {displayQuestions: displayQuestions});
     }
   });
-
+});
 /*
 
     });
@@ -255,11 +255,7 @@ app.get('/stats/:username', function(req, res, next){
 <<<<<<< HEAD
       */
 
-   }
 
-    }
-  });
-});
 
 
 app.get('*',function(req, res, next){
